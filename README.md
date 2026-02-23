@@ -4,6 +4,10 @@ Welcome to the Shipfast FAQ Knowledge Base. This repository contains frequently 
 
 ## Contents
 
+- **[Automations](./Automations/)** - FAQs for automated customer communication
+  - [Order Confirmation](./Automations/order_confirmation/) - Verify orders before shipping to reduce RTO
+  - [NDR Management](./Automations/ndr_management/) - Resolve failed deliveries faster
+
 - **[Integrations](./Integrations/)** - FAQs for connecting your sales channels
   - [Shopify](./Integrations/Shopify/) - Shopify integration guide and troubleshooting
   - [WooCommerce](./Integrations/WooCommerce/) - WooCommerce integration guide and troubleshooting
