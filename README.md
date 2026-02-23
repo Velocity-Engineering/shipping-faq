@@ -17,6 +17,9 @@ Welcome to the Shipfast FAQ Knowledge Base. This repository contains frequently 
 ### Reports & Exports
 - [Reports](./Reports/) - Report modes, filters, scheduling, and custom reports
 
+### Finance & Billing
+- [Billing](./Billing/) - Billing modes, invoices, ledger events, GST configuration
+
 ## Need Help?
 
 If you couldn't find your answer here:
