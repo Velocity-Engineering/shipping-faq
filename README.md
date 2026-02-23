@@ -13,6 +13,10 @@ Connect your online store to Shipfast for automatic order sync and fulfillment.
 Using an OMS or WMS? Learn how these integrations work with Shipfast.
 - [Partners](./Partners/) - Clickpost, Pragma, Unicommerce, Vinculum, EasyEcom
 
+### 📦 Carrier Integrations
+Learn about our logistics partners and their capabilities.
+- [Carrier Integrations](./CarrierIntegrations/) - Delhivery, BlueDart, DTDC, Ekart, Xpressbees, Shadowfax
+
 ### 🚚 Shipping Rules
 Set up rules to automatically select the best carrier for each shipment.
 - [Shipping Rules](./ShippingRules/) - Carrier selection modes, rule conditions, High Performance mode
@@ -37,6 +41,7 @@ Understand your invoices, charges, and payment options.
 |--------------|-------|
 | Connect my Shopify store | [Shopify Integration](./Shopify/) |
 | Connect my WooCommerce store | [WooCommerce Integration](./WooCommerce/) |
+| See which carriers support my needs | [Carrier Integrations](./CarrierIntegrations/) |
 | Set up carrier selection rules | [Shipping Rules](./ShippingRules/) |
 | Understand my invoice | [Billing FAQ](./Billing/) |
 | Download a report | [Reports FAQ](./Reports/) |
