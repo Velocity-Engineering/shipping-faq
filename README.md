@@ -6,6 +6,7 @@ Welcome to the Shipfast FAQ Knowledge Base. This repository contains frequently 
 
 - **[Integrations](./Integrations/)** - FAQs for connecting your sales channels
   - [Shopify](./Integrations/Shopify/) - Shopify integration guide and troubleshooting
+  - [WooCommerce](./Integrations/WooCommerce/) - WooCommerce integration guide and troubleshooting
 
 ## Need Help?
 
