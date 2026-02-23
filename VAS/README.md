@@ -1,20 +1,16 @@
 # Value Added Services (VAS) - Frequently Asked Questions
 
-> Guide to Shipfast's Value Added Services including AI Calling, WhatsApp Communications, RTO Risk, and Early COD
+> Guide to Shipfast's Value Added Services pricing, billing, and service descriptions
 
 ---
 
 ## Table of Contents
 1. [Overview](#1-overview)
 2. [Important Billing Information](#2-important-billing-information)
-3. [Order & Address Confirmation](#3-order--address-confirmation)
-4. [NDR Management](#4-ndr-management)
-5. [WhatsApp Communications](#5-whatsapp-communications)
-6. [AI Calling](#6-ai-calling)
-7. [RTO Risk Score](#7-rto-risk-score)
-8. [Early COD](#8-early-cod)
-9. [Pricing & Billing](#9-pricing--billing)
-10. [Troubleshooting](#10-troubleshooting)
+3. [Service Descriptions & Pricing](#3-service-descriptions--pricing)
+4. [Free Trial & Credits](#4-free-trial--credits)
+5. [Billing Details](#5-billing-details)
+6. [Troubleshooting](#6-troubleshooting)
 
 ---
 
@@ -23,14 +19,14 @@
 ### Q: What are Value Added Services (VAS)?
 **A:** VAS are additional services that help you reduce RTO, improve delivery success, and enhance customer communication. They include:
 
-| Service | Description |
-|---------|-------------|
-| **Order & Address Confirmation** | Automated confirmation of orders via WhatsApp & AI calls |
-| **NDR Management** | Automated handling of failed deliveries |
-| **WhatsApp Communications** | Automated messages at key shipment milestones |
-| **AI Calling** | AI-powered calls to customers for confirmation/resolution |
-| **RTO Risk Score** | Prediction of return-to-origin likelihood |
-| **Early COD** | Faster COD remittance with a small fee |
+| Service | Description | Billing Basis |
+|---------|-------------|---------------|
+| **Order & Address Confirmation** | Automated confirmation via WhatsApp & AI calls | Per message + Per minute |
+| **NDR Management** | Automated handling of failed deliveries | Per message + Per minute |
+| **WhatsApp Communications** | Automated messages at key milestones | Per message sent |
+| **AI Calling** | AI-powered calls to customers | Per minute (pulse-based) |
+| **RTO Risk Score** | Prediction of return likelihood | Per API call |
+| **Early COD** | Faster COD remittance | % of settlement |
 
 ### Q: How do I enable VAS for my account?
 **A:** Contact your account manager or reach out to support@velocity.in to enable VAS services. Each service can be enabled independently.
@@ -46,7 +42,7 @@
 **A: The price is calculated when the automation is triggered, NOT when the service is actually executed.**
 
 This means:
-- When an order is created and triggers the Order Confirmation automation, the price at that moment is locked in
+- When an order is created and triggers an automation, the price at that moment is locked in
 - Even if the WhatsApp message or AI call happens hours later, the original price applies
 - This ensures consistent billing regardless of processing delays
 
@@ -78,69 +74,11 @@ This means:
 
 ---
 
-## 3. Order & Address Confirmation
+## 3. Service Descriptions & Pricing
 
-### Q: What is Order & Address Confirmation?
-**A:** An automated workflow that confirms orders with customers via:
-1. **WhatsApp message** - Sent first, asking customer to confirm order details
-2. **AI Call** - If no response to WhatsApp, an AI-powered call is made
-3. **Manual Escalation** - If AI call fails, escalated to your ops team
+### WhatsApp Communications
 
-### Q: What can customers do during confirmation?
-**A:** Customers can:
-- **Confirm** the order
-- **Request address change** - Provide updated delivery address
-- **Cancel** the order
-- **Convert to Prepaid** - Pay online instead of COD
-
-### Q: Can I configure which orders get automated confirmation?
-**A:** Yes! You can configure:
-- **Order types**: COD only, Prepaid only, or both
-- **Exclude tags**: Skip orders with specific tags
-- **Bulk orders**: Bulk-fetched orders are automatically excluded
-
-### Q: What is the automation flow?
-**A:**
-```
-Order Created
-    ↓
-WhatsApp Message Sent
-    ↓ (wait time configurable)
-AI Call (if no response)
-    ↓ (retries configurable)
-Manual Calling (if AI fails)
-    ↓
-Completed/Failed
-```
-
-### Q: Can I enable only WhatsApp without AI calling?
-**A:** Yes, each channel can be enabled/disabled independently in your automation settings.
-
----
-
-## 4. NDR Management
-
-### Q: What is NDR Management?
-**A:** Automated handling of Non-Delivery Reports (failed delivery attempts). When a delivery fails, the system:
-1. Sends WhatsApp message asking customer for action
-2. Makes AI call if no response
-3. Escalates to ops team if needed
-
-### Q: What actions can customers take for NDR?
-**A:**
-- **Reattempt delivery** - Request another delivery attempt
-- **Provide new address** - Update delivery address
-- **Schedule delivery** - Choose a preferred delivery time
-- **Cancel/RTO** - Return the package to sender
-
-### Q: When does NDR automation trigger?
-**A:** When a shipment status changes to "Need Attention" (delivery attempt failed).
-
----
-
-## 5. WhatsApp Communications
-
-### Q: What WhatsApp messages does Shipfast send?
+**Q: What WhatsApp messages does Shipfast send?**
 **A:** Various templates based on shipment status:
 
 | Template | When Sent |
@@ -149,110 +87,87 @@ Completed/Failed
 | Order Placed | Order acknowledgment |
 | Shipment Shipped | When shipment is created |
 | Picked Up | When carrier picks up |
-| In Transit | Package on the way |
 | Out for Delivery | On delivery day |
-| Arriving Early | Earlier than expected |
-| Delivery Delayed | When delays occur |
 | Delivered | Successful delivery |
 | Undelivered (NDR) | Failed delivery attempt |
-| Return Initiated | Return started |
-| Return Picked Up | Return collected |
 | COD to Prepaid Link | Payment link for COD conversion |
 
-### Q: When am I charged for WhatsApp messages?
+**Q: When am I charged for WhatsApp messages?**
 **A:** You're charged only when the message is **successfully sent** (sent_at timestamp received from WhatsApp/Meta). Failed messages are not charged.
-
-### Q: Can I retry WhatsApp messages?
-**A:** Yes, if enabled in your automation config:
-- Configure retry count (e.g., 2 retries)
-- Retries happen after a delay (e.g., 4 hours)
-- Each successful send is charged separately
 
 ---
 
-## 6. AI Calling
+### AI Calling
 
-### Q: How does AI Calling work?
-**A:** 
-1. System places an automated call to customer
-2. AI agent converses naturally with the customer
-3. AI captures customer's intent (confirm, cancel, address change, etc.)
-4. System updates order/shipment based on response
-5. Call transcript is saved for reference
+**Q: How is AI Call pricing calculated?**
+**A:** AI calls are charged per minute using pulse-based billing:
 
-### Q: How is AI Call pricing calculated?
-**A:** AI calls are charged per minute (or per pulse):
 - **Pulse**: Billing increment (e.g., 30 seconds)
 - **Price per minute**: Your contracted rate
-- **Total charge**: (Call duration / Pulse) × (Price per minute / 60 × Pulse)
+- **Total charge**: (Call duration rounded up to next pulse) × (Price per minute / 60 × Pulse)
 
 **Example:** 45-second call with 30-second pulse at ₹2/minute:
 - Charged seconds: 60 (rounded up to next pulse)
 - Charge: ₹2.00
 
-### Q: What happens if the customer doesn't answer?
-**A:** 
-- Call is marked as "rejected" or "failed"
-- If auto-retry is enabled, system retries after configured interval
-- After max retries, escalates to manual calling
-
-### Q: Can I configure retry settings?
-**A:** Yes:
-- **Retry count**: How many times to retry (e.g., 3)
-- **Retry interval**: Minutes between retries (e.g., 30 minutes)
-- **Calling hours**: Start and end time for calls (e.g., 9 AM - 8 PM)
-
-### Q: What if call duration is very short?
-**A:** Calls under 15 seconds without goal achievement are considered incomplete and may trigger a retry.
+**Q: Am I charged for failed/rejected calls?**
+**A:** No. You're only charged for completed calls with a recorded duration.
 
 ---
 
-## 7. RTO Risk Score
+### RTO Risk Score
 
-### Q: What is RTO Risk Score?
+**Q: What is RTO Risk Score?**
 **A:** A prediction of how likely an order is to be returned to origin (RTO). Orders are classified as:
 - **Low Risk** - Likely to be delivered successfully
 - **Medium Risk** - Some chance of RTO
 - **High Risk** - High likelihood of RTO
 
-### Q: How is RTO Risk calculated?
+**Q: How is RTO Risk calculated?**
 **A:** Using multiple signals:
 - **Address validity** - Is the address complete and valid?
 - **Clean address** - Standardized/corrected address
 - **Historical data** - Customer's past order behavior
 - **Pin code patterns** - Delivery success rates in the area
 
-### Q: When am I charged for RTO Risk?
+**Q: When am I charged for RTO Risk?**
 **A:** You're charged when the RTO Risk API successfully returns a score. If the API call fails, you're not charged.
-
-### Q: Can I enable RTO Risk only for COD orders?
-**A:** Yes, you can configure RTO Risk to run only for COD orders in your settings.
-
-### Q: How do I use RTO Risk scores?
-**A:** Use them to:
-- Prioritize confirmations for high-risk orders
-- Require prepaid conversion for high-risk COD orders
-- Focus ops attention on risky shipments
 
 ---
 
-## 8. Early COD
+### Early COD
 
-### Q: What is Early COD?
+**Q: What is Early COD?**
 **A:** A service that provides faster COD remittance. Instead of waiting for the standard remittance cycle, you receive your COD funds earlier for a small fee.
 
-### Q: How is Early COD charged?
+**Q: How is Early COD charged?**
 **A:** As a percentage of the settlement amount:
 - Your contracted fee percentage (e.g., 1.5%)
 - Applied when COD settlement is processed
 - Deducted from the settlement amount
 
-### Q: When is Early COD fee charged?
-**A:** When the COD settlement status changes to "Settled" - the fee is calculated and added to your ledger.
+---
+
+## 4. Free Trial & Credits
+
+### Q: Do I get charged during free trial?
+**A:** No, during free trial:
+- Services are free up to the trial limits
+- Free credits are deducted instead of wallet balance
+- Once trial ends or credits exhausted, regular billing applies
+
+### Q: What happens when free credits run out?
+**A:**
+- Services continue if you have wallet balance
+- Regular pricing applies after free credits are exhausted
+- Top up your wallet to avoid service interruption
+
+### Q: How do I check my remaining free credits?
+**A:** View your free credit balance in the VAS settings section of your dashboard, or contact your account manager.
 
 ---
 
-## 9. Pricing & Billing
+## 5. Billing Details
 
 ### Q: How do I check my VAS charges?
 **A:** 
@@ -268,73 +183,7 @@ Completed/Failed
 - Timestamp
 - Status (success/failed)
 
-### Q: Do I get charged during free trial?
-**A:** No, during free trial:
-- Services are free up to the trial limits
-- Free credits are deducted instead of wallet balance
-- Once trial ends or credits exhausted, regular billing applies
-
-### Q: What happens when free credits run out?
-**A:**
-- Services continue if you have wallet balance
-- Regular pricing applies after free credits are exhausted
-- Top up your wallet to avoid service interruption
-
----
-
-## 10. Troubleshooting
-
-### Q: Why didn't my order receive automated confirmation?
-**A:** Check these common causes:
-
-| Issue | Solution |
-|-------|----------|
-| Insufficient balance | Top up your wallet |
-| Service not enabled | Contact support to enable |
-| Order type excluded | Check COD/Prepaid config |
-| Tag exclusion | Check excluded tags list |
-| Bulk order | Bulk-fetched orders are skipped |
-
-### Q: Why was my AI call not placed?
-**A:** Possible reasons:
-- WhatsApp automation completed successfully (no call needed)
-- Outside calling hours
-- No phone number on order
-- Insufficient credits
-- AI calling disabled in config
-
-### Q: My WhatsApp message shows as sent but customer didn't receive it?
-**A:** Possible causes:
-- Customer's WhatsApp is inactive
-- Phone number is not on WhatsApp
-- Customer blocked business messages
-- Network issues on customer's end
-
-### Q: How do I view automation status for an order?
-**A:** 
-1. Open the order in your dashboard
-2. Check the "Automation" or "Activity" section
-3. View the flow: WhatsApp → AI Calling → Manual → Completed/Failed
-
-### Q: Can I manually trigger automation for an order?
-**A:** Currently, automation is triggered automatically based on order events. Contact support for manual intervention needs.
-
----
-
-## Quick Reference
-
-### VAS Services Summary
-
-| Service | Trigger | Billing Basis |
-|---------|---------|---------------|
-| Order Confirmation (WA) | Order created | Per message sent |
-| Order Confirmation (AI) | After WA wait time | Per minute (pulse-based) |
-| NDR Management (WA) | Delivery failed | Per message sent |
-| NDR Management (AI) | After WA wait time | Per minute (pulse-based) |
-| RTO Risk Score | Order created | Per API call |
-| Early COD | Settlement processed | % of settlement |
-
-### Key Billing Rules
+### Key Billing Rules Summary
 
 | Rule | Details |
 |------|--------|
@@ -342,7 +191,61 @@ Completed/Failed
 | Price updates | Future orders only, not retrospective |
 | Balance check | At automation trigger, fails if insufficient |
 | Retry billing | Each retry is a separate charge |
-| Failed services | Not charged (WA not sent, API failed) |
+| Failed services | Not charged (WA not sent, API failed, call not answered) |
+
+### Ledger Event Types
+
+| Service | Event Type | Description |
+|---------|------------|-------------|
+| RTO Risk | `rto_risk_service_charge` | Per successful API call |
+| AI Call | `ai_call_service_charge` | Standalone AI call charges |
+| OC Automation (WA) | `oc_automation_wa_service_charge` | WhatsApp in Order Confirmation |
+| OC Automation (AI) | `oc_automation_ai_call_service_charge` | AI call in Order Confirmation |
+| NDR Automation (WA) | `ndr_automation_wa_service_charge` | WhatsApp in NDR Management |
+| NDR Automation (AI) | `ndr_automation_ai_call_service_charge` | AI call in NDR Management |
+| General WhatsApp | `wa_communication_service_charge` | Other WhatsApp messages |
+| Early COD | `early_cod_charge` | % of COD settlement |
+
+---
+
+## 6. Troubleshooting
+
+### Q: Why wasn't I charged for a service?
+**A:** Services are not charged when:
+- WhatsApp message failed to send
+- AI call was not answered or rejected
+- RTO Risk API call failed
+- You're still in free trial with credits remaining
+
+### Q: Why was I charged more than expected for AI calls?
+**A:** Remember pulse-based billing:
+- A 31-second call with 30-second pulse is charged for 60 seconds
+- Each retry call is charged separately
+- Check your pulse setting in VAS configuration
+
+### Q: My balance was deducted but service didn't work?
+**A:** Contact support with:
+- Order/Shipment ID
+- Service type
+- Timestamp
+Our team will investigate and refund if service failed.
+
+---
+
+## Quick Reference
+
+### VAS Services Summary
+
+| Service | Trigger | Billing Basis | Charged When |
+|---------|---------|---------------|--------------|
+| Order Confirmation (WA) | Order created | Per message | Message sent successfully |
+| Order Confirmation (AI) | After WA wait time | Per minute (pulse-based) | Call completed |
+| NDR Management (WA) | Delivery failed | Per message | Message sent successfully |
+| NDR Management (AI) | After WA wait time | Per minute (pulse-based) | Call completed |
+| Standalone AI Call | Manual trigger | Per minute (pulse-based) | Call completed |
+| RTO Risk Score | Order created | Per API call | API returns score |
+| Early COD | Settlement processed | % of settlement | Settlement completed |
+| General WhatsApp | Various events | Per message | Message sent successfully |
 
 ---
 
@@ -352,5 +255,8 @@ If you couldn't find your answer here:
 - **Email:** support@velocity.in
 - **Chat:** Use the chat widget in your Shipfast dashboard
 - **Account Manager:** Contact your dedicated account manager for VAS configuration
+
+**Related FAQs:**
+- For automation flow details (retry logic, calling hours, etc.), see the Automations FAQ
 
 Our support team is happy to help!
