@@ -14,6 +14,9 @@ Welcome to the Shipfast FAQ Knowledge Base. This repository contains frequently 
 ### Value Added Services (VAS)
 - [VAS](./VAS/) - AI Calling, WhatsApp Communications, RTO Risk, Early COD
 
+### Reports & Exports
+- [Reports](./Reports/) - Report modes, filters, scheduling, and custom reports
+
 ## Need Help?
 
 If you couldn't find your answer here:
