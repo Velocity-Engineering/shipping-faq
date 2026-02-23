@@ -32,7 +32,6 @@
 | **Pikndel** | Select cities | Hyperlocal, on-demand delivery |
 | **Blitz** | Metro cities | Quick commerce, rapid delivery |
 | **Urbanebolt** | Select regions | Regional coverage |
-| **GoSwift** | Pan-India | Aggregator (multiple carriers) |
 | **Amazon (ATS)** | Amazon sellers | Marketplace integration |
 
 ---
@@ -43,22 +42,22 @@
 
 **A:** Here's a comparison of key features:
 
-| Feature | Delhivery | BlueDart | DTDC | Ekart | Xpressbees | Shadowfax | Pikndel | Blitz | Urbanebolt | GoSwift |
-|---------|-----------|----------|------|-------|------------|-----------|---------|-------|------------|---------|
-| **Forward Shipping** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **COD** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Prepaid** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Reverse Pickup** | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ |
-| **Separate RTO Address** | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ |
-| **Surface (Road)** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Air (Express)** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ |
-| **Same-Day (SDD)** | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ |
-| **Next-Day (NDD)** | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **Reattempt via API** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Address Update** | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| **COD → Prepaid** | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |
-| **QC on Returns** | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| **OTP Delivery** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| Feature | Delhivery | BlueDart | DTDC | Ekart | Xpressbees | Shadowfax | Pikndel | Blitz | Urbanebolt |
+|---------|-----------|----------|------|-------|------------|-----------|---------|-------|------------|
+| **Forward Shipping** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **COD** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Prepaid** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Reverse Pickup** | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ |
+| **Separate RTO Address** | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ |
+| **Surface (Road)** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Air (Express)** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ |
+| **Same-Day (SDD)** | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ |
+| **Next-Day (NDD)** | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| **Reattempt via API** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Address Update** | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **COD → Prepaid** | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ |
+| **QC on Returns** | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ |
+| **OTP Delivery** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 **Note:** Feature availability may vary based on your specific carrier agreement and account configuration.
 
@@ -78,7 +77,6 @@
 | **BlueDart** | ✅ Yes - Full support |
 | **Xpressbees** | ✅ Yes - Full support |
 | **Shadowfax** | ✅ Yes - Full support |
-| **GoSwift** | ✅ Yes - Full support |
 | **DTDC** | ❌ No - RTO goes to pickup address |
 | **Ekart** | ❌ No - RTO goes to pickup address |
 | **Pikndel** | ❌ No - RTO goes to pickup address |
@@ -103,7 +101,6 @@
 - **BlueDart** — Good for premium/express shipments
 - **Xpressbees** — Good coverage and flexible
 - **Shadowfax** — Best for metro cities
-- **GoSwift** — Aggregator with multiple carrier options
 
 Configure your RTO warehouse in **Settings → Warehouses** and mark it as the default RTO location.
 
@@ -169,7 +166,6 @@ Configure your RTO warehouse in **Settings → Warehouses** and mark it as the d
 | **Pikndel** | ❌ No | Must cancel and rebook |
 | **Blitz** | ❌ No | Must cancel and rebook |
 | **Urbanebolt** | ❌ No | Must cancel and rebook |
-| **GoSwift** | ❌ No | Must cancel and rebook |
 
 ---
 
@@ -188,7 +184,6 @@ Configure your RTO warehouse in **Settings → Warehouses** and mark it as the d
 | **DTDC** | ❌ No | Not supported |
 | **Xpressbees** | ❌ No | Not supported |
 | **Blitz** | ❌ No | Not supported |
-| **GoSwift** | ❌ No | Not supported |
 
 ---
 
@@ -218,7 +213,6 @@ Configure your RTO warehouse in **Settings → Warehouses** and mark it as the d
 | **Pikndel** | ❌ No | No QC integration |
 | **Blitz** | ❌ No | No QC integration |
 | **Urbanebolt** | ❌ No | No QC integration |
-| **GoSwift** | ❌ No | No QC integration |
 
 ---
 
@@ -292,16 +286,6 @@ Contact your account manager to set up BYOC integration.
 
 ---
 
-### Q: What is GoSwift?
-
-**A:** GoSwift is a carrier aggregator that provides access to multiple carriers through a single integration. It offers:
-- Access to multiple carriers through one API
-- Automatic carrier selection based on serviceability
-- Unified tracking across carriers
-- Useful for expanding coverage without individual integrations
-
----
-
 ## Quick Reference
 
 ### Carrier Feature Matrix
@@ -312,7 +296,6 @@ Contact your account manager to set up BYOC integration.
 | BlueDart | ✅ | ✅ | ✅ | ❌ | ❌ |
 | Xpressbees | ✅ | ✅ | ❌ | ❌ | ❌ |
 | Shadowfax | ✅ | ✅ | ❌ | ✅ | ✅ |
-| GoSwift | ✅ | ✅ | ❌ | ❌ | ❌ |
 | DTDC | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Ekart | ❌ | ✅ | ✅ | ✅ | ❌ |
 | Pikndel | ❌ | ❌ | ❌ | ✅ | ❌ |
@@ -323,7 +306,7 @@ Contact your account manager to set up BYOC integration.
 
 | Your Need | Recommended Carriers |
 |-----------|---------------------|
-| Wide coverage + separate RTO | Delhivery, BlueDart, GoSwift |
+| Wide coverage + separate RTO | Delhivery, BlueDart, Xpressbees |
 | Budget-friendly | DTDC, Xpressbees |
 | Same-day delivery | Shadowfax, Delhivery, Pikndel, Blitz |
 | Premium/express | BlueDart |
