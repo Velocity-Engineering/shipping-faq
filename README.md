@@ -3,7 +3,6 @@
 Welcome to the Shipfast FAQ Knowledge Base. This repository contains frequently asked questions and answers to help you get the most out of Shipfast.
 
 ## Contents
-
 - **[Automations](./Automations/)** - FAQs for automated customer communication
   - [Order Confirmation](./Automations/order_confirmation/) - Verify orders before shipping to reduce RTO
   - [NDR Management](./Automations/ndr_management/) - Resolve failed deliveries faster
