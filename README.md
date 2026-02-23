@@ -13,6 +13,10 @@ Connect your online store to Shipfast for automatic order sync and fulfillment.
 Using an OMS or WMS? Learn how these integrations work with Shipfast.
 - [Partners](./Partners/) - Clickpost, Pragma, Unicommerce, Vinculum, EasyEcom
 
+### 🚚 Shipping Rules
+Set up rules to automatically select the best carrier for each shipment.
+- [Shipping Rules](./ShippingRules/) - Carrier selection modes, rule conditions, High Performance mode
+
 ### 📱 Smart Features (VAS)
 Reduce RTO and improve delivery success with our smart features.
 - [Value Added Services](./VAS/) - AI Calling, WhatsApp Notifications, RTO Prediction, Early COD
@@ -33,6 +37,7 @@ Understand your invoices, charges, and payment options.
 |--------------|-------|
 | Connect my Shopify store | [Shopify Integration](./Shopify/) |
 | Connect my WooCommerce store | [WooCommerce Integration](./WooCommerce/) |
+| Set up carrier selection rules | [Shipping Rules](./ShippingRules/) |
 | Understand my invoice | [Billing FAQ](./Billing/) |
 | Download a report | [Reports FAQ](./Reports/) |
 | Set up WhatsApp notifications | [VAS FAQ](./VAS/) |
