@@ -158,7 +158,7 @@ This means:
 
 ### Q: What happens when free credits run out?
 **A:**
-- Services continue if you have wallet balance
+- Services stop unless you explicitly opted in
 - Regular pricing applies after free credits are exhausted
 - Top up your wallet to avoid service interruption
 
@@ -171,7 +171,7 @@ This means:
 
 ### Q: How do I check my VAS charges?
 **A:** 
-1. Go to **Finance → Billing** in your dashboard
+1. Go to **Payments → Invoices** in your dashboard
 2. View itemized VAS charges
 3. Download detailed billing reports
 
