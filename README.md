@@ -1,28 +1,51 @@
-# Shipping FAQ Knowledge Base
+# Shipfast Help Center
 
-Welcome to the Shipfast FAQ Knowledge Base. This repository contains frequently asked questions and answers to help you get the most out of Shipfast.
+Welcome to the Shipfast Help Center! Find answers to common questions about using Shipfast for your shipping needs.
 
-## Contents
+## Browse by Topic
 
-### Direct Integrations
-- [Shopify](./Shopify/) - Shopify integration guide and troubleshooting
-- [WooCommerce](./WooCommerce/) - WooCommerce integration guide and troubleshooting
+### 🛒 Store Integrations
+Connect your online store to Shipfast for automatic order sync and fulfillment.
+- [Shopify](./Shopify/) - Connect and manage your Shopify store
+- [WooCommerce](./WooCommerce/) - Connect and manage your WooCommerce store
 
-### Partner Integrations (OMS/WMS)
+### 🤝 Partner Integrations
+Using an OMS or WMS? Learn how these integrations work with Shipfast.
 - [Partners](./Partners/) - Clickpost, Pragma, Unicommerce, Vinculum, EasyEcom
 
-### Value Added Services (VAS)
-- [VAS](./VAS/) - AI Calling, WhatsApp Communications, RTO Risk, Early COD
+### 📱 Smart Features (VAS)
+Reduce RTO and improve delivery success with our smart features.
+- [Value Added Services](./VAS/) - AI Calling, WhatsApp Notifications, RTO Prediction, Early COD
 
-### Reports & Exports
-- [Reports](./Reports/) - Report modes, filters, scheduling, and custom reports
+### 📊 Reports & Downloads
+Export your data and schedule automated reports.
+- [Reports](./Reports/) - Download shipment data, schedule reports, create custom exports
 
-### Finance & Billing
-- [Billing](./Billing/) - Billing modes, invoices, ledger events, GST configuration
+### 💰 Billing & Payments
+Understand your invoices, charges, and payment options.
+- [Billing](./Billing/) - Invoices, wallet recharge, payment modes, GST setup
 
-## Need Help?
+---
 
-If you couldn't find your answer here:
+## Quick Links
+
+| I want to... | Go to |
+|--------------|-------|
+| Connect my Shopify store | [Shopify Integration](./Shopify/) |
+| Connect my WooCommerce store | [WooCommerce Integration](./WooCommerce/) |
+| Understand my invoice | [Billing FAQ](./Billing/) |
+| Download a report | [Reports FAQ](./Reports/) |
+| Set up WhatsApp notifications | [VAS FAQ](./VAS/) |
+| Reduce my RTO rate | [VAS FAQ](./VAS/) |
+
+---
+
+## Need More Help?
+
+Can't find what you're looking for? We're here to help!
+
 - **Email:** support@velocity.in
-- **Chat:** Use the chat widget in your Shipfast dashboard
-- **Help Center:** Visit our help center for more guides
+- **Live Chat:** Click the chat icon in your Shipfast dashboard
+- **Account Manager:** Reach out to your dedicated account manager
+
+Our support team typically responds within 2-4 hours during business hours.
