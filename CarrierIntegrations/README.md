@@ -29,6 +29,10 @@
 | **Ekart** | Pan-India | E-commerce shipments |
 | **Xpressbees** | Pan-India | Flexible options |
 | **Shadowfax** | Metro & Tier-1 cities | Quick commerce, same-day |
+| **Pikndel** | Select cities | Hyperlocal, on-demand delivery |
+| **Blitz** | Metro cities | Quick commerce, rapid delivery |
+| **Urbanebolt** | Select regions | Regional coverage |
+| **GoSwift** | Pan-India | Aggregator (multiple carriers) |
 | **Amazon (ATS)** | Amazon sellers | Marketplace integration |
 
 ---
@@ -39,22 +43,22 @@
 
 **A:** Here's a comparison of key features:
 
-| Feature | Delhivery | BlueDart | DTDC | Ekart | Xpressbees | Shadowfax |
-|---------|-----------|----------|------|-------|------------|-----------|
-| **Forward Shipping** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **COD** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Prepaid** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Reverse Pickup** | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ |
-| **Separate RTO Address** | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ |
-| **Surface (Road)** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Air (Express)** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Same-Day (SDD)** | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| **Next-Day (NDD)** | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| **Reattempt via API** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Address Update** | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ |
-| **Payment Mode Change** | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ |
-| **QC on Returns** | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ |
-| **OTP Delivery** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Feature | Delhivery | BlueDart | DTDC | Ekart | Xpressbees | Shadowfax | Pikndel | Blitz | Urbanebolt | GoSwift |
+|---------|-----------|----------|------|-------|------------|-----------|---------|-------|------------|---------|
+| **Forward Shipping** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **COD** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Prepaid** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Reverse Pickup** | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ✅ | ✅ | ✅ |
+| **Separate RTO Address** | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ | ❌ | ❌ | ❌ | ✅ |
+| **Surface (Road)** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Air (Express)** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | ✅ |
+| **Same-Day (SDD)** | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ | ✅ | ❌ | ❌ |
+| **Next-Day (NDD)** | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Reattempt via API** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Address Update** | ✅ | ✅ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **COD → Prepaid** | ✅ | ❌ | ❌ | ✅ | ❌ | ✅ | ✅ | ❌ | ✅ | ❌ |
+| **QC on Returns** | ✅ | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **OTP Delivery** | ✅ | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
 
 **Note:** Feature availability may vary based on your specific carrier agreement and account configuration.
 
@@ -74,14 +78,18 @@
 | **BlueDart** | ✅ Yes - Full support |
 | **Xpressbees** | ✅ Yes - Full support |
 | **Shadowfax** | ✅ Yes - Full support |
+| **GoSwift** | ✅ Yes - Full support |
 | **DTDC** | ❌ No - RTO goes to pickup address |
 | **Ekart** | ❌ No - RTO goes to pickup address |
+| **Pikndel** | ❌ No - RTO goes to pickup address |
+| **Blitz** | ❌ No - RTO goes to pickup address |
+| **Urbanebolt** | ❌ No - RTO goes to pickup address |
 
 ---
 
 ### Q: What does "RTO goes to pickup address" mean?
 
-**A:** For carriers like DTDC and Ekart:
+**A:** For carriers like DTDC, Ekart, Pikndel, Blitz, and Urbanebolt:
 - When a shipment is returned (RTO), it will be delivered to the **same warehouse** from where it was picked up
 - You cannot specify a different return warehouse
 - If you need returns to go to a central RTO facility, you'll need to use a carrier that supports separate RTO addresses
@@ -95,6 +103,7 @@
 - **BlueDart** — Good for premium/express shipments
 - **Xpressbees** — Good coverage and flexible
 - **Shadowfax** — Best for metro cities
+- **GoSwift** — Aggregator with multiple carrier options
 
 Configure your RTO warehouse in **Settings → Warehouses** and mark it as the default RTO location.
 
@@ -119,12 +128,12 @@ Configure your RTO warehouse in **Settings → Warehouses** and mark it as the d
 
 **A:**
 
-| Service | Delhivery | Ekart | Shadowfax | Others |
-|---------|-----------|-------|-----------|--------|
-| **Same-Day (SDD)** | ✅ | ✅ | ✅ | ❌ |
-| **Next-Day (NDD)** | ✅ | ✅ | ✅ | ❌ |
+| Service | Delhivery | Ekart | Shadowfax | Pikndel | Blitz | Others |
+|---------|-----------|-------|-----------|---------|-------|--------|
+| **Same-Day (SDD)** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| **Next-Day (NDD)** | ✅ | ✅ | ✅ | ❌ | ❌ | ❌ |
 
-**Note:** SDD and NDD are typically available only in metro and tier-1 cities.
+**Note:** SDD and NDD are typically available only in metro and tier-1 cities. Pikndel and Blitz specialize in hyperlocal same-day deliveries.
 
 ---
 
@@ -134,14 +143,14 @@ Configure your RTO warehouse in **Settings → Warehouses** and mark it as the d
 
 **A:** Post-booking operations vary by carrier:
 
-| Operation | Description | Carriers |
-|-----------|-------------|----------|
+| Operation | Description | Supported Carriers |
+|-----------|-------------|-------------------|
 | **Cancel** | Cancel before pickup | All carriers |
 | **Reattempt** | Request re-delivery after failed attempt | All carriers |
 | **RTO Request** | Manually initiate return | All carriers |
 | **Address Update** | Change delivery address | Delhivery, BlueDart, Ekart |
 | **Phone Update** | Change customer phone | Delhivery, BlueDart |
-| **COD to Prepaid** | Convert payment mode | Delhivery, Ekart, Shadowfax |
+| **COD to Prepaid** | Convert payment mode | Delhivery, Ekart, Shadowfax, Pikndel, Urbanebolt |
 
 ---
 
@@ -157,6 +166,10 @@ Configure your RTO warehouse in **Settings → Warehouses** and mark it as the d
 | **DTDC** | ❌ No | Must cancel and rebook |
 | **Xpressbees** | ❌ No | Must cancel and rebook |
 | **Shadowfax** | ❌ No | Must cancel and rebook |
+| **Pikndel** | ❌ No | Must cancel and rebook |
+| **Blitz** | ❌ No | Must cancel and rebook |
+| **Urbanebolt** | ❌ No | Must cancel and rebook |
+| **GoSwift** | ❌ No | Must cancel and rebook |
 
 ---
 
@@ -169,9 +182,13 @@ Configure your RTO warehouse in **Settings → Warehouses** and mark it as the d
 | **Delhivery** | ✅ Yes | Via payment mode API |
 | **Ekart** | ✅ Yes | Via update request |
 | **Shadowfax** | ✅ Yes | Sets COD to 0 |
+| **Pikndel** | ✅ Yes | Via update API |
+| **Urbanebolt** | ✅ Yes | Via update API |
 | **BlueDart** | ❌ No | Not supported |
 | **DTDC** | ❌ No | Not supported |
 | **Xpressbees** | ❌ No | Not supported |
+| **Blitz** | ❌ No | Not supported |
+| **GoSwift** | ❌ No | Not supported |
 
 ---
 
@@ -198,6 +215,10 @@ Configure your RTO warehouse in **Settings → Warehouses** and mark it as the d
 | **Ekart** | ❌ No | Basic returns only |
 | **Xpressbees** | ❌ No | No QC integration |
 | **DTDC** | ❌ No | No returns supported |
+| **Pikndel** | ❌ No | No QC integration |
+| **Blitz** | ❌ No | No QC integration |
+| **Urbanebolt** | ❌ No | No QC integration |
+| **GoSwift** | ❌ No | No QC integration |
 
 ---
 
@@ -271,6 +292,16 @@ Contact your account manager to set up BYOC integration.
 
 ---
 
+### Q: What is GoSwift?
+
+**A:** GoSwift is a carrier aggregator that provides access to multiple carriers through a single integration. It offers:
+- Access to multiple carriers through one API
+- Automatic carrier selection based on serviceability
+- Unified tracking across carriers
+- Useful for expanding coverage without individual integrations
+
+---
+
 ## Quick Reference
 
 ### Carrier Feature Matrix
@@ -281,19 +312,24 @@ Contact your account manager to set up BYOC integration.
 | BlueDart | ✅ | ✅ | ✅ | ❌ | ❌ |
 | Xpressbees | ✅ | ✅ | ❌ | ❌ | ❌ |
 | Shadowfax | ✅ | ✅ | ❌ | ✅ | ✅ |
+| GoSwift | ✅ | ✅ | ❌ | ❌ | ❌ |
 | DTDC | ❌ | ❌ | ❌ | ❌ | ❌ |
 | Ekart | ❌ | ✅ | ✅ | ✅ | ❌ |
+| Pikndel | ❌ | ❌ | ❌ | ✅ | ❌ |
+| Blitz | ❌ | ✅ | ❌ | ❌ | ❌ |
+| Urbanebolt | ❌ | ✅ | ❌ | ✅ | ❌ |
 
 ### Choosing the Right Carrier
 
 | Your Need | Recommended Carriers |
 |-----------|---------------------|
-| Wide coverage + separate RTO | Delhivery, BlueDart |
+| Wide coverage + separate RTO | Delhivery, BlueDart, GoSwift |
 | Budget-friendly | DTDC, Xpressbees |
-| Same-day delivery | Shadowfax, Delhivery |
+| Same-day delivery | Shadowfax, Delhivery, Pikndel, Blitz |
 | Premium/express | BlueDart |
 | QC on returns | Delhivery, Shadowfax |
-| COD conversion | Delhivery, Ekart, Shadowfax |
+| COD conversion | Delhivery, Ekart, Shadowfax, Pikndel |
+| Hyperlocal/quick commerce | Pikndel, Blitz, Shadowfax |
 
 ---
 
