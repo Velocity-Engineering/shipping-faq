@@ -11,6 +11,9 @@ Welcome to the Shipfast FAQ Knowledge Base. This repository contains frequently 
 ### Partner Integrations (OMS/WMS)
 - [Partners](./Partners/) - Clickpost, Pragma, Unicommerce, Vinculum, EasyEcom
 
+### Value Added Services (VAS)
+- [VAS](./VAS/) - AI Calling, WhatsApp Communications, RTO Risk, Early COD
+
 ## Need Help?
 
 If you couldn't find your answer here:
