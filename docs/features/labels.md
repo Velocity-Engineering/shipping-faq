@@ -123,52 +123,22 @@ The customer care details will still appear on the label even without the full s
 
 ## 3. ATS Labels (Carrier-Specific Labels)
 
-### What are ATS labels?
+**ATS (Amazon Transportation Service)** is the only carrier that generates its own labels. For all other carriers, Velocity Shipping generates the labels.
 
-ATS (Air Transport System) is a specific carrier partner. When shipping via ATS or certain other carriers, the labels are generated directly by the carrier's system rather than by Velocity Shipping.
+| Carrier | Label Source | Customizable? |
+|---------|--------------|---------------|
+| ATS | Amazon | No |
+| All other carriers | Velocity Shipping | Yes |
 
-### Which carriers provide their own labels?
-
-Several carriers generate labels from their own systems:
-- **ATS** (Air Transport System)
-- **Delhivery** (optional)
-- **BlueDart** (optional)
-- **Ekart** (optional)
-- **Others** as configured
-
-These are called "external labels" because they come from the carrier's API.
-
-### How do external/carrier labels work?
-
-1. When you ship an order with a carrier that provides external labels:
-   - Velocity Shipping requests the label from the carrier's system
-   - The carrier generates and returns the label
-   - Velocity Shipping stores it for you to download
-
-2. External labels may look different from Velocity Shipping-generated labels because they follow the carrier's format.
-
-### Can I customize carrier-provided labels?
-
-No, carrier-provided (external) labels use the carrier's standard format and cannot be customized through Velocity Shipping settings. The customization options only apply to Velocity Shipping-generated labels.
-
-### Why does my label look different for different carriers?
-
-Different carriers may use different label formats:
-- **Velocity Shipping labels**: Follow your customization settings
-- **Carrier labels**: Follow the carrier's standard format
-
-If you want consistent labels, you can check with your account manager if Velocity Shipping-generated labels are available for your carrier.
+ATS labels follow Amazon's standard format and cannot be customized through Velocity Shipping settings.
 
 ---
 
 ## 4. Label Formats & Printing
 
-### What label sizes are available?
+### What label size is supported?
 
-| Format | Dimensions | Best For |
-|--------|-----------|----------|
-| **A6** | 105mm x 148mm (4" x 6") | Thermal label printers |
-| **A4** | 210mm x 297mm (standard) | Regular inkjet/laser printers |
+Velocity Shipping generates labels in **A6 format** (105mm x 148mm / 4" x 6").
 
 ### What is a thermal label printer?
 
@@ -183,22 +153,8 @@ A thermal label printer is a specialized printer that prints on thermal paper or
 
 1. Purchase a thermal label printer (common models: TSC, Zebra, Brother)
 2. Install the printer driver on your computer
-3. Download labels in A6 format from Velocity Shipping
-4. Print using your thermal printer
-
-### What paper size should I use?
-
-- **Thermal printers**: Use 4x6 inch (A6) thermal labels
-- **Regular printers**: Use standard A4 paper
-  - A4 format prints 4 labels per page (you'll need to cut them)
-  - Or print A6 format on A6 paper if your printer supports it
-
-### How do I print multiple labels on one page?
-
-When using A4 format:
-- 4 labels are automatically arranged on each A4 page
-- Cut along the borders after printing
-- Each label is the standard A6 size
+3. Use 4x6 inch (A6) thermal labels
+4. Download and print labels from Velocity Shipping
 
 ---
 
@@ -285,7 +241,7 @@ Possible causes and solutions:
 ### Labels are too small/large when printing
 
 1. **Check print settings**: Ensure "Fit to page" is disabled
-2. **Set correct paper size**: Match paper size to label format (A6 or A4)
+2. **Set correct paper size**: Use A6 paper size (4" x 6")
 3. **Printer margins**: Set margins to minimum or none
 4. **Scale to 100%**: Don't let the printer scale the PDF
 
@@ -313,10 +269,10 @@ Possible causes and solutions:
 2. **Balance detail vs. paper**: More products = more pages = more paper
 3. **Use picklists alternatively**: Download separate picklists if you need detailed product info
 
-### For Carrier Labels
+### For ATS Labels
 
-1. **Understand differences**: Know which carriers provide their own labels
-2. **Check label requirements**: Some carriers have specific label placement requirements
+1. **Understand differences**: ATS (Amazon Transportation Service) provides its own labels; all other carriers use Velocity-generated labels
+2. **Check label requirements**: ATS has specific label placement requirements
 3. **Verify AWB placement**: Ensure the barcode/AWB section is not covered when attaching to package
 
 ---

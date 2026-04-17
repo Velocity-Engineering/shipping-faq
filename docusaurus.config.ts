@@ -38,6 +38,18 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'api-docs',
+        path: 'api-docs',
+        routeBasePath: 'api',
+        sidebarPath: './sidebarsApi.ts',
+      },
+    ],
+  ],
+
   themeConfig: {
     colorMode: {
       defaultMode: 'light',
@@ -45,7 +57,6 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Velocity Shipping',
       logo: {
         alt: 'Velocity Shipping Logo',
         src: 'img/logo.svg',
@@ -58,68 +69,17 @@ const config: Config = {
           label: 'Help Center',
         },
         {
-          href: 'https://velocity.in/shipping',
-          label: 'Back to Velocity',
-          position: 'right',
+          type: 'docSidebar',
+          sidebarId: 'apiSidebar',
+          docsPluginId: 'api-docs',
+          position: 'left',
+          label: 'API Docs',
         },
       ],
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'Documentation',
-          items: [
-            {
-              label: 'Getting Started',
-              to: '/',
-            },
-            {
-              label: 'Carrier Integrations',
-              to: '/carrier-integrations',
-            },
-            {
-              label: 'Shipping Rules',
-              to: '/shipping-rules',
-            },
-          ],
-        },
-        {
-          title: 'Features',
-          items: [
-            {
-              label: 'Automations',
-              to: '/automations',
-            },
-            {
-              label: 'Value Added Services',
-              to: '/vas',
-            },
-            {
-              label: 'Reports',
-              to: '/reports',
-            },
-          ],
-        },
-        {
-          title: 'Support',
-          items: [
-            {
-              label: 'Contact Support',
-              href: 'mailto:support@velocity.in',
-            },
-            {
-              label: 'Velocity Website',
-              href: 'https://velocity.in',
-            },
-            {
-              label: 'Velocity Shipping',
-              href: 'https://velocity.in/shipping',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} Velocity. All rights reserved.`,
+      copyright: `© 2020-${new Date().getFullYear()} White Wizard Technologies Pvt. Ltd. All Rights Reserved.`,
     },
     prism: {
       theme: prismThemes.github,

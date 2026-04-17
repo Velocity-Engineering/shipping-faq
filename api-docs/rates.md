@@ -1,0 +1,169 @@
+---
+sidebar_position: 9
+---
+
+# Get Rates API
+
+Calculate shipping rates for forward or return shipments based on origin, destination, weight, and dimensions.
+
+**Method:** `POST`
+**Endpoint:** `/custom/api/v1/rates`
+
+## Request Fields
+
+| Field | Type | Required | Description | Example |
+|-------|------|----------|-------------|---------|
+| journey_type | string | Yes | `forward` or `return` | forward |
+| origin_pincode | string | Yes | 6-digit pickup pincode | 248001 |
+| destination_pincode | string | Yes | 6-digit delivery pincode | 560035 |
+| dead_weight | float | Yes | Weight in grams (> 0) | 500 |
+| length | float | Yes | Length in cm (> 0) | 10 |
+| width | float | Yes | Width in cm (> 0) | 10 |
+| height | float | Yes | Height in cm (> 0) | 10 |
+| payment_method | string | Conditional | Required for forward: `cod` or `prepaid` | cod |
+| shipment_value | float | Conditional | Required if payment_method = cod (> 0) | 1200 |
+| qc_applicable | boolean | Conditional | Applicable for return. Default: true | false |
+
+## Validation Rules
+
+1. **Journey Type**: Must be either `forward` or `return`
+2. **Forward Shipments**: `payment_method` is mandatory. If `cod`, then `shipment_value` must be provided
+3. **Return Shipments**: `qc_applicable` defaults to true if not provided
+4. **Weight & Dimensions**: All must be greater than 0
+5. **Pincode Validation**: Must be valid Indian pincodes
+
+## Sample Requests
+
+### Forward Shipment - Prepaid
+
+```bash
+curl -X POST "https://shazam.velocity.in/custom/api/v1/rates" \
+  -H "Authorization: Bearer your_access_token" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "journey_type": "forward",
+    "origin_pincode": "400001",
+    "destination_pincode": "110001",
+    "dead_weight": 500,
+    "length": 20,
+    "width": 15,
+    "height": 10,
+    "payment_method": "prepaid"
+  }'
+```
+
+### Forward Shipment - COD
+
+```bash
+curl -X POST "https://shazam.velocity.in/custom/api/v1/rates" \
+  -H "Authorization: Bearer your_access_token" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "journey_type": "forward",
+    "origin_pincode": "400001",
+    "destination_pincode": "110001",
+    "dead_weight": 750,
+    "length": 25,
+    "width": 20,
+    "height": 15,
+    "payment_method": "cod",
+    "shipment_value": 2500
+  }'
+```
+
+### Return Shipment
+
+```bash
+curl -X POST "https://shazam.velocity.in/custom/api/v1/rates" \
+  -H "Authorization: Bearer your_access_token" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "journey_type": "return",
+    "origin_pincode": "110001",
+    "destination_pincode": "400001",
+    "dead_weight": 500,
+    "length": 20,
+    "width": 15,
+    "height": 10,
+    "qc_applicable": true
+  }'
+```
+
+## Success Response - Forward Shipment
+
+```json
+{
+  "status": "SUCCESS",
+  "result": {
+    "serviceable_couriers": [
+      {
+        "carrier_id": "carrier-unique-id",
+        "carrier_name": "Delhivery",
+        "carrier_code": "DELHIVERY",
+        "service_level": "standard",
+        "is_fast": false,
+        "is_prime": false,
+        "status": "active",
+        "expected_delivery": {
+          "pickup": "2024-01-16",
+          "delivery": "2024-01-19"
+        },
+        "charges": {
+          "forward_freight_charges": 85.00,
+          "cod_charges": 25.00,
+          "rto_charges": 85.00,
+          "total_forward_charges": 110.00
+        },
+        "platform_fee": 5.00
+      }
+    ],
+    "shipment_details": {
+      "journey_type": "forward",
+      "origin_pincode": "400001",
+      "destination_pincode": "110001",
+      "payment_method": "cod",
+      "dead_weight": 750.0,
+      "volumetric_weight": 1500.0,
+      "applicable_weight": 1500.0,
+      "zone": "B"
+    }
+  }
+}
+```
+
+## Success Response - Return Shipment
+
+```json
+{
+  "status": "SUCCESS",
+  "result": {
+    "serviceable_couriers": [
+      {
+        "carrier_id": "carrier-unique-id",
+        "carrier_name": "Delhivery",
+        "carrier_code": "DELHIVERY",
+        "service_level": "standard",
+        "status": "active",
+        "expected_delivery": {
+          "pickup": "2024-01-16",
+          "delivery": "2024-01-19"
+        },
+        "charges": {
+          "return_freight_charges": 75.00,
+          "qc_charges": 10.00,
+          "total_return_charges": 85.00
+        }
+      }
+    ],
+    "shipment_details": {
+      "journey_type": "return",
+      "origin_pincode": "110001",
+      "destination_pincode": "400001",
+      "dead_weight": 500.0,
+      "volumetric_weight": 600.0,
+      "applicable_weight": 600.0,
+      "zone": "B"
+    }
+  }
+}
+```
