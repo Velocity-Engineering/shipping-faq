@@ -39,6 +39,8 @@ const sidebars: SidebarsConfig = {
       items: [
         'features/bulk-operations',
         'features/labels',
+        'features/cod-remittance',
+        'features/weight-discrepancies',
       ],
     },
     {
