@@ -127,8 +127,8 @@ If the measured weight still falls within the same weight slab as your declared 
 
 Available filters:
 - **Date Range**: Last 7/30/60/90 days or custom range
-- **Excess Weight**: Up to 0.5kg, 0.5-1kg, 1-2kg, >2kg
-- **Ageing**: <2 days, 2-4 days, 4-6 days, >6 days
+- **Excess Weight**: Up to 0.5kg, 0.5-1kg, 1-2kg, more than 2kg
+- **Ageing**: Less than 2 days, 2-4 days, 4-6 days, more than 6 days
 - **Status**: Raised, Approved, Disputed, Rejected, etc.
 - **SKU**: Filter by product
 - **Warehouse**: Filter by pickup warehouse
