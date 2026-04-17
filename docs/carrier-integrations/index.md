@@ -54,7 +54,7 @@ description: Guide to logistics partner integrations, supported features, and ca
 | **COD** | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | **Prepaid** | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | **Reverse Pickup** | Yes | Yes | No | Yes | Yes | Yes | No | Yes | Yes |
-| **Separate RTO Address** | Yes | Yes | No | No | Yes | Yes | No | No | No |
+| **Separate RTO Address** | Yes | Yes | No | Yes | Yes | Yes | No | No | No |
 | **Surface (Road)** | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
 | **Air (Express)** | Yes | Yes | Yes | Yes | Yes | Yes | No | No | Yes |
 | **Same-Day (SDD)** | Yes | No | No | Yes | No | Yes | Yes | Yes | No |
@@ -83,8 +83,8 @@ description: Guide to logistics partner integrations, supported features, and ca
 | **BlueDart** | Yes - Full support |
 | **Xpressbees** | Yes - Full support |
 | **Shadowfax** | Yes - Full support |
+| **Ekart** | Yes - Full support |
 | **DTDC** | No - RTO goes to pickup address |
-| **Ekart** | No - RTO goes to pickup address |
 | **Pikndel** | No - RTO goes to pickup address |
 | **Blitz** | No - RTO goes to pickup address |
 | **Urbanebolt** | No - RTO goes to pickup address |
@@ -93,7 +93,7 @@ description: Guide to logistics partner integrations, supported features, and ca
 
 ### Q: What does "RTO goes to pickup address" mean?
 
-**A:** For carriers like DTDC, Ekart, Pikndel, Blitz, and Urbanebolt:
+**A:** For carriers like DTDC, Pikndel, Blitz, and Urbanebolt:
 - When a shipment is returned (RTO), it will be delivered to the **same warehouse** from where it was picked up
 - You cannot specify a different return warehouse
 - If you need returns to go to a central RTO facility, you'll need to use a carrier that supports separate RTO addresses
@@ -107,6 +107,7 @@ description: Guide to logistics partner integrations, supported features, and ca
 - **BlueDart** - Good for premium/express shipments
 - **Xpressbees** - Good coverage and flexible
 - **Shadowfax** - Best for metro cities
+- **Ekart** - Good for e-commerce shipments
 
 Configure your RTO warehouse in **Settings - Warehouses** and mark it as the default RTO location.
 
@@ -302,8 +303,8 @@ Contact your account manager to set up BYOC integration.
 | BlueDart | Yes | Yes | Yes | No | No |
 | Xpressbees | Yes | Yes | No | No | No |
 | Shadowfax | Yes | Yes | No | Yes | Yes |
+| Ekart | Yes | Yes | Yes | Yes | No |
 | DTDC | No | No | No | No | No |
-| Ekart | No | Yes | Yes | Yes | No |
 | Pikndel | No | No | No | Yes | No |
 | Blitz | No | Yes | No | No | No |
 | Urbanebolt | No | Yes | No | Yes | No |
@@ -312,7 +313,7 @@ Contact your account manager to set up BYOC integration.
 
 | Your Need | Recommended Carriers |
 |-----------|---------------------|
-| Wide coverage + separate RTO | Delhivery, BlueDart, Xpressbees |
+| Wide coverage + separate RTO | Delhivery, BlueDart, Xpressbees, Ekart |
 | Budget-friendly | DTDC, Xpressbees |
 | Same-day delivery | Shadowfax, Delhivery, Pikndel, Blitz |
 | Premium/express | BlueDart |
