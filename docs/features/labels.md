@@ -301,6 +301,13 @@ Simply go to the order details and click **Download Label** again. The same labe
 
 Yes, labels are stored and can be re-downloaded anytime from the order details page.
 
+### How do I download the manifest?
+
+1. Go to **Pickups** tab
+2. Select the shipments
+3. Click **Create Manifest** or **Download Manifest**
+4. The manifest PDF will be generated for the selected shipments
+
 ---
 
 ## Need Help?
