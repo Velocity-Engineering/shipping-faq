@@ -56,7 +56,7 @@ Each settlement includes:
 Your COD settlement depends on two factors:
 
 1. **Days After Delivery**: The number of days after a shipment is delivered before it becomes eligible for settlement (typically T+3 or T+5)
-2. **Settlement Frequency**: How often settlements are processed (daily, weekly, or on specific days)
+2. **Settlement Frequency**: How often settlements are processed (weekly or on specific days)
 
 **Example**: If your configuration is T+3 with weekly settlements on Monday, Wednesday, and Friday:
 - A shipment delivered on Monday would be eligible from Thursday
@@ -66,7 +66,6 @@ Your COD settlement depends on two factors:
 
 | Frequency | Description |
 |-----------|-------------|
-| **Daily** | Settlement processed every day |
 | **Weekly** | Settlement on specific days (e.g., Mon, Wed, Fri) |
 | **Monthly** | Settlement on specific dates each month |
 
