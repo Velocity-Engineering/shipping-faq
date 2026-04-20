@@ -49,7 +49,6 @@ The following fields are **mandatory** (marked with *):
 | Field | Description | Example |
 |-------|-------------|---------|
 | Customer name* | Full name of the buyer | John Doe |
-| Customer email* | Email address (or phone must be provided) | john@example.com |
 | Customer mobile no* | 10-digit Indian mobile number | 9876543210 |
 | Order Id* | Your unique order reference | ORD-001 |
 | Payment method* | Must be PREPAID or COD | COD |
@@ -67,10 +66,17 @@ The following fields are **mandatory** (marked with *):
 - Order date
 - Order total
 - COD Amount
-- E-waybill Number
+- Customer email
+- Customer alternate no
 - Address line 2
 - Customer city (auto-populated from pincode if not provided)
 - Customer state (auto-populated from pincode if not provided)
+- Package Id
+- Package Length (in cms)
+- Package Width (in cms)
+- Package Height (in cms)
+- RTO Warehouse Id
+- E-waybill Number
 - Product HSN code
 - Product discount
 
@@ -122,12 +128,12 @@ This creates 2 orders: ORD-001 with 2 items, and ORD-002 with 1 item.
 | Action | Description | Where to access |
 |--------|-------------|-----------------|
 | **Bulk Ship** | Create shipments for multiple orders at once | Orders > New tab > Select orders > Ship |
-| **Bulk Cancel** | Cancel multiple shipments at once | Orders > Ready to Ship/In Transit > Select > Cancel |
-| **Bulk RTO** | Initiate Return to Origin for multiple shipments | Orders > In Transit > Select > Return to Origin |
+| **Bulk Cancel** | Cancel multiple shipments at once | Orders > New or Ready to Ship tab > Select > Cancel |
+| **Bulk RTO** | Initiate Return to Origin for multiple shipments | Orders > Need Attention tab > Select > Return to Origin |
 | **Bulk Reattempt** | Request delivery reattempt for multiple shipments | Orders > NDR > Select > Reattempt |
 | **Bulk Update Package** | Change package type for multiple orders | Orders > New > Select > Edit Package |
-| **Bulk Reassign** | Move shipments to a different courier/warehouse | Orders > Select > Reassign |
-| **Bulk Tags** | Add tags to multiple shipments | Orders > Select > Add Tags |
+| **Bulk Reassign** | Move shipments to a different courier/warehouse | Orders > Ready to Ship > Select > Reassign |
+| **Bulk Tags** | Add tags to multiple shipments | Orders > New > Select > Add Tags |
 | **Bulk Fulfill** | Mark orders as fulfilled externally | Orders > New > Select > Mark Fulfilled |
 
 ### How do I select multiple shipments?
@@ -135,7 +141,7 @@ This creates 2 orders: ORD-001 with 2 items, and ORD-002 with 1 item.
 1. Go to the Orders page
 2. Use the checkboxes on the left side to select individual orders
 3. Or use the "Select All" checkbox at the top to select all visible orders
-4. The bulk action buttons will appear at the top/bottom of the list
+4. The bulk action buttons will appear at the top right corner of the list
 
 ### What is the maximum number of shipments I can select?
 
@@ -173,7 +179,7 @@ Yes, through the **Bulk Reattempt** action:
 
 ### How do I download the manifest?
 
-1. Go to **Orders** > **Ready to Ship** tab
+1. Go to **Pickups** tab
 2. Select the shipments
 3. Click **Create Manifest** or **Download Manifest**
 4. The manifest PDF will be generated for the selected shipments
