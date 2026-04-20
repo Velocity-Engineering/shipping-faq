@@ -99,7 +99,7 @@ Even if the shipment moves back to "In Transit" or "Out for Delivery" after an N
 - **Address Change Requested** - Customer provided a new address
 - **Cancellation Requested** - Customer wants to cancel/return the shipment
 - **Confirmed** - Customer confirmed details for reattempt
-- **Not Contactable** - Could not reach the customer
+- **failed** - Could not reach the customer
 
 ### Q: What happens after customer requests reattempt?
 **A:** When a customer requests reattempt:
