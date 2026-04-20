@@ -60,7 +60,6 @@ The following fields are **mandatory** (marked with *):
 | Product price* | Price per unit (in INR) | 499.00 |
 | Product tax rate (in %)* | GST percentage | 18 |
 | Weight of the Package (in Kgs)* | Total shipment weight | 0.5 |
-| Product image url* | URL to product image | https://example.com/image.jpg |
 
 **Optional fields:**
 - Order date
@@ -79,6 +78,7 @@ The following fields are **mandatory** (marked with *):
 - E-waybill Number
 - Product HSN code
 - Product discount
+- Product image url
 
 ### Can I upload multiple items in a single order?
 
