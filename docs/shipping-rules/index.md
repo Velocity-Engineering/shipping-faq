@@ -254,7 +254,7 @@ This ensures your shipment gets booked even if one carrier has issues.
 
 ### Q: How do I enable High Performance mode?
 
-**A:** Go to **Settings - Shipping Rules** and for each enabled carrier, you'll see the option to toggle HP mode on/off.
+**A:** Go to **Shipping Rules - view details** and for each enabled carrier, you'll see the option to toggle HP mode on/off.
 
 **Note:** HP mode is only supported for select carriers. If you don't see the option, that carrier doesn't support HP mode.
 
@@ -297,7 +297,7 @@ This ensures your shipment gets booked even if one carrier has issues.
 **A:** Two options:
 
 1. **Blacklist in Custom mode** - Add carrier to blacklist in your rule
-2. **Disable the carrier** - Turn off the carrier in Settings - Carriers
+2. **Disable the carrier** - Turn off the carrier in Shipping rules - Courier Selection
 
 ---
 
