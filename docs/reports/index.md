@@ -204,7 +204,7 @@ For historical data beyond 90 days, consider scheduling multiple reports or cont
 ### Q: How do I set up a scheduled report?
 
 **A:**
-1. Go to **Reports - Scheduled Reports**
+1. Go to **Tools - Reports - Scheduled Reports**
 2. Select the report type
 3. Configure filters and date range logic
 4. Set frequency and time
@@ -235,7 +235,7 @@ Reports are automatically emailed to all recipients when generated.
 ### Q: How do I create a Custom Report?
 
 **A:**
-1. Go to **Reports - Custom Reports**
+1. Go to **Tools - Reports - Custom Reports**
 2. Click "Create New"
 3. Select module (Orders)
 4. Choose breakdown level (Order or Item level)
@@ -303,7 +303,7 @@ Reports are automatically emailed to all recipients when generated.
 ### Q: Can I download a report again after it expires?
 
 **A:** Download links expire after **1 hour**. To get the report again:
-1. Go to Reports - Download History
+1. Go to **Tools - Reports - Download History**
 2. Find your report
 3. Click "Regenerate" if available, or create a new request
 
