@@ -78,7 +78,6 @@ The following fields are **mandatory** (marked with *):
 - E-waybill Number
 - Product HSN code
 - Product discount
-- Product image url
 
 ### Can I upload multiple items in a single order?
 
