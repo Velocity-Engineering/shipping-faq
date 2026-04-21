@@ -62,6 +62,15 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Tools',
+      link: {
+        type: 'doc',
+        id: 'tools/index',
+      },
+      items: [],
+    },
+    {
+      type: 'category',
       label: 'Reports',
       link: {
         type: 'doc',
