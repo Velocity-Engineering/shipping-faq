@@ -295,9 +295,9 @@ For **ATS**, Amazon sends their own labels through their APIs with limited custo
 ### Q: How long are labels stored in the system?
 **A:** Labels are automatically removed from our system:
 - **After the shipment is delivered**, OR
-- **Within 90 days of manifestation**, whichever comes first
+- **Within 60 days of manifestation**, whichever comes first
 
-If you need labels for record-keeping, download and save them before delivery or within 90 days.
+If you need labels for record-keeping, download and save them before delivery or within 60 days.
 
 ---
 
