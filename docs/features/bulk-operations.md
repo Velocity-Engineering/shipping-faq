@@ -174,7 +174,6 @@ Yes, through the **Bulk Reattempt** action:
 ### What label formats are available?
 
 - **A6 format**: Compact 4x6 inch labels (recommended for thermal printers)
-- **A4 format**: Standard paper size (4 labels per page)
 
 ### How do I download the manifest?
 
