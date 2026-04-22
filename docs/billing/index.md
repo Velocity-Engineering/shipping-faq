@@ -79,7 +79,6 @@ description: Everything you need to know about invoices, payments, and charges i
 |---------------|--------------|
 | Monthly | 1st of each month |
 | Fortnightly | 1st and 16th of each month |
-| Weekly | Your configured day |
 
 ---
 
@@ -90,7 +89,7 @@ description: Everything you need to know about invoices, payments, and charges i
 | Charge Type | Description |
 |-------------|-------------|
 | **Shipping** | Forward delivery + RTO charges |
-| **Smart Features** | WhatsApp, AI Calls, RTO Prediction |
+| **Smart Features** | WhatsApp, AI Calls, RTO risk score |
 | **Early COD** | Fee for faster COD settlement |
 | **Weight Difference** | Extra charges if actual weight exceeds booked weight |
 | **Platform Fee** | Platform usage charges (if applicable) |
@@ -135,7 +134,7 @@ This is normal and ensures your invoices accurately reflect each month's activit
 
 | Charge | GST |
 |--------|-----|
-| Shipping (Forward & RTO) | No GST |
+| Shipping (Forward & RTO) | 18% GST |
 | Weight Difference | 18% GST |
 | Smart Features (WhatsApp, AI) | 18% GST |
 | Early COD | 18% GST |
@@ -182,7 +181,7 @@ This protects you from incorrect charges!
 
 ### Q: How do I add money to my wallet?
 
-**A:** Go to **Finance - Wallet** and choose:
+**A:** Go to **Payments - Wallet** and choose: Click on + (add fund)
 
 | Payment Method | Processing Time |
 |----------------|-----------------|
@@ -301,7 +300,7 @@ If you believe a charge is incorrect, contact support with the AWB number.
 
 ### Q: How do I download my invoices?
 
-**A:** Go to **Finance - Invoices** to view and download all your invoices as PDF.
+**A:** Go to **Payments - Invoices** to view and download all your invoices as PDF.
 
 ---
 
