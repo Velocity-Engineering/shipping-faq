@@ -71,7 +71,7 @@ Your COD settlement depends on two factors:
 
 ### How do I check my settlement configuration?
 
-1. Go to **Billing** in the left sidebar
+1. Go to **Payments** in the left sidebar
 2. Click on the **COD Remittance** tab
 3. Your settlement configuration is displayed at the top:
    - Days after delivery (e.g., "T+3")
@@ -112,7 +112,7 @@ Deductions are capped at your available COD balance. If deductions exceed your C
 
 ### Where can I see the deduction breakdown?
 
-1. Go to **Billing** > **COD Remittance**
+1. Go to **Payments** > **COD Remittance**
 2. Click on any settlement record
 3. Download the **Settlement Report** (CSV) to see:
    - Individual shipment details
@@ -134,7 +134,7 @@ Early COD charges are calculated as a percentage of your settlement amount, plus
 
 ### How do I enable Early COD?
 
-1. Go to **Billing** > **COD Remittance**
+1. Go to **Payments** > **COD Remittance**
 2. Look for the **Early COD** section
 3. Click **Enable Early COD**
 4. Review the charges and terms
@@ -150,7 +150,7 @@ Yes, you can disable Early COD at any time from the same settings page. Changes 
 
 ### How do I access my COD remittance dashboard?
 
-1. Go to **Billing** in the left sidebar
+1. Go to **Payments** in the left sidebar
 2. Click on the **COD Remittance** tab
 
 ### What information is shown on the dashboard?
@@ -174,7 +174,7 @@ The dashboard displays:
 
 ### How do I download a settlement report?
 
-1. Go to **Billing** > **COD Remittance**
+1. Go to **Payments** > **COD Remittance**
 2. Find the settlement you want to review
 3. Click the **Download** button next to that settlement
 4. A CSV file will be generated with complete shipment-level details
