@@ -55,8 +55,8 @@ Order Confirmation Automation helps you verify orders and customer details **bef
 
 ### Q: How do I configure WhatsApp vs AI Calling?
 **A:** In the automation settings, you can independently enable or disable:
-- **WhatsApp Automation** - Toggle on/off, configure address update option and retries
-- **AI Calling Automation** - Toggle on/off, configure wait time and retry settings
+- **WhatsApp Automation** - Toggle on/off, configure address update option and retries.
+- **AI Calling Automation** - Toggle on/off, configure wait time and retry settings.
 
 ### Q: Can I set up retry rules?
 **A:** Yes. For each channel, you can configure:
@@ -109,7 +109,7 @@ Order Confirmation Automation helps you verify orders and customer details **bef
 - **Cancelled** - Customer requested order cancellation
 - **Prepaid Agreed** - Customer agreed to convert to prepaid (if COD to Prepaid is enabled)
 - **Not Confirmed** - Customer didn't confirm the order
-- **Not Contactable** - Could not reach the customer
+- **failed** - Could not reach the customer
 
 ### Q: How do I see automation outcomes for an order?
 **A:**
@@ -125,7 +125,7 @@ Order Confirmation Automation helps you verify orders and customer details **bef
 - **Cancellation Requested** - Customer requested cancellation
 - **Prepaid Agreed** - Customer agreed to prepaid conversion
 - **Prepaid Converted** - Prepaid payment completed
-- **Not Contactable** - Customer could not be reached
+- **failed** - Customer could not be reached
 
 ### Q: Can I filter orders by automation outcomes?
 **A:** Yes. Use the filters on the Orders page to filter by:
@@ -312,7 +312,7 @@ Order Confirmation Automation helps you verify orders and customer details **bef
 - Ensure accurate phone numbers at checkout
 - Use your brand name for recognition
 - Run automation during business hours
-- Monitor and follow up on "Not Contactable" orders
+- Monitor and follow up on "failed" orders
 
 ---
 
