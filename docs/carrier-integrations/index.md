@@ -46,24 +46,49 @@ description: Guide to logistics partner integrations, supported features, and ca
 
 ### Q: What features does each carrier support?
 
-**A:** Here's a comparison of key features:
+**A:** Here's a comparison of key features across all carriers:
 
-| Feature | Delhivery | BlueDart | DTDC | Ekart | Xpressbees | Shadowfax | Pikndel | Blitz | Urbanebolt |
-|---------|-----------|----------|------|-------|------------|-----------|---------|-------|------------|
-| **Forward Shipping** | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
-| **COD** | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
-| **Prepaid** | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
-| **Reverse Pickup** | Yes | Yes | No | Yes | Yes | Yes | No | Yes | Yes |
-| **Separate RTO Address** | Yes | Yes | No | Yes | Yes | Yes | No | No | No |
-| **Surface (Road)** | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
-| **Air (Express)** | Yes | Yes | Yes | Yes | Yes | Yes | No | No | Yes |
-| **Same-Day (SDD)** | Yes | No | No | Yes | No | Yes | Yes | Yes | No |
-| **Next-Day (NDD)** | Yes | No | No | Yes | No | Yes | No | No | No |
-| **Reattempt via API** | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
-| **Address Update** | Yes | Yes | No | Yes | No | No | No | No | No |
-| **COD to Prepaid** | Yes | No | No | Yes | No | Yes | Yes | No | Yes |
-| **QC on Returns** | Yes | No | No | No | No | Yes | No | No | No |
-| **OTP Delivery** | Yes | Yes | No | No | No | No | No | No | No |
+### Basic Shipping Features
+
+| Carrier | Forward Shipping | COD | Prepaid | Reverse Pickup | Separate RTO Address |
+|---------|------------------|-----|---------|----------------|----------------------|
+| **Delhivery** | Yes | Yes | Yes | Yes | Yes |
+| **BlueDart** | Yes | Yes | Yes | Yes | Yes |
+| **DTDC** | Yes | Yes | Yes | No | No |
+| **Ekart** | Yes | Yes | Yes | Yes | Yes |
+| **Xpressbees** | Yes | Yes | Yes | Yes | Yes |
+| **Shadowfax** | Yes | Yes | Yes | Yes | Yes |
+| **Pikndel** | Yes | Yes | Yes | No | No |
+| **Blitz** | Yes | Yes | Yes | Yes | No |
+| **Urbanebolt** | Yes | Yes | Yes | Yes | No |
+
+### Service Types
+
+| Carrier | Surface (Road) | Air (Express) | Same-Day (SDD) | Next-Day (NDD) |
+|---------|----------------|---------------|----------------|----------------|
+| **Delhivery** | Yes | Yes | Yes | Yes |
+| **BlueDart** | Yes | Yes | No | No |
+| **DTDC** | Yes | Yes | No | No |
+| **Ekart** | Yes | Yes | Yes | Yes |
+| **Xpressbees** | Yes | Yes | No | No |
+| **Shadowfax** | Yes | Yes | Yes | Yes |
+| **Pikndel** | Yes | No | Yes | Yes |
+| **Blitz** | Yes | No | Yes | Yes |
+| **Urbanebolt** | Yes | Yes | Yes | Yes |
+
+### Advanced Features
+
+| Carrier | Reattempt via API | Address Update | COD to Prepaid | QC on Returns | OTP Delivery |
+|---------|-------------------|----------------|----------------|---------------|--------------|
+| **Delhivery** | Yes | Yes | Yes | Yes | Yes |
+| **BlueDart** | Yes | Yes | No | No | Yes |
+| **DTDC** | Yes | No | No | No | No |
+| **Ekart** | Yes | Yes | Yes | No | No |
+| **Xpressbees** | Yes | No | No | No | No |
+| **Shadowfax** | Yes | No | Yes | Yes | No |
+| **Pikndel** | Yes | No | Yes | No | No |
+| **Blitz** | Yes | No | No | No | No |
+| **Urbanebolt** | Yes | No | Yes | No | No |
 
 **Note:** Feature availability may vary based on your specific carrier agreement and account configuration.
 
@@ -132,10 +157,10 @@ Configure your RTO warehouse in **Settings - Warehouses** and mark it as the def
 
 **A:**
 
-| Service | Delhivery | Ekart | Shadowfax | Pikndel | Blitz | Others |
-|---------|-----------|-------|-----------|---------|-------|--------|
-| **Same-Day (SDD)** | Yes | Yes | Yes | Yes | Yes | No |
-| **Next-Day (NDD)** | Yes | Yes | Yes | No | No | No |
+| Service | Delhivery | Ekart | Shadowfax | Pikndel | Blitz | Urbanebolt | Others |
+|---------|-----------|-------|-----------|---------|-------|------------|--------|
+| **Same-Day (SDD)** | Yes | Yes | Yes | Yes | Yes | Yes | No |
+| **Next-Day (NDD)** | Yes | Yes | Yes | Yes | Yes | Yes | No |
 
 **Note:** SDD and NDD are typically available only in metro and tier-1 cities. Pikndel and Blitz specialize in hyperlocal same-day deliveries.
 
@@ -255,7 +280,7 @@ Velocity Shipping automatically tries the next carrier when one fails (up to 3 a
 
 ### Q: How do I check which carriers serve a specific pincode?
 
-**A:** Go to **Settings - Serviceability** and enter the pincode to see:
+**A:** Go to **Tools - Serviceability** and enter the pincode to see:
 - Which carriers can deliver there
 - Available service types (Surface, Air, SDD, NDD)
 - COD availability
@@ -276,7 +301,7 @@ Contact your account manager to set up BYOC integration.
 
 ### Q: How do I enable or disable a carrier?
 
-**A:** Go to **Settings - Carriers** to:
+**A:** Go to **Shipping rules - Courier Selection** to:
 - Enable/disable carriers
 - Set carrier as Regular or High Performance mode
 - Configure carrier-specific settings
@@ -315,7 +340,7 @@ Contact your account manager to set up BYOC integration.
 |-----------|---------------------|
 | Wide coverage + separate RTO | Delhivery, BlueDart, Xpressbees, Ekart |
 | Budget-friendly | DTDC, Xpressbees |
-| Same-day delivery | Shadowfax, Delhivery, Pikndel, Blitz |
+| Same-day delivery | Shadowfax, Delhivery, Pikndel, Blitz, Urbanebolt |
 | Premium/express | BlueDart |
 | QC on returns | Delhivery, Shadowfax |
 | COD conversion | Delhivery, Ekart, Shadowfax, Pikndel |
