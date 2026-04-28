@@ -308,6 +308,10 @@ Yes, labels are stored and can be re-downloaded anytime from the order details p
 3. Click **Create Manifest** or **Download Manifest**
 4. The manifest PDF will be generated for the selected shipments
 
+### Can child account users download shipping labels?
+
+Yes! All users can download shipping labels, including child accounts without buyer data access. Label downloads are available from the Orders page (single and bulk), Pickups/Manifests page, and Manifest details page.
+
 ---
 
 ## Need Help?
