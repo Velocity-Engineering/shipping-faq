@@ -33,12 +33,12 @@ These errors occur when the carrier cannot service a particular pincode or route
 
 | Error Message | Meaning |
 |---------------|---------|
-| `Destination 689582 is not servicable for requested Product` | The carrier does not deliver to this pincode for the selected service type |
-| `Invalid Delivery Pincode. Pincode 400078 is not serviceble` | The delivery pincode is not in the carrier's serviceable area |
-| `Delivery Pincode(110017) Not Servicable` | Same as above - pincode not covered |
+| `Destination [PINCODE] is not servicable for requested Product` | The carrier does not deliver to this pincode for the selected service type |
+| `Invalid Delivery Pincode. Pincode [PINCODE] is not serviceble` | The delivery pincode is not in the carrier's serviceable area |
+| `Delivery Pincode([PINCODE]) Not Servicable` | Same as above - pincode not covered |
 | `Drop pincode not serviceable` | Destination pincode is outside carrier coverage |
 | `Drop Pincode is Not Serviceable` | Same as above |
-| `Service is not available in this area (Chunchagatta)` | The specific locality is not serviceable |
+| `Service is not available in this area ([AREA_NAME])` | The specific locality is not serviceable |
 | `No offerings found for the given request. Either it is out of coverage or dimensions or weight are not supported` | Either the destination is not serviceable OR the package specs exceed limits |
 
 **How to Fix:**
@@ -52,7 +52,7 @@ These errors occur when the carrier cannot service a particular pincode or route
 
 | Error Message | Meaning |
 |---------------|---------|
-| `Invalid Pickup Pincode. Pickup pincode 722202 is not serviceable` | Carrier doesn't pick up from this pincode |
+| `Invalid Pickup Pincode. Pickup pincode [PINCODE] is not serviceable` | Carrier doesn't pick up from this pincode |
 | `Pickup pincode not serviceable` | Same as above |
 | `No vendor has pickup serviceability` | No carrier available for pickup from this location |
 
@@ -67,7 +67,7 @@ These errors occur when the carrier cannot service a particular pincode or route
 | Error Message | Meaning |
 |---------------|---------|
 | `No Serviceability for RETURN_LOCATION` | The RTO address pincode is not serviceable |
-| `Invalid Return Pincode. Return Pincode 411013 is not serviceable` | Carrier cannot deliver returns to this pincode |
+| `Invalid Return Pincode. Return Pincode [PINCODE] is not serviceable` | Carrier cannot deliver returns to this pincode |
 | `RTO pincode not serviceable` | Same as above |
 | `RTO address not provided` | Return address is missing from the shipment |
 
@@ -94,8 +94,8 @@ These errors occur when the carrier cannot service a particular pincode or route
 
 | Error Message | Meaning |
 |---------------|---------|
-| `B2C COD bookings are not allowed for the destination pincode 786153` | COD is not available for B2C shipments to this pincode |
-| `SERVICE TYPE 'B2C PRIORITY' NOT APPLICABLE FOR THIS PINCODE PAIR` | The selected service level is not available for this route |
+| `B2C COD bookings are not allowed for the destination pincode [PINCODE]` | COD is not available for B2C shipments to this pincode |
+| `SERVICE TYPE '[SERVICE_TYPE]' NOT APPLICABLE FOR THIS PINCODE PAIR` | The selected service level is not available for this route |
 | `Special destination not enabled. Please update your settings to proceed.` | Special delivery zones require account-level enablement |
 
 **How to Fix:**
@@ -109,7 +109,7 @@ These errors occur when the carrier cannot service a particular pincode or route
 
 | Error Message | Meaning |
 |---------------|---------|
-| `Route Master Configuration not found for the postal 395010 to 400054 for user_id VT` | No shipping route configured between origin and destination |
+| `Route Master Configuration not found for the postal [ORIGIN_PINCODE] to [DESTINATION_PINCODE] for user_id [USER_ID]` | No shipping route configured between origin and destination |
 | `Serviceability failure` | General serviceability check failed |
 
 **How to Fix:**
@@ -126,11 +126,11 @@ These errors occur when address fields have invalid data or formatting issues.
 
 | Error Message | Meaning |
 |---------------|---------|
-| `services[0].serviceDetails[0].serviceData.source.address.addressLine1: Address exceeds maximum allowed length - 255` | Address line is too long (max 255 characters) |
+| `Address exceeds maximum allowed length - 255` | Address line is too long (max 255 characters) |
 | `The remaining characters are insufficient after removing non-ASCII characters for Destination Address Line 1` | Address becomes too short after removing special characters |
 | `Drop City length should be less than or equal to 50 char` | City name exceeds 50 characters |
 | `Drop Name length should be less than or equal to 100 char` | Customer name exceeds 100 characters |
-| `1 validation error detected: Value at 'shipTo.city' failed to satisfy constraint: Member must have length less than or equal to 50` | City field too long |
+| `Value at 'shipTo.city' failed to satisfy constraint: Member must have length less than or equal to 50` | City field too long |
 
 **How to Fix:**
 - Shorten address lines to under 255 characters
@@ -183,7 +183,7 @@ Phone number validation is strict across carriers. These are very common errors.
 | `consignee contact no. (Mobile / Telephone / Masked) not provided` | No contact number for customer |
 | `Customer Contact number is Required` | Phone is mandatory |
 | `Receiver Phone Number is Mandatory` | Same as above |
-| `destination.address.primaryContactNumber : Contact number is empty or null` | Phone number is null/empty |
+| `Contact number is empty or null` | Phone number is null/empty |
 
 **How to Fix:**
 - Always provide a valid 10-digit mobile number
@@ -198,7 +198,7 @@ Phone number validation is strict across carriers. These are very common errors.
 | `Delivery Mobile length must be 10 digits` | Phone number is not exactly 10 digits |
 | `Invalid consignee mobile no. length must be between 10 to 15 digits` | Phone number length is incorrect |
 | `Drop mobile or Landline number is invalid` | Number format is wrong |
-| `Incorrect phone number(s) for order SHIIAQLB7ATWT` | Phone validation failed |
+| `Incorrect phone number(s) for order [ORDER_ID]` | Phone validation failed |
 | `Customer contact is not valid` | General phone validation error |
 | `Between Customer No and Virtual No, Only one of the no. can be null at a given point in time` | Phone number configuration issue |
 
@@ -229,8 +229,8 @@ Carriers have strict limits on package weight and dimensions.
 
 | Error Message | Meaning |
 |---------------|---------|
-| `Shipment weight exceeds max allowed value - 20` | Package exceeds 20 kg limit |
-| `For Destination Pincode 243601 Shipments weight can not be greater than 10` | Route-specific weight limit (10 kg) |
+| `Shipment weight exceeds max allowed value - [MAX_WEIGHT]` | Package exceeds carrier's weight limit |
+| `For Destination Pincode [PINCODE] Shipments weight can not be greater than [MAX_WEIGHT]` | Route-specific weight limit |
 | `Total items weight is greater than the package weight` | Sum of item weights exceeds declared package weight |
 | `Weight cannot be blank` | Weight field is empty |
 | `Minimum allowed value for Shipment weight is- 0.001` | Weight must be greater than 0 |
@@ -246,8 +246,8 @@ Carriers have strict limits on package weight and dimensions.
 
 | Error Message | Meaning |
 |---------------|---------|
-| `Largest value of dimension exceeds max allowed value - 75.0, Second largest value of dimension exceeds max allowed value - 55.0` | Package dimensions exceed carrier limits |
-| `Second largest value of dimension exceeds max allowed value - 55.0` | One dimension is too large |
+| `Largest value of dimension exceeds max allowed value - [MAX_CM]` | Package dimensions exceed carrier limits |
+| `Second largest value of dimension exceeds max allowed value - [MAX_CM]` | One dimension is too large |
 
 **How to Fix:**
 - Check carrier dimension limits (typically max 75cm × 55cm × 35cm for standard)
@@ -267,12 +267,12 @@ Cash on Delivery shipments have specific validation requirements.
 | `COD amount missing for COD/Cash package` | COD order without amount specified |
 | `Collectable Amount can not be zero for COD/DOD/DODFOD` | COD amount must be greater than zero |
 | `CollectibleAmount Should be minimum 1 rupee for COD order type` | Minimum COD is ₹1 |
-| `COD/FOD Amount should be in range of 0 to 20000!` | COD amount exceeds ₹20,000 limit |
+| `COD/FOD Amount should be in range of 0 to [MAX_AMOUNT]!` | COD amount exceeds carrier limit |
 | `Container cannot have Zero or less than Zero Value for CollectOnDelivery` | Invalid COD value |
 | `For zero COD/FOD amount, COD/FOD In favour of and COD/FOD Mode should be blank` | Configuration mismatch for prepaid orders |
 
 **How to Fix:**
-- Ensure COD amount is between ₹1 and ₹20,000 (or carrier-specific limit)
+- Ensure COD amount is between ₹1 and the carrier limit (typically ₹20,000 - ₹50,000)
 - For prepaid orders, set COD amount to 0 and payment mode to "Prepaid"
 - Verify COD amount matches order total
 
@@ -315,7 +315,7 @@ Issues related to warehouse configuration and pickup setup.
 
 | Error Message | Meaning |
 |---------------|---------|
-| `Warehouse not registered with Delhivery` | Your warehouse needs to be registered with the carrier |
+| `Warehouse not registered with [CARRIER_NAME]` | Your warehouse needs to be registered with the carrier |
 | `Client-Warehouse is not active` | Warehouse is disabled or inactive |
 | `client is not active` | Your account with the carrier is inactive |
 
@@ -330,8 +330,8 @@ Issues related to warehouse configuration and pickup setup.
 
 | Error Message | Meaning |
 |---------------|---------|
-| `Unable to consume waybill I81219054 for SHIPFAST SPL SURFACE` | AWB number is invalid or exhausted |
-| `Unable to consume waybill 77769729575 for Velocity SE, Hint: Check if the right client is specified` | Wrong client/account mapping |
+| `Unable to consume waybill [AWB_NUMBER] for [SERVICE_NAME]` | AWB number is invalid or exhausted |
+| `Unable to consume waybill [AWB_NUMBER] for [CLIENT_NAME], Hint: Check if the right client is specified for this manifest` | Wrong client/account mapping |
 
 **How to Fix:**
 - Verify AWB series is active and has available numbers
@@ -344,7 +344,7 @@ Issues related to warehouse configuration and pickup setup.
 
 | Error Message | Meaning |
 |---------------|---------|
-| `Delhivery token is required for this operation` | Carrier credentials missing |
+| `[CARRIER] token is required for this operation` | Carrier credentials missing |
 | `The incoming token has expired` | API authentication token expired |
 | `Token refresh failed` | Unable to refresh carrier credentials |
 
@@ -396,9 +396,9 @@ These are typically temporary issues that resolve on retry.
 
 | Error Message | Meaning |
 |---------------|---------|
-| `The HTTP service located at https://api-c2pc-bluedart.dhl.com/... is unavailable` | Carrier API is down |
+| `The HTTP service located at [CARRIER_URL] is unavailable` | Carrier API is down |
 | `You exceeded your quota for the requested resource.` | Rate limit exceeded |
-| `Invalid response from Pikndel` | Carrier returned unexpected response |
+| `Invalid response from [CARRIER_NAME]` | Carrier returned unexpected response |
 | `not master` | Database/cluster issue at carrier end |
 
 **How to Fix:**
@@ -411,8 +411,8 @@ These are typically temporary issues that resolve on retry.
 
 | Error Message | Meaning |
 |---------------|---------|
-| `Package creation API error. Package might be saved. Error message is Expecting ',' delimiter` | JSON parsing error - order may have partially saved |
-| `Crashing while saving package... Shipment restricted based on historical delivery outcomes. Package might have been partially saved.` | Historical delivery issues to this address |
+| `Package creation API error. Package might be saved. Please contact support.` | Order may have partially saved |
+| `Shipment restricted based on historical delivery outcomes. Package might have been partially saved.` | Historical delivery issues to this address |
 | `Cannot read properties of null (reading 'getFullAddress')` | Missing address data |
 | `Exception encountered from Promise Engine Cause: [Address Id creation failed]` | Address processing failed |
 | `There is some error in create shipment request. Please contact oncall team.` | General shipment creation error |
@@ -454,7 +454,7 @@ These are typically temporary issues that resolve on retry.
 | Pincode not serviceable | Try different carrier or service type |
 | Phone number invalid | Use exactly 10 digits, no prefix |
 | Address too long | Split across Address Line 1 and 2 |
-| COD amount error | Ensure amount is ₹1 to ₹20,000 |
+| COD amount error | Ensure amount is ₹1 to carrier limit |
 | Duplicate order | Check if already manifested |
 | Timeout | Wait 5 mins and retry |
 
