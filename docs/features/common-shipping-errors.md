@@ -13,19 +13,64 @@ When creating shipments, you may encounter errors from our carrier partners (3PL
 ---
 
 ## Table of Contents
-1. [Serviceability Errors](#1-serviceability-errors)
-2. [Address Validation Errors](#2-address-validation-errors)
-3. [Contact Number Errors](#3-contact-number-errors)
-4. [Weight & Dimension Errors](#4-weight--dimension-errors)
-5. [COD & Payment Errors](#5-cod--payment-errors)
-6. [Duplicate Order Errors](#6-duplicate-order-errors)
-7. [Warehouse & Pickup Errors](#7-warehouse--pickup-errors)
-8. [System & Technical Errors](#8-system--technical-errors)
-9. [Quick Resolution Guide](#9-quick-resolution-guide)
+1. [How to View Shipping Errors](#1-how-to-view-shipping-errors)
+2. [Serviceability Errors](#2-serviceability-errors)
+3. [Address Validation Errors](#3-address-validation-errors)
+4. [Contact Number Errors](#4-contact-number-errors)
+5. [Weight & Dimension Errors](#5-weight--dimension-errors)
+6. [COD & Payment Errors](#6-cod--payment-errors)
+7. [Duplicate Order Errors](#7-duplicate-order-errors)
+8. [Warehouse & Pickup Errors](#8-warehouse--pickup-errors)
+9. [System & Technical Errors](#9-system--technical-errors)
+10. [Quick Resolution Guide](#10-quick-resolution-guide)
 
 ---
 
-## 1. Serviceability Errors
+## 1. How to View Shipping Errors
+
+### Manifest Attempts Tab
+
+To view detailed error information for any shipment, check the **Manifest Attempts** tab in the Order details drawer:
+
+1. Go to **Orders** and click on the order you want to investigate
+2. In the Order details drawer, click on the **Manifest Attempts** tab
+3. View all carrier attempts and their results
+
+### Why Check Manifest Attempts?
+
+When you create a shipment, Velocity automatically tries **up to 3 carriers** based on your shipping rules (in priority order). If the first carrier fails, we attempt the next one, and so on.
+
+**This means:**
+- Your shipment may be manifested with your 2nd or 3rd priority carrier if the 1st one failed
+- The Manifest Attempts tab shows **all attempts** - successful and failed
+- You can see the **exact error message** from each carrier that failed
+
+### Common Scenario
+
+> "Why wasn't my shipment assigned to Carrier A as per my shipping rules?"
+
+Check the Manifest Attempts tab. You might see:
+| Attempt | Carrier | Status | Error |
+|---------|---------|--------|-------|
+| 1 | Carrier A | Failed | `Destination [PINCODE] is not serviceable` |
+| 2 | Carrier B | Failed | `Temporary Embargo is placed for the Destination pin code` |
+| 3 | Carrier C | Success | - |
+
+This shows that Carrier A and B failed due to serviceability issues, so the shipment was manifested with Carrier C (your 3rd priority).
+
+### What You'll Find in Manifest Attempts
+
+- **Carrier name** - Which carrier was attempted
+- **Timestamp** - When the attempt was made
+- **Status** - Success or Failed
+- **Error message** - The exact error returned by the carrier (if failed)
+- **AWB number** - Assigned tracking number (if successful)
+
+Use the error messages from failed attempts and refer to the sections below to understand what went wrong.
+
+---
+
+## 2. Serviceability Errors
 
 These errors occur when the carrier cannot service a particular pincode or route.
 
@@ -118,7 +163,7 @@ These errors occur when the carrier cannot service a particular pincode or route
 
 ---
 
-## 2. Address Validation Errors
+## 3. Address Validation Errors
 
 These errors occur when address fields have invalid data or formatting issues.
 
@@ -171,7 +216,7 @@ These errors occur when address fields have invalid data or formatting issues.
 
 ---
 
-## 3. Contact Number Errors
+## 4. Contact Number Errors
 
 Phone number validation is strict across carriers. These are very common errors.
 
@@ -221,7 +266,7 @@ Phone number validation is strict across carriers. These are very common errors.
 
 ---
 
-## 4. Weight & Dimension Errors
+## 5. Weight & Dimension Errors
 
 Carriers have strict limits on package weight and dimensions.
 
@@ -256,7 +301,7 @@ Carriers have strict limits on package weight and dimensions.
 
 ---
 
-## 5. COD & Payment Errors
+## 6. COD & Payment Errors
 
 Cash on Delivery shipments have specific validation requirements.
 
@@ -290,7 +335,7 @@ Cash on Delivery shipments have specific validation requirements.
 
 ---
 
-## 6. Duplicate Order Errors
+## 7. Duplicate Order Errors
 
 These occur when trying to create shipments that already exist.
 
@@ -307,7 +352,7 @@ These occur when trying to create shipments that already exist.
 
 ---
 
-## 7. Warehouse & Pickup Errors
+## 8. Warehouse & Pickup Errors
 
 Issues related to warehouse configuration and pickup setup.
 
@@ -354,7 +399,7 @@ Issues related to warehouse configuration and pickup setup.
 
 ---
 
-## 8. System & Technical Errors
+## 9. System & Technical Errors
 
 These are typically temporary issues that resolve on retry.
 
@@ -437,15 +482,16 @@ These are typically temporary issues that resolve on retry.
 
 ---
 
-## 9. Quick Resolution Guide
+## 10. Quick Resolution Guide
 
 ### Before You Contact Support
 
-1. **Check the error category** above and try the suggested fix
-2. **Retry after 5 minutes** for timeout/technical errors
-3. **Verify your data** - most errors are due to invalid input
-4. **Check serviceability** in Tools > Pincode Serviceability
-5. **Review order details** for missing or invalid fields
+1. **Check the Manifest Attempts tab** in Order details to see all carrier attempts and errors
+2. **Check the error category** above and try the suggested fix
+3. **Retry after 5 minutes** for timeout/technical errors
+4. **Verify your data** - most errors are due to invalid input
+5. **Check serviceability** in Tools > Pincode Serviceability
+6. **Review order details** for missing or invalid fields
 
 ### Most Common Fixes
 
@@ -457,6 +503,7 @@ These are typically temporary issues that resolve on retry.
 | COD amount error | Ensure amount is ₹1 to carrier limit |
 | Duplicate order | Check if already manifested |
 | Timeout | Wait 5 mins and retry |
+| Wrong carrier assigned | Check Manifest Attempts tab for errors from preferred carrier |
 
 ### When to Contact Support
 
@@ -467,7 +514,7 @@ Contact support if:
 - Partial shipment creation errors
 
 **Include in your support request:**
-- Full error message
+- Full error message (from Manifest Attempts tab)
 - Order ID / AWB number
 - Timestamp of the error
 - Steps you've already tried
