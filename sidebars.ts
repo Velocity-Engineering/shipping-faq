@@ -41,6 +41,7 @@ const sidebars: SidebarsConfig = {
         'features/labels',
         'features/cod-remittance',
         'features/weight-discrepancies',
+        'features/common-shipping-errors',
       ],
     },
     {
