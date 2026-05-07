@@ -74,6 +74,12 @@ Use the error messages from failed attempts and refer to the sections below to u
 
 These errors occur when the carrier cannot service a particular pincode or route.
 
+:::caution Serviceability is Dynamic
+The serviceability information shown in **Tools > Pincode Serviceability** or in reports may not always reflect real-time carrier availability. Carrier serviceability is highly dynamic and can change frequently due to operational constraints, capacity limits, or temporary restrictions.
+
+**This means:** A pincode may show as "serviceable" in the serviceability check tool but still fail during actual manifestation. Always check the **Manifest Attempts** tab for the actual error from the carrier.
+:::
+
 ### Destination Not Serviceable
 
 | Error Message | Meaning |
@@ -87,9 +93,10 @@ These errors occur when the carrier cannot service a particular pincode or route
 | `No offerings found for the given request. Either it is out of coverage or dimensions or weight are not supported` | Either the destination is not serviceable OR the package specs exceed limits |
 
 **How to Fix:**
-- Check pincode serviceability in **Tools > Pincode Serviceability** before creating orders
+- Check pincode serviceability in **Tools > Pincode Serviceability** as a general guide, but be aware it may not reflect real-time status
 - Try a different carrier that services the destination
 - For B2C shipments, verify COD serviceability separately as it may differ from prepaid
+- If the issue persists, try again after some time as carrier serviceability may change
 
 ---
 
@@ -356,6 +363,10 @@ These occur when trying to create shipments that already exist.
 
 Issues related to warehouse configuration and pickup setup.
 
+:::info Contact Support for Warehouse Errors
+Warehouse and pickup errors are typically configuration issues on **Velocity's side**. If you encounter any of the errors below, please **raise a support ticket** and our team will resolve it for you.
+:::
+
 ### Warehouse Not Configured
 
 | Error Message | Meaning |
@@ -365,9 +376,8 @@ Issues related to warehouse configuration and pickup setup.
 | `client is not active` | Your account with the carrier is inactive |
 
 **How to Fix:**
-- Ensure warehouse is registered in **Settings > Warehouses**
-- Verify carrier-specific warehouse codes are configured
-- Contact support if your account shows as inactive
+- **Raise a support ticket** - Velocity will register/activate your warehouse with the carrier
+- Include your warehouse name and the carrier name in the ticket
 
 ---
 
@@ -379,9 +389,8 @@ Issues related to warehouse configuration and pickup setup.
 | `Unable to consume waybill [AWB_NUMBER] for [CLIENT_NAME], Hint: Check if the right client is specified for this manifest` | Wrong client/account mapping |
 
 **How to Fix:**
-- Verify AWB series is active and has available numbers
-- Contact support if AWB pool is exhausted
-- Check carrier account mapping is correct
+- **Raise a support ticket** - Velocity will replenish the AWB pool or fix the account mapping
+- Include the carrier name and error message in the ticket
 
 ---
 
@@ -394,8 +403,8 @@ Issues related to warehouse configuration and pickup setup.
 | `Token refresh failed` | Unable to refresh carrier credentials |
 
 **How to Fix:**
-- These are usually temporary - retry after a few minutes
-- If persistent, contact support to verify carrier credentials
+- These may resolve automatically - retry after a few minutes
+- If persistent, **raise a support ticket** - Velocity will refresh the carrier credentials
 
 ---
 
@@ -490,7 +499,7 @@ These are typically temporary issues that resolve on retry.
 2. **Check the error category** above and try the suggested fix
 3. **Retry after 5 minutes** for timeout/technical errors
 4. **Verify your data** - most errors are due to invalid input
-5. **Check serviceability** in Tools > Pincode Serviceability
+5. **Check serviceability** in Tools > Pincode Serviceability (note: this may not reflect real-time carrier status)
 6. **Review order details** for missing or invalid fields
 
 ### Most Common Fixes
@@ -504,13 +513,15 @@ These are typically temporary issues that resolve on retry.
 | Duplicate order | Check if already manifested |
 | Timeout | Wait 5 mins and retry |
 | Wrong carrier assigned | Check Manifest Attempts tab for errors from preferred carrier |
+| Warehouse/AWB errors | Raise support ticket - Velocity will fix |
 
 ### When to Contact Support
 
 Contact support if:
+- **Warehouse or pickup errors** - These are Velocity's responsibility to fix
 - Error persists after 3+ retries over 30 minutes
 - You see "contact support" in the error message
-- Account/warehouse/credential issues
+- Account/credential issues
 - Partial shipment creation errors
 
 **Include in your support request:**
