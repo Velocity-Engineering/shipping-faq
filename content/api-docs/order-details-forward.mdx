@@ -1,0 +1,212 @@
+---
+title: Order Details (Forward)
+description: Retrieve paginated list of forward shipments via API
+---
+
+# Order Details API (Forward)
+
+Retrieve a paginated list of forward shipments with various filtering and sorting options.
+
+**Method:** `POST`
+**Endpoint:** `/custom/api/v1/shipments`
+
+## Request Parameters
+
+### Pagination Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| page | integer | 1 | Page number (1-indexed) |
+| per_page | integer | 20 | Records per page (max: 100) |
+
+### Date Range Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| date_field | string | Field for date filtering: `order_date`, `created_at`, `delivered_at`, etc. |
+| start_time | integer | Start timestamp (Unix) |
+| end_time | integer | End timestamp (Unix) |
+
+### Sort Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| sort_order | string | desc | Sort direction: `asc` or `desc` |
+
+### Filter Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| search | string | Full search across tracking number, customer details, AWB, etc. |
+| status | string | Filter by status: `pending`, `in_transit`, `out_for_delivery`, `delivered`, `ndr_raised`, `rto_initiated`, `rto_in_transit`, `rto_delivered`, `cancelled`, `others` |
+| granular_status[] | array | Filter by detailed status |
+| carrier_id[] | array | Filter by carrier IDs |
+| warehouse_ids[] | array | Filter by warehouse IDs |
+| channel[] | array | Filter by channel (e.g., `shopify`, `woocommerce`) |
+| zone[] | array | Filter by shipping zone (`zone_a`, `zone_b`, `zone_c`, `zone_d`, `zone_e`) |
+| is_cod | boolean | Filter COD shipments |
+| sku[] | array | Filter by SKU codes |
+| tags[] | array | Filter by order tags |
+| ndr_reason[] | array | Filter by NDR reason |
+| rto_reason[] | array | Filter by RTO reason |
+| applied_weight_min | float | Minimum applied weight (grams) |
+| applied_weight_max | float | Maximum applied weight (grams) |
+| attempts_count__gte | integer | Minimum delivery attempts |
+| attempts_count__lte | integer | Maximum delivery attempts |
+
+## Sample Requests
+
+### Basic Request
+
+```bash
+curl -X POST "https://shazam.velocity.in/custom/api/v1/shipments" \
+  -H "Authorization: your_access_token" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "page": 1,
+    "per_page": 20
+  }'
+```
+
+### Filter by Date Range
+
+```bash
+curl -X POST "https://shazam.velocity.in/custom/api/v1/shipments" \
+  -H "Authorization: your_access_token" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "page": 1,
+    "per_page": 20,
+    "date_field": "order_date",
+    "start_time": 1704067200,
+    "end_time": 1704672000
+  }'
+```
+
+### Filter by Status
+
+```bash
+curl -X POST "https://shazam.velocity.in/custom/api/v1/shipments" \
+  -H "Authorization: your_access_token" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "page": 1,
+    "per_page": 20,
+    "status": "in_transit"
+  }'
+```
+
+### Filter COD Shipments with NDR
+
+```bash
+curl -X POST "https://shazam.velocity.in/custom/api/v1/shipments" \
+  -H "Authorization: your_access_token" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "page": 1,
+    "per_page": 20,
+    "is_cod": true,
+    "status": "ndr_raised",
+    "ndr_reason": ["customer_not_available", "address_incomplete"]
+  }'
+```
+
+### Complex Filter
+
+```bash
+curl -X POST "https://shazam.velocity.in/custom/api/v1/shipments" \
+  -H "Authorization: your_access_token" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "page": 1,
+    "per_page": 50,
+    "status": "in_transit",
+    "warehouse_ids": ["warehouse-uuid-1", "warehouse-uuid-2"],
+    "zone": ["zone_a", "zone_b"],
+    "channel": ["shopify"],
+    "is_cod": false,
+    "sort_order": "desc"
+  }'
+```
+
+## Success Response
+
+```json
+{
+  "data": [
+    {
+      "id": "shipment-uuid",
+      "type": "shipment",
+      "attributes": {
+        "tracking_number": "TRACK123456789",
+        "status": "in_transit",
+        "sub_status": null,
+        "created_at": "2024-01-15T10:30:00Z",
+        "warehouse_id": "warehouse-uuid",
+        "total_price": 1500.00,
+        "cod_amount": 0.00,
+        "is_cod": false,
+        "zone": "zone_b",
+        "applied_weight": {
+          "value": 750,
+          "metric_unit": "g"
+        },
+        "attempt_count": 1,
+        "carrier": {
+          "id": "carrier-uuid",
+          "name": "Delhivery"
+        },
+        "order": {
+          "id": "order-uuid",
+          "order_date": "2024-01-15T09:00:00Z",
+          "channel": "shopify",
+          "display_id": "ORD-12345",
+          "external_id": "shopify-order-123",
+          "store_name": "My Store"
+        },
+        "items": [
+          {
+            "id": "item-uuid",
+            "quantity": 1,
+            "price": 1500.00,
+            "name": "Product Name",
+            "sku": "SKU-001"
+          }
+        ],
+        "shipping_address": {
+          "name": "Customer Name",
+          "phone": "9876543210",
+          "city": "Delhi",
+          "state": "Delhi",
+          "zip": "110001"
+        },
+        "shipment_milestones": [
+          {
+            "milestone": "ready_for_pickup",
+            "milestone_at": "2024-01-15T10:35:00Z"
+          },
+          {
+            "milestone": "in_transit",
+            "milestone_at": "2024-01-15T14:00:00Z"
+          }
+        ],
+        "tracking_details": [
+          {
+            "id": "tracking-uuid",
+            "status": "in_transit",
+            "last_location": "Delhi Hub",
+            "event_date_time": "2024-01-15T14:00:00Z",
+            "description": "Shipment in transit"
+          }
+        ]
+      }
+    }
+  ],
+  "meta": {
+    "current_page": 1,
+    "per_page": 20,
+    "total": 156,
+    "next_search_after": ["1705320000000", "shipment-uuid"]
+  }
+}
+```

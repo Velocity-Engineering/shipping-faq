@@ -1,0 +1,274 @@
+---
+title: Forward Shipment API
+description: Create and manifest forward shipments via API
+---
+
+# Forward Shipment API
+
+Creates and manifests a forward shipment (create an order and assign to a courier) after successful serviceability validation.
+
+**Method:** `POST`
+**Endpoint:** `/custom/api/v1/forward-order-orchestration`
+
+## Request Fields
+
+### Order, Channel & Carrier
+
+| Field | Type | Required | Description | Example |
+|-------|------|----------|-------------|---------|
+| order_id | string | Yes | Unique per order | ORDER-49 |
+| order_date | string | Yes | YYYY-MM-DD HH:mm | 2018-05-08 12:23 |
+| carrier_id | string | Optional | Leave blank for automatic courier assignment based on shipping rules | CARO0ZZQH1H6U |
+
+### Billing & Shipping
+
+| Field | Type | Required | Description | Example |
+|-------|------|----------|-------------|---------|
+| billing_customer_name | string | Yes | First name | Saurabh |
+| billing_last_name | string | Optional | Last name | Jindal |
+| billing_address | string | Yes | Address line 1 | Incubex, Velocity |
+| billing_city | string | Yes | City | Bangalore |
+| billing_pincode | string | Yes | 6-digit PIN | 560102 |
+| billing_state | string | Yes | State | Karnataka |
+| billing_country | string | Yes | Country | India |
+| billing_email | string | Optional | Email | saurabh@velocity.in |
+| billing_phone | string | Yes | Phone | 8860697807 |
+| shipping_is_billing | boolean | Optional | True if shipping same as billing | true |
+| print_label | boolean | Yes | Auto-generate label | true |
+
+### Items & Payment
+
+| Field | Type | Required | Description | Example |
+|-------|------|----------|-------------|---------|
+| order_items[] | array | Yes | List of items | see below |
+| payment_method | enum | Yes | `COD` or `PREPAID` | COD |
+| sub_total | number | Yes | Order subtotal | 990 |
+| cod_collectible | number | Yes | Required if COD, pass 0 for PREPAID | 990 |
+
+#### Order Item Fields
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| name | string | Yes | Item name |
+| sku | string | Yes | SKU code |
+| units | number | Yes | Quantity |
+| selling_price | number | Yes | Price per unit |
+| discount | number | Optional | Discount amount |
+| tax | number | Optional | Tax amount |
+
+### Dimensions & Warehouse
+
+| Field | Type | Required | Description | Example |
+|-------|------|----------|-------------|---------|
+| length | number | Yes | Length in cm | 100 |
+| breadth | number | Yes | Breadth in cm | 50 |
+| height | number | Yes | Height in cm | 10 |
+| weight | number | Yes | Weight in kg | 0.5 |
+| pickup_location | string | Yes | Pickup Location Name | Lucknow Warehouse |
+| warehouse_id | string | Yes | Pickup warehouse ID | WHYYB5 |
+| rto_warehouse_id | string | Optional | RTO warehouse ID (if different) | MYZUXH |
+
+### Vendor Details (Optional)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| vendor_details.email | string | Vendor email |
+| vendor_details.phone | string | Vendor phone |
+| vendor_details.name | string | Vendor name |
+| vendor_details.address | string | Address |
+| vendor_details.city | string | City |
+| vendor_details.state | string | State |
+| vendor_details.country | string | Country |
+| vendor_details.pin_code | string | PIN |
+
+## Sample Request
+
+```bash
+curl --location 'https://shazam.velocity.in/custom/api/v1/forward-order-orchestration' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: DO190JE4z8qD4S7ly6hx9Q' \
+--data-raw '{
+  "order_id": "ORDER-43242",
+  "order_date": "2018-05-08 12:23",
+  "carrier_id": "CARO0ZZQH1H6U",
+  "billing_customer_name": "Saurabh",
+  "billing_last_name": "Jindal",
+  "billing_address": "Incubex, Velocity",
+  "billing_city": "Bangalore",
+  "billing_pincode": "560102",
+  "billing_state": "Karnataka",
+  "billing_country": "India",
+  "billing_email": "saurabh+123891@velocity.in",
+  "billing_phone": "8860697807",
+  "shipping_is_billing": true,
+  "print_label": true,
+  "order_items": [
+    {
+      "name": "T-shirt Round Neck",
+      "sku": "t-shirt-round1474",
+      "units": 2,
+      "selling_price": 1000,
+      "discount": 100,
+      "tax": 10
+    }
+  ],
+  "payment_method": "COD",
+  "sub_total": 990,
+  "cod_collectible": 990,
+  "length": 100,
+  "breadth": 50,
+  "height": 10,
+  "weight": 0.5,
+  "pickup_location": "HomeNew",
+  "warehouse_id": "WHZWUN",
+  "rto_warehouse_id": "MYZYN",
+  "vendor_details": {
+    "email": "abcdd@abcdd.com",
+    "phone": "9879879879",
+    "name": "Coco Cookie",
+    "address": "Street 1",
+    "city": "delhi",
+    "state": "new delhi",
+    "country": "india",
+    "pin_code": "110077",
+    "pickup_location": "HomeNew"
+  }
+}'
+```
+
+## Success Response
+
+```json
+{
+  "status": 1,
+  "payload": {
+    "pickup_location_added": 1,
+    "order_created": 1,
+    "awb_generated": 1,
+    "label_generated": 1,
+    "pickup_generated": 1,
+    "manifest_generated": 0,
+    "pickup_scheduled_date": null,
+    "pickup_booked_date": null,
+    "order_id": "ORDKDKHOFL07I",
+    "shipment_id": "SHIHB0BMT4DYM",
+    "awb_code": "34812010700125",
+    "courier_company_id": "CARO0ZZQH1H6U",
+    "courier_name": "Delhivery Standard",
+    "assigned_date_time": {
+      "date": "2025-09-30T17:50:50.424+05:30",
+      "timezone_type": 3,
+      "timezone": "Asia/Kolkata"
+    },
+    "applied_weight": 0.5,
+    "cod": 1,
+    "label_url": "https://velocity-shazam-prod.s3.ap-south-1.amazonaws.com/...",
+    "manifest_url": null,
+    "routing_code": null,
+    "rto_routing_code": null,
+    "pickup_token_number": null,
+    "charges": {
+      "frwd_charges": {
+        "shipping_charges": "44.40",
+        "cod_charges": "31.30",
+        "dead_weight_billing": true
+      },
+      "rto_charges": {
+        "rto_charges": "40.00"
+      }
+    }
+  }
+}
+```
+
+---
+
+## Create Order and Shipment Separately
+
+Velocity Shipping allows you to create an order without assigning a courier and assign the courier later.
+
+### Step 1: Create Order Only
+
+**Endpoint:** `/custom/api/v1/forward-order`
+
+```bash
+curl --location 'https://shazam.velocity.in/custom/api/v1/forward-order' \
+--header 'Authorization: Iu9npoZf8PWpvIIBeMZXWQ' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "order_id": "ORDER-0099iyhih",
+  "order_date": "2018-05-08 12:23",
+  "billing_customer_name": "Saurabh",
+  "billing_address": "Incubex, Velocity",
+  "billing_city": "Bangalore",
+  "billing_pincode": "560102",
+  "billing_state": "Karnataka",
+  "billing_country": "India",
+  "billing_phone": "8860697807",
+  "shipping_is_billing": true,
+  "print_label": true,
+  "order_items": [
+    {
+      "name": "T-shirt Round Neck",
+      "sku": "t-shirt-round1474",
+      "units": 2,
+      "selling_price": 1000
+    }
+  ],
+  "payment_method": "COD",
+  "sub_total": 990,
+  "cod_collectible": 990,
+  "length": 100,
+  "breadth": 50,
+  "height": 10,
+  "weight": 0.50,
+  "pickup_location": "HomeNew",
+  "warehouse_id": "WHYYB5"
+}'
+```
+
+**Response:** (No courier assigned yet)
+
+```json
+{
+  "status": 1,
+  "payload": {
+    "pickup_location_added": 1,
+    "order_created": 1,
+    "awb_generated": 0,
+    "pickup_generated": 0,
+    "shipment_id": "SHIXRE1ER7BQI",
+    "order_id": "ORDBJSDAMG9YN"
+  }
+}
+```
+
+### Step 2: Assign Courier (Create Shipment)
+
+**Endpoint:** `/custom/api/v1/forward-order-shipment`
+
+```bash
+curl --location 'https://shazam.velocity.in/custom/api/v1/forward-order-shipment' \
+--header 'Authorization: RJShHQFn_YuXsMzfZb9-1A' \
+--header 'Content-Type: application/json' \
+--data '{
+  "shipment_id": "SHIXRE1ER7BQI",
+  "carrier_id": ""
+}'
+```
+
+**Response:** (Courier now assigned)
+
+```json
+{
+  "status": 1,
+  "payload": {
+    "awb_generated": 1,
+    "label_generated": 1,
+    "pickup_generated": 1,
+    "awb_code": "34812010700125",
+    "courier_name": "Delhivery Standard",
+    "label_url": "https://..."
+  }
+}
+```

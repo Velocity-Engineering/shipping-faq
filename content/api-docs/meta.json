@@ -1,0 +1,20 @@
+{
+  "title": "API Documentation",
+  "pages": [
+    "index",
+    "authentication",
+    "warehouse",
+    "serviceability",
+    "forward-shipment",
+    "reverse-shipment",
+    "cancel-order",
+    "tracking",
+    "ndr-actions",
+    "order-details-forward",
+    "order-details-returns",
+    "rates",
+    "reports",
+    "webhooks",
+    "shipment-status"
+  ]
+}

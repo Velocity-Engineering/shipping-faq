@@ -1,0 +1,68 @@
+---
+title: Warehouse API
+description: Create and manage pickup warehouses via API
+---
+
+# Create Warehouse
+
+Creates a new pickup warehouse in the Velocity Shipping system.
+
+**Method:** `POST`
+**Endpoint:** `/custom/api/v1/warehouse`
+
+## Request Fields
+
+| Field | Type | Required | Description | Example |
+|-------|------|----------|-------------|---------|
+| name | string | Yes | Warehouse display name | Demo Warehouse |
+| phone_number | string | Yes | POC Contact number | 8860606061 |
+| gst_no | string | Optional | GST no. of the warehouse | TY9782399913 |
+| email | string | Yes | POC email | shipfast-clickpost@velocity.in |
+| contact_person | string | Yes | Warehouse POC | Raghuraj |
+| address_attributes.street_address | string | Yes | Street address | Incubex HSR Layout... |
+| address_attributes.zip | string | Yes | PIN | 560102 |
+| address_attributes.city | string | Yes | City | Bangalore |
+| address_attributes.state | string | Yes | State | Karnataka |
+| address_attributes.country | string | Yes | Country | India |
+
+## Sample Request
+
+```bash
+curl --location 'https://shazam.velocity.in/custom/api/v1/warehouse' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: bbqRkOXw0xWLuYj9ubnDwg' \
+--data-raw '{
+  "name": "Demo Warehouse",
+  "phone_number": "8860606061",
+  "gst_no": "886060608861",
+  "email": "shipfast-clickpost@velocity.in",
+  "contact_person": "Raghuraj",
+  "address_attributes": {
+    "street_address": "Incubex HSR Layout (HSR6) #1504, 19th Main, 11th Cross Rd, opposite Decathlon, 1st Sector, HSR Layout",
+    "zip": "560102",
+    "city": "Bangalore",
+    "state": "Karnataka",
+    "country": "India"
+  }
+}'
+```
+
+## Success Response
+
+```json
+{
+  "status": "SUCCESS",
+  "payload": {
+    "warehouse_id": "WH66DU"
+  }
+}
+```
+
+## Error Response
+
+```json
+{
+  "status": "ERROR",
+  "message": "Validation failed: Phone number is invalid"
+}
+```

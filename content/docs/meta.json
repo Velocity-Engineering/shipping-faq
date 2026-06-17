@@ -1,0 +1,16 @@
+{
+  "title": "Help Center",
+  "pages": [
+    "index",
+    "automations",
+    "billing",
+    "carrier-integrations",
+    "features",
+    "integrations",
+    "partners",
+    "reports",
+    "shipping-rules",
+    "tools",
+    "vas"
+  ]
+}

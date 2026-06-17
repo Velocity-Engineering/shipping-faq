@@ -1,0 +1,79 @@
+---
+title: Serviceability API
+description: Check carrier serviceability between pincodes via API
+---
+
+# Serviceability API
+
+Checks whether pickup and delivery are supported between two pincodes for a given payment mode and shipment type, and returns a list of eligible carriers.
+
+**Method:** `POST`
+**Endpoint:** `/custom/api/v1/serviceability`
+
+## Request Fields
+
+| Field | Type | Required | Description | Example |
+|-------|------|----------|-------------|---------|
+| from | string | Yes | Pickup pincode | 560068 |
+| to | string | Yes | Destination pincode | 560068 |
+| payment_mode | enum | Yes | `cod` or `prepaid` | cod |
+| shipment_type | enum | Yes | `forward` or `return` | forward |
+
+## Sample Request
+
+```bash
+curl --location 'https://shazam.velocity.in/custom/api/v1/serviceability' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: DO190JE4z8qD4S7ly6hx9Q' \
+--data '{
+  "from": "560068",
+  "to": "560068",
+  "payment_mode": "cod",
+  "shipment_type": "forward"
+}'
+```
+
+## Success Response
+
+```json
+{
+  "result": {
+    "serviceability_results": [
+      {
+        "carrier_id": "CAR0EPDPJXXL4",
+        "carrier_name": "DTDC Standard"
+      },
+      {
+        "carrier_id": "CARCVBWTPRH08",
+        "carrier_name": "Ekart Standard"
+      },
+      {
+        "carrier_id": "CAR5IXXJVT5MD",
+        "carrier_name": "Delhivery Standard 5 Kg"
+      },
+      {
+        "carrier_id": "CARO0ZZQH1H6U",
+        "carrier_name": "Delhivery Standard"
+      },
+      {
+        "carrier_id": "CAR2FZNOLGJ2X",
+        "carrier_name": "Bluedart Standard"
+      },
+      {
+        "carrier_id": "CARTS5SW8LSJT",
+        "carrier_name": "XpressBees Standard"
+      },
+      {
+        "carrier_id": "CARKX7WW6UNS8",
+        "carrier_name": "Pikndel NDD"
+      }
+    ],
+    "zone": "zone_a"
+  },
+  "status": "SUCCESS"
+}
+```
+
+## Using Carrier ID
+
+The `carrier_id` returned from this API can be used in the Forward Shipment or Reverse Shipment APIs to assign a specific courier. If you leave `carrier_id` blank in those APIs, automatic courier assignment will be applied based on your configured shipping rules.
