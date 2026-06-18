@@ -1,17 +1,30 @@
 import type { ReactNode } from 'react';
+import { DocsLayout } from 'fumadocs-ui/layouts/docs';
+import { apiDocsPageTree } from '@/lib/source';
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen">
-      <header className="border-b p-4">
-        <nav className="flex gap-4">
-          <a href="/docs">Help Center</a>
-          <a href="/api-docs" className="font-medium">API Docs</a>
-        </nav>
-      </header>
-      <main className="p-8">
-        {children}
-      </main>
-    </div>
+    <DocsLayout
+      tree={apiDocsPageTree}
+      nav={{
+        title: (
+          <div className="flex items-center gap-2">
+            <img src="/img/logo.svg" alt="Velocity" className="h-6" />
+            <span className="font-semibold">API Documentation</span>
+          </div>
+        ),
+      }}
+      links={[
+        {
+          text: 'Help Center',
+          url: '/docs',
+        },
+      ]}
+      sidebar={{
+        defaultOpenLevel: 1,
+      }}
+    >
+      {children}
+    </DocsLayout>
   );
 }

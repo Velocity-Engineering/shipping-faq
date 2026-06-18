@@ -1,5 +1,7 @@
 import { getApiDocsPage, getApiDocsSlugs } from '@/lib/source';
 import { notFound } from 'next/navigation';
+import { DocsPage, DocsBody, DocsTitle, DocsDescription } from 'fumadocs-ui/page';
+import defaultMdxComponents from 'fumadocs-ui/mdx';
 
 interface PageProps {
   params: Promise<{ slug?: string[] }>;
@@ -14,10 +16,13 @@ export default async function Page({ params }: PageProps) {
   const MDX = page.body;
 
   return (
-    <article className="prose max-w-4xl mx-auto p-8">
-      <h1>{page.title}</h1>
-      <MDX />
-    </article>
+    <DocsPage toc={page.toc}>
+      <DocsTitle>{page.title}</DocsTitle>
+      {page.description && <DocsDescription>{page.description}</DocsDescription>}
+      <DocsBody>
+        <MDX components={defaultMdxComponents} />
+      </DocsBody>
+    </DocsPage>
   );
 }
 
