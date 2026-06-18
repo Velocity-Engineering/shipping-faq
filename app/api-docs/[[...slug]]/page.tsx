@@ -1,7 +1,5 @@
-import { apiDocsSource } from '@/lib/source';
+import { getApiDocsPage, getApiDocsSlugs } from '@/lib/source';
 import { notFound } from 'next/navigation';
-
-export const dynamic = 'force-dynamic';
 
 interface PageProps {
   params: Promise<{ slug?: string[] }>;
@@ -9,15 +7,31 @@ interface PageProps {
 
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
-  const page = apiDocsSource.getPage(slug);
+  const page = getApiDocsPage(slug);
+
   if (!page) notFound();
 
-  const MDX = page.data.body;
+  const MDX = page.body;
 
   return (
     <article className="prose max-w-4xl mx-auto p-8">
-      <h1>{page.data.title}</h1>
+      <h1>{page.title}</h1>
       <MDX />
     </article>
   );
+}
+
+export function generateStaticParams() {
+  return getApiDocsSlugs().map(slug => ({ slug }));
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const { slug } = await params;
+  const page = getApiDocsPage(slug);
+  if (!page) return {};
+
+  return {
+    title: page.title,
+    description: page.description,
+  };
 }
