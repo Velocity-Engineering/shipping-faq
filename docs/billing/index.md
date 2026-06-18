@@ -305,6 +305,38 @@ If you believe a charge is incorrect, contact support with the AWB number.
 
 ---
 
+### Q: My invoice still shows my old address even after I updated my pickup address. Why?
+
+**A:** Invoices use the **primary business address** registered at the time the order was created — not the pickup/warehouse address. Updating your pickup address only changes the shipping label printed on the parcel; it does not retroactively update any invoice.
+
+To update the business address shown on future invoices, contact your account manager. Existing invoices cannot be reissued with a different address.
+
+---
+
+### Q: I completed KYC but my account still shows as "not activated". What's wrong?
+
+**A:** KYC verification and account activation are **two separate steps**:
+
+| Step | What it means |
+|------|---------------|
+| KYC completed | Your identity documents have been submitted and verified |
+| Account activated | An admin has manually activated your account in the Velocity back office |
+
+Completing KYC does not automatically activate your account. If you have finished KYC but still cannot ship, contact support — the Velocity ops team will activate your account in the admin panel. You do not need to re-submit documents.
+
+---
+
+### Q: The COD amount in Velocity is different from what's in my Shopify / WooCommerce store. Who changed it?
+
+**A:** The COD amount in Velocity reflects the value as of the **last edit made on the Velocity dashboard**. If the amount differs from your store, it is most likely because a dashboard user manually edited the COD amount after the order synced.
+
+To investigate:
+1. Open the order in Velocity and check the **activity/audit log** — all manual edits to the COD amount are recorded with timestamps and user details
+2. Confirm with your team whether a manual adjustment was made
+3. If you suspect an unauthorized change, contact support with the order ID and we will review the audit trail
+
+---
+
 ## 9. Wallet Troubleshooting
 
 ### Q: I added money but my wallet balance hasn't updated. What should I do?
