@@ -510,6 +510,21 @@ These are typically temporary issues that resolve on retry.
 
 ---
 
+### Webhook `remarks` Field Showing a Date/Time Instead of Actual Remarks
+
+**Q: Our integration receives webhook events from Velocity, and the `remarks` field contains a date/time string (e.g., `"2024-01-15 14:30:00"`) instead of a human-readable remark. Is this a Velocity bug?**
+
+**A:** No. Velocity **passes carrier webhook payloads as-is** — we do not modify or reformat individual fields from the carrier's response. If the `remarks` field in a webhook event contains a date/time string, it is because the carrier (e.g., Ekart, Flipkart Logistics) populated that field with a timestamp at their end.
+
+This is a carrier-side data formatting behavior, not a Velocity issue.
+
+**What to do:**
+- If you need human-readable status remarks, check the carrier's own tracking portal using the AWB number
+- If the behavior is causing issues in your integration, raise a support ticket with the AWB number and the raw webhook payload — Velocity can escalate to the carrier for clarification
+- When building integrations against Velocity webhooks, treat `remarks` as an optional, carrier-defined string that may contain non-standard values depending on the carrier
+
+---
+
 ## 10. Quick Resolution Guide
 
 ### Before You Contact Support
