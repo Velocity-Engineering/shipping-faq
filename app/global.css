@@ -1,9 +1,4 @@
-@import 'tailwindcss';
-@import 'fumadocs-ui/css/neutral.css';
-@import 'fumadocs-ui/css/preset.css';
-
-@plugin '@tailwindcss/typography';
-@source '../node_modules/fumadocs-ui/dist/**/*.js';
+@import 'fumadocs-ui/css/style.css';
 
 /* Pangea Font Face Declarations */
 @font-face {
@@ -39,16 +34,12 @@
 }
 
 @theme {
-  /* Velocity Brand Colors */
-  --color-primary: #0F48E3;
+  /* Override with Velocity brand colors */
   --color-fd-primary: #0F48E3;
-
-  /* Font family */
-  --font-sans: 'Pangea Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  --font-sans: 'Pangea Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 body {
-  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
