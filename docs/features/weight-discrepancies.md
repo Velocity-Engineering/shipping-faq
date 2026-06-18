@@ -345,6 +345,24 @@ No, once a discrepancy is auto-accepted, the decision is final and cannot be dis
 - AI analysis detected inconsistencies
 - Submitted images are unclear or unreadable
 
+### My integration sent 501g but I'm billed at the 1kg rate — is this a billing error?
+
+**A:** No — this is expected carrier billing behavior. Carriers charge by **weight slabs**, not exact weights. The most common slab boundary for express services is:
+
+| Slab | Example rate |
+|------|-------------|
+| 0–500g | ₹50 |
+| 501g–1000g | ₹75 |
+| 1001g–1500g | ₹100 |
+
+A declared weight of **501g** falls in the 501g–1kg slab and is billed at that slab's rate — even if it is just 1g over the 500g boundary. This is not a Velocity billing error; it is standard carrier pricing.
+
+**What to check:**
+- Verify the exact weight value your integration is sending to Velocity (Unicommerce, WMS, ERP, etc.)
+- If the actual product weight is ≤500g, correct the weight in your integration's product catalog
+- If the weight is genuinely 501g or above, the 1kg slab charge is correct
+- Use the **Discrepancies** section only when the carrier's measured weight differs from what Velocity declared — not to contest the weight your own integration sent
+
 ---
 
 ## 9. Best Practices
