@@ -49,7 +49,7 @@ description: Track shipments, understand status updates, resolve tracking issues
 | Status | Meaning | What to Do |
 |--------|---------|-----------|
 | **Order Created** | In Velocity, not yet manifested | Manifest the order to generate an AWB |
-| **Processing** | Shipment request sent, awaiting AWB | Wait — usually resolves in <5 min |
+| **Processing** | Shipment request sent, awaiting AWB | Wait — usually resolves in &lt;5 min |
 | **Manifested** | AWB assigned, confirmed with carrier | Nothing — await pickup |
 | **Pickup Pending** | Awaiting carrier collection | Ensure package is ready |
 | **Picked Up** | Carrier has collected the package | Nothing — in transit |
