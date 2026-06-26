@@ -5,6 +5,24 @@ const sidebars: SidebarsConfig = {
     'intro',
     {
       type: 'category',
+      label: 'Platform Overview',
+      link: {
+        type: 'doc',
+        id: 'platform-overview/index',
+      },
+      items: [],
+    },
+    {
+      type: 'category',
+      label: 'Authentication & Access',
+      link: {
+        type: 'doc',
+        id: 'authentication/index',
+      },
+      items: [],
+    },
+    {
+      type: 'category',
       label: 'Automations',
       link: {
         type: 'doc',
@@ -42,6 +60,7 @@ const sidebars: SidebarsConfig = {
         'features/cod-remittance',
         'features/weight-discrepancies',
         'features/common-shipping-errors',
+        'features/returns-and-qc',
       ],
     },
     {
@@ -58,6 +77,24 @@ const sidebars: SidebarsConfig = {
       link: {
         type: 'doc',
         id: 'partners/index',
+      },
+      items: [],
+    },
+    {
+      type: 'category',
+      label: 'Tracking & Order Status',
+      link: {
+        type: 'doc',
+        id: 'tracking/index',
+      },
+      items: [],
+    },
+    {
+      type: 'category',
+      label: 'Warehouse Management',
+      link: {
+        type: 'doc',
+        id: 'warehouse-management/index',
       },
       items: [],
     },

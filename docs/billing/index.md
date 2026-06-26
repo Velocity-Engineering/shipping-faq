@@ -19,6 +19,7 @@ description: Everything you need to know about invoices, payments, and charges i
 6. [COD Settlements](#6-cod-settlements)
 7. [GST Setup](#7-gst-setup)
 8. [Common Questions](#8-common-questions)
+9. [Wallet Troubleshooting](#9-wallet-troubleshooting)
 
 ---
 
@@ -196,7 +197,7 @@ This protects you from incorrect charges!
 **A:**
 
 | Your Billing Mode | What Happens |
-|-------------------|--------------|
+|-------------------|--------------| 
 | Prepaid | Cannot ship if balance is zero or negative |
 | Postpaid | Can ship until credit limit is used up |
 | COD Offset | Can ship until credit limit is used up |
@@ -301,6 +302,74 @@ If you believe a charge is incorrect, contact support with the AWB number.
 ### Q: How do I download my invoices?
 
 **A:** Go to **Payments - Invoices** to view and download all your invoices as PDF.
+
+---
+
+## 9. Wallet Troubleshooting
+
+### Q: I added money but my wallet balance hasn't updated. What should I do?
+
+**A:** Expected update timelines by payment method:
+
+| Payment Method | Expected Update |
+|----------------|----------------|
+| Online (Razorpay/Cashfree) | Instant — if not updated within 5 minutes, contact support |
+| NEFT/Bank Transfer | 1–2 business days — share your UTR number with support to expedite |
+| Credit Note | Instant — contact support if not reflecting |
+
+If payment is confirmed by your bank but not reflected after the above timeline, email support@velocity.in with: payment screenshot, amount, date, and UTR/transaction reference.
+
+---
+
+### Q: My online payment failed but money was deducted from my bank account.
+
+**A:**
+1. Wait 30 minutes — most failed transactions are auto-refunded by the payment gateway
+2. Check your bank app for a pending refund
+3. If no refund after 3 business days, contact support with:
+   - Transaction ID (from the payment page or bank statement)
+   - Amount and date
+   - Bank account / UPI / card used
+
+We'll coordinate with the payment gateway for resolution.
+
+---
+
+### Q: I have sufficient balance but still can't create shipments.
+
+**A:** Balance alone isn't always sufficient — check these:
+
+| Cause | How to Fix |
+|-------|-----------|
+| Overdue invoice > Rs. 100 | Pay the outstanding invoice in Payments → Invoices |
+| Credit limit exhausted (postpaid) | Make a payment to restore credit headroom |
+| Account verification pending | Contact your KAM |
+| COD offset balance insufficient | Wait for COD settlement or recharge manually |
+
+---
+
+### Q: I want to increase my credit limit. How do I request that?
+
+**A:** Contact your KAM (Key Account Manager) with your monthly shipping volume and payment history. Credit limit increases are reviewed on a case-by-case basis.
+
+---
+
+### Q: An unexpected amount was deducted from my wallet. How do I investigate?
+
+**A:**
+1. Go to **Payments → Ledger** for a line-by-line view of all debits and credits
+2. Each entry shows the charge type, amount, and associated shipment/order
+3. Common unexpected charges:
+   - **Weight difference** — Carrier reported higher actual weight than booked
+   - **RTO charge** — Applied 72 hours after an RTO event (may appear in a later invoice)
+   - **VAS charges** — WhatsApp/AI call charges from automations
+4. If a charge still seems incorrect, contact support with the ledger entry reference
+
+---
+
+### Q: How do I set up low-balance alerts?
+
+**A:** Go to **Settings → Notifications** (or **Payments → Wallet Settings**) and configure a low-balance threshold. You'll receive an email/SMS when your wallet drops below that amount. This prevents unexpected shipping interruptions.
 
 ---
 

@@ -88,7 +88,7 @@ This means:
 **A:** Various templates based on shipment status:
 
 | Template | When Sent |
-|----------|----------|
+|----------|-----------|
 | Order Confirmation | When order is created (if automation enabled) |
 | Order Placed | Order acknowledgment |
 | Shipment Shipped | When shipment is created |
@@ -192,7 +192,7 @@ This means:
 ### Key Billing Rules Summary
 
 | Rule | Details |
-|------|--------|
+|------|---------|
 | Price lock-in | At automation trigger time |
 | Price updates | Future orders only, not retrospective |
 | Balance check | At automation trigger, fails if insufficient |
@@ -234,7 +234,44 @@ This means:
 - Order/Shipment ID
 - Service type
 - Timestamp
+
 Our team will investigate and refund if service failed.
+
+---
+
+### Q: Automation triggered but the customer wasn't contacted at all. What happened?
+
+**A:** Check these in order:
+1. **Wallet balance at trigger time** — If balance was insufficient when the automation triggered, it fails silently and cannot be retried for that order
+2. **Phone number format** — Customer phone must be a valid 10-digit Indian mobile; WhatsApp must be active on that number
+3. **Automation enabled** — Go to Settings → Automations and confirm the automation is toggled on
+4. **Order type filter** — Check if the automation is configured for COD only, prepaid only, or both
+5. **Business hours** — AI calls are only made 8:00 AM–8:00 PM; calls triggered outside this window are queued for the next slot
+
+---
+
+### Q: The automation ran but outcomes aren't showing anywhere. Where do I find results?
+
+**A:** Automation results appear in:
+- **Order details drawer** → Automation tab (right side panel)
+- **AI Agents** section in the main navigation
+- **NDR Panel** for NDR-related automation outcomes
+- **Downloadable report** from Orders → Download (includes Final Outcome, WhatsApp Status, AI Call Output, Modified Address fields)
+
+---
+
+### Q: Why am I being charged for automations on orders I later cancelled?
+
+**A:** The charge is locked in when the automation **triggers** (at order creation or NDR event), not when the call/message is actually sent. If an order was cancelled after the automation triggered but before execution, the trigger cost may still apply. Contact support with the Order ID if you believe a charge is incorrect.
+
+---
+
+### Q: Some orders show "Ineligible" for WhatsApp/AI Call. Why?
+
+**A:** "Ineligible" means the automation service is not activated for those shipments. Possible reasons:
+- The account hasn't subscribed to that specific automation (NDR/OC)
+- The specific channel (WhatsApp or AI Call) is not enabled in settings
+- The order type doesn't match the automation filter (e.g., automation set to COD only but order is prepaid)
 
 ---
 
@@ -243,7 +280,7 @@ Our team will investigate and refund if service failed.
 ### VAS Services Summary
 
 | Service | Trigger | Billing Basis | Charged When |
-|---------|---------|---------------|--------------|
+|---------|---------|---------------|--------------| 
 | Order Confirmation (WA) | Order created | Per message | Message sent successfully |
 | Order Confirmation (AI) | After WA wait time | Per minute (pulse-based) | Call completed |
 | NDR Management (WA) | Delivery failed | Per message | Message sent successfully |
