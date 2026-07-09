@@ -1,6 +1,15 @@
 # Velocity Shipping Help Center
 > Documentation and FAQ for Velocity's shipping platform (https://shipping-faq.vercel.app)
 
+## Common Issues
+- [Common Issues](https://shipping-faq.vercel.app/common-issues/): Index of the most frequently reported problems on Velocity Shipping
+- [Order Not Showing](https://shipping-faq.vercel.app/common-issues/order-not-showing): Why orders placed in a store may not appear in Velocity, and how to fix sync issues
+- [Courier Not Visible](https://shipping-faq.vercel.app/common-issues/courier-not-visible): Why no courier options appear when creating a shipment, and how to resolve carrier visibility issues
+- [Upstream Updates](https://shipping-faq.vercel.app/common-issues/upstream-updates): Why tracking updates from carriers may be delayed and what to do when updates are stuck
+- [Invoicing / Payment / COD Remittance](https://shipping-faq.vercel.app/common-issues/invoicing-payment-cod): Common issues with invoices, wallet payments not reflecting, and COD settlements
+- [Shipping Errors](https://shipping-faq.vercel.app/common-issues/shipping-errors): Error messages during shipment creation and their fixes
+- [Status Mismatch](https://shipping-faq.vercel.app/common-issues/status-mismatch): Why the shipment status in Velocity may differ from the carrier's website, your store, or your customer's view
+
 ## Automations
 - [Automations Overview](https://shipping-faq.vercel.app/automations/): Introduction to Velocity's automation features for post-order workflows
 - [Order Confirmation](https://shipping-faq.vercel.app/automations/order-confirmation): FAQ for the Order Confirmation Automation — verifying orders and customer details before shipping to reduce fake orders and delivery failures
@@ -17,7 +26,6 @@
 - [Shipping Labels](https://shipping-faq.vercel.app/features/labels): Generating, downloading, and troubleshooting shipping labels
 - [COD Remittance](https://shipping-faq.vercel.app/features/cod-remittance): COD settlement timelines, reconciliation, and related FAQs
 - [Weight Discrepancies](https://shipping-faq.vercel.app/features/weight-discrepancies): How carrier weight discrepancy charges are applied and how to dispute them
-- [Common Shipping Errors](https://shipping-faq.vercel.app/features/common-shipping-errors): Error messages during shipment creation and their fixes
 
 ## Store Integrations
 - [Shopify](https://shipping-faq.vercel.app/integrations/shopify): Connecting and managing Shopify stores with Velocity Shipping for automatic order sync

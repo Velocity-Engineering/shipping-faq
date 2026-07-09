@@ -5,6 +5,22 @@ const sidebars: SidebarsConfig = {
     'intro',
     {
       type: 'category',
+      label: 'Common Issues',
+      link: {
+        type: 'doc',
+        id: 'common-issues/index',
+      },
+      items: [
+        'common-issues/order-not-showing',
+        'common-issues/courier-not-visible',
+        'common-issues/upstream-updates',
+        'common-issues/invoicing-payment-cod',
+        'common-issues/shipping-errors',
+        'common-issues/status-mismatch',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Platform Overview',
       link: {
         type: 'doc',
@@ -59,7 +75,6 @@ const sidebars: SidebarsConfig = {
         'features/labels',
         'features/cod-remittance',
         'features/weight-discrepancies',
-        'features/common-shipping-errors',
         'features/returns-and-qc',
       ],
     },
