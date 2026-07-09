@@ -12,10 +12,12 @@ description: Why orders placed in your store may not appear in Velocity Shipping
 
 ## Table of Contents
 1. [Order placed in store but not in Velocity](#1-order-placed-in-store-but-not-in-velocity)
-2. [Sync settings to check](#2-sync-settings-to-check)
-3. [Shopify-specific issues](#3-shopify-specific-issues)
-4. [WooCommerce-specific issues](#4-woocommerce-specific-issues)
-5. [Manually importing orders](#5-manually-importing-orders)
+2. [Checking bulk historic order fetch](#2-checking-bulk-historic-order-fetch)
+3. [Orders we don't sync](#3-orders-we-dont-sync)
+4. [Configuring which orders to pull](#4-configuring-which-orders-to-pull)
+5. [Shopify-specific issues](#5-shopify-specific-issues)
+6. [WooCommerce-specific issues](#6-woocommerce-specific-issues)
+7. [Manually importing orders](#7-manually-importing-orders)
 
 ---
 
@@ -23,61 +25,75 @@ description: Why orders placed in your store may not appear in Velocity Shipping
 
 ### Q: I received an order in Shopify / WooCommerce but it's not appearing in Velocity. Why?
 
-**A:** The most common reasons are:
+**A:** Orders from Shopify and WooCommerce should appear in Velocity within a minute of being placed. If an order isn't showing up, the most common reasons are:
 
 | Reason | What to Do |
 |--------|-----------|
 | Integration is inactive or disconnected | Go to **Settings → Integrations** and check the connection status |
-| Order was placed before the integration was connected | Orders created before the integration was set up do not sync retroactively by default |
-| Order status doesn't match your sync trigger | Only orders in specific statuses (e.g., "Paid") are synced — check your sync settings |
+| Order was placed before the integration was connected | Go to the integration page and use Bulk Operations to fetch historic orders — see [Section 2](#2-checking-bulk-historic-order-fetch) |
+| Order status doesn't match your sync configuration | You can configure which statuses to pull — check your settings (see [Section 4](#4-configuring-which-orders-to-pull)) |
 | Integration credentials have expired or been regenerated | Re-authenticate the integration |
 
 ---
 
-### Q: The integration shows as active but the order still hasn't appeared. What else should I check?
+### Q: The integration shows as active but the order still hasn't appeared after a minute. What else should I check?
 
 **A:**
-1. **Check sync settings** — Go to **Settings → Integrations → [Your Store]** and verify which order statuses trigger a sync
-2. **Check the order status** in your store — if it's in "Draft" or "Pending Payment", it may not meet the sync criteria
-3. **Wait a few minutes** — sync can take up to 5 minutes for new orders
-4. **Look at integration logs** if available in settings — they may show why a specific order was skipped
-5. If nothing helps, contact support with the store Order ID so we can trace what happened
+1. **Check your sync configuration** — Go to **Settings → Integrations → [Your Store]** and verify which order statuses trigger a sync
+2. **Re-authenticate** the integration if it was recently disrupted
+3. Contact support with the store Order ID if the order still doesn't appear — our team can trace what happened
 
 ---
 
-## 2. Sync Settings to Check
+## 2. Checking Bulk Historic Order Fetch
 
-### Q: How do I verify my integration sync settings?
+### Q: I recently connected Shopify / WooCommerce and my existing orders aren't in Velocity. How do I get them?
 
-**A:**
+**A:** When you connect a new store, Velocity runs a bulk historic order fetch to import past orders. To check its status:
+
 1. Go to **Settings → Integrations**
-2. Click on the relevant store integration (Shopify / WooCommerce)
-3. Review:
-   - **Integration Status** — should be active (green)
-   - **Sync Trigger** — which order statuses cause a sync (e.g., "Paid", "Processing")
-   - **Last Synced At** — when the last successful sync happened
-
-If the integration status is red or shows an error, re-authenticate by reconnecting the store.
+2. Find your store and click on it
+3. Click **Bulk Operations**
+4. You'll see the status of the historic order fetch — whether it's in progress, completed, or failed
+5. If it failed, the reason will be shown — use that to diagnose the issue
 
 ---
 
-## 3. Shopify-Specific Issues
+## 3. Orders We Don't Sync
+
+### Q: Are there any types of orders that Velocity won't pull from Shopify or WooCommerce?
+
+**A:** Yes. Velocity does **not** fetch orders that are already fulfilled at the time of sync. If an order was marked as fulfilled in your store before the integration was connected (or before the bulk fetch ran), it will not be imported into Velocity.
+
+---
+
+## 4. Configuring Which Orders to Pull
+
+### Q: Can I control which orders get pulled from my store?
+
+**A:** Yes. For both Shopify and WooCommerce, you can configure which order statuses Velocity syncs. For example, you can choose to skip cancelled orders.
+
+To check or update this:
+1. Go to **Settings → Integrations**
+2. Click on your store
+3. Review the **order status sync configuration**
+
+:::note
+Changes to your sync configuration apply only to **new orders** from that point forward. Orders that were already skipped due to the previous configuration will not be retroactively imported.
+:::
+
+---
+
+## 5. Shopify-Specific Issues
 
 ### Q: My Shopify integration was working, then suddenly stopped syncing new orders.
 
-**A:** Common causes for Shopify sync breaking:
+**A:** Common causes:
 
 | Cause | Fix |
 |-------|-----|
-| Shopify API credentials expired | Go to **Settings → Integrations → Shopify** and reconnect |
-| Velocity app was uninstalled from Shopify | Reinstall the app from the Shopify App Store |
-| Shopify store is on pause mode | Resume the store and re-trigger sync |
-
----
-
-### Q: I re-authenticated the Shopify integration. Will past orders now sync?
-
-**A:** Re-authentication restores the connection for new orders going forward. Orders that were missed during the downtime will not automatically backfill. You can import them manually — see [Section 5](#5-manually-importing-orders).
+| Shopify API credentials expired or changed | Go to **Settings → Integrations → Shopify** and reconnect |
+| Integration was recently disrupted | Re-authenticate from the integration settings page |
 
 ---
 
@@ -86,12 +102,12 @@ If the integration status is red or shows an error, re-authenticate by reconnect
 **A:**
 1. Go to **Settings → Integrations → Shopify**
 2. Verify that **"Push fulfillment status to Shopify"** is enabled
-3. Fulfillment updates are pushed when a shipment is manifested — check Shopify's activity log for the order
+3. Fulfillment updates are pushed when a shipment is manifested — check Shopify for the order
 4. If the update isn't reflecting after 30 minutes, contact support with the Order ID
 
 ---
 
-## 4. WooCommerce-Specific Issues
+## 6. WooCommerce-Specific Issues
 
 ### Q: My WooCommerce integration stopped syncing orders after working fine initially.
 
@@ -99,8 +115,8 @@ If the integration status is red or shows an error, re-authenticate by reconnect
 
 | Cause | Fix |
 |-------|-----|
-| WooCommerce API credentials were regenerated | Go to **Settings → Integrations → WooCommerce** and re-authenticate with new credentials |
-| Hosting provider changed security settings | Re-authenticate; contact your hosting provider if issues persist |
+| WooCommerce API credentials were regenerated | Go to **Settings → Integrations → WooCommerce** and re-authenticate with the new credentials |
+| Hosting provider updated security settings | Re-authenticate; contact your hosting provider if issues persist |
 | WooCommerce plugin was updated and requires reconfiguration | Reconnect the integration from Settings |
 
 ---
@@ -111,15 +127,15 @@ If the integration status is red or shows an error, re-authenticate by reconnect
 
 ---
 
-## 5. Manually Importing Orders
+## 7. Manually Importing Orders
 
-### Q: The sync is broken or I need to bring in older orders. Can I add them manually?
+### Q: Can I add orders into Velocity without waiting for an automatic sync?
 
-**A:** Yes, there are three ways to get orders into Velocity without waiting for an automatic sync:
+**A:** Yes, there are three ways:
 
 | Method | How |
 |--------|-----|
-| **Manual entry** | Go to **Orders → Create Order** and fill in details |
+| **Manual entry** | Go to **Orders → Create Order** and fill in the details |
 | **CSV bulk upload** | Go to **Orders → Bulk Upload** and upload a filled template |
 | **API** | Use the Velocity API to push orders programmatically — see the API docs |
 

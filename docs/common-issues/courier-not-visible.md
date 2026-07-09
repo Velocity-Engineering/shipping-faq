@@ -11,121 +11,98 @@ description: Why no courier options appear when creating a shipment, and how to 
 ---
 
 ## Table of Contents
-1. [No couriers showing at all](#1-no-couriers-showing-at-all)
-2. [No couriers for a specific pincode](#2-no-couriers-for-a-specific-pincode)
-3. [Expected courier is missing](#3-expected-courier-is-missing)
-4. [COD-specific visibility issues](#4-cod-specific-visibility-issues)
-5. [Checking serviceability](#5-checking-serviceability)
+1. [Check your shipping rules](#1-check-your-shipping-rules)
+2. [Check carrier serviceability](#2-check-carrier-serviceability)
+3. [Use the Tools section to see eligible couriers](#3-use-the-tools-section-to-see-eligible-couriers)
+4. [High Performance Pincode setting](#4-high-performance-pincode-setting)
+5. [COD-specific visibility issues](#5-cod-specific-visibility-issues)
 
 ---
 
-## 1. No Couriers Showing at All
+## 1. Check Your Shipping Rules
 
-### Q: I'm trying to create a shipment but no courier options appear at all. What could be causing this?
+### Q: No couriers are showing when I try to create a shipment. Where do I start?
 
-**A:** When no couriers appear for any order, it usually points to an account-level issue:
+**A:** The first place to check is your Shipping Rules configuration:
 
-| Cause | How to Fix |
-|-------|-----------|
-| Wallet balance is zero or negative (prepaid billing) | Go to **Payments → Wallet** and recharge |
-| Overdue invoice has paused shipping | Go to **Payments → Invoices** and clear the outstanding invoice |
-| Credit limit exhausted (postpaid billing) | Make a payment to restore credit headroom |
-| No shipping rules configured | Go to **Shipping Rules** and set up carrier selection rules |
-| No carriers enabled on your account | Go to **Shipping Rules → Courier Selection** and enable at least one carrier |
+1. Go to **Shipping Rules** in your dashboard
+2. Verify that at least one carrier is enabled
+3. Check the **priority order** of your rules — a rule that doesn't match the order's attributes (weight, pincode, store, etc.) won't surface any couriers
+4. Make sure the rule covering your order's profile is correctly set up
 
----
-
-### Q: My wallet has balance and invoices are clear, but couriers still don't appear.
-
-**A:**
-1. Check **Shipping Rules → Courier Selection** — ensure at least one carrier is enabled and not disabled
-2. Verify that your **warehouse is configured** in Settings → Warehouses
-3. If you recently changed your account plan or carrier contracts, contact your account manager — a carrier may need to be re-enabled at the account level
-4. Contact support if nothing above resolves it
+If no shipping rule matches the order you're trying to ship, no couriers will appear.
 
 ---
 
-## 2. No Couriers for a Specific Pincode
+### Q: I have shipping rules set up and carriers enabled, but couriers still don't show. What else should I check?
 
-### Q: Couriers appear for most orders but not for a specific pincode. Why?
+**A:** Go to **Shipping Rules → Courier Selection** and confirm:
+- The carrier is toggled on (not disabled)
+- The carrier is set to the correct mode (Regular vs High Performance — see [Section 4](#4-high-performance-pincode-setting))
 
-**A:** This is a serviceability issue. The most common reasons:
+---
+
+## 2. Check Carrier Serviceability
+
+### Q: The courier I expected isn't showing up for a particular pincode. Could it be a serviceability issue?
+
+**A:** Yes. A carrier won't appear if it doesn't service the destination pincode. You can download a **serviceability report** from the dashboard to see which carriers cover which pincodes.
+
+Common serviceability reasons a carrier won't show:
 
 | Reason | What It Means |
 |--------|--------------|
-| Pincode not serviceable by any carrier | The destination is outside all carrier coverage areas |
-| All carriers have a temporary embargo on the pincode | Carriers have suspended service temporarily (weather, civil unrest, etc.) |
-| COD not available for the pincode | Prepaid works but COD doesn't for this route |
-| Package weight/dimensions exceed all carrier limits | The order specs fall outside what any carrier can accept |
+| Pincode not in carrier's coverage | The carrier doesn't deliver to this destination |
+| Temporary embargo | Carrier has temporarily suspended service (weather, operational constraints, etc.) |
+| Service type unavailable | The requested service (e.g., SDD, NDD) isn't available for this route — not all carriers support all service types |
+
+For more on serviceability errors at shipment creation, see [Shipping Errors](./shipping-errors#2-serviceability-errors).
 
 ---
 
-### Q: A pincode showed as serviceable in the Tools check, but no courier appears when I try to ship. Why?
+## 3. Use the Tools Section to See Eligible Couriers
 
-**A:** Serviceability data in **Tools → Pincode Serviceability** is not always real-time. Carrier serviceability is dynamic and can change at any time due to operational constraints, route capacity, or temporary restrictions. The rate/carrier selection screen reflects live availability — it is more accurate than the serviceability tool.
+### Q: How can I check which couriers are eligible for a specific shipment before creating it?
 
-If no courier appears:
-1. Try again after 30–60 minutes — temporary blocks sometimes lift quickly
-2. Try a different service type (e.g., Surface instead of Express)
-3. Try a different carrier if you have multiple enabled
-4. Contact support if the issue persists beyond a few hours
+**A:** Use the **Tools** section in your Velocity dashboard:
 
----
+1. Go to **Tools**
+2. Enter the shipment details:
+   - Pickup pincode
+   - Destination pincode
+   - Weight
+   - Payment mode (COD or Prepaid)
+3. The tool will show you the list of eligible couriers for that combination
 
-## 3. Expected Courier is Missing
-
-### Q: I can see some couriers but not the one I expected to be there. Why?
-
-**A:** A specific carrier may be absent because:
-
-| Reason | How to Fix |
-|--------|-----------|
-| Carrier is disabled in Shipping Rules | Go to **Shipping Rules → Courier Selection** and enable it |
-| Carrier doesn't service this pincode | Check carrier coverage in Tools → Serviceability |
-| Carrier weight/dimension limit exceeded | Reduce package weight or try a carrier with higher limits |
-| Carrier has a temporary embargo on this pincode | Retry later or use an alternative carrier |
-| Service type you need isn't supported by that carrier | Not all carriers support SDD/NDD — see [Carrier Integrations](/carrier-integrations) |
-| Your BYOC contract with that carrier has lapsed | Contact your account manager |
+This is the most accurate way to diagnose why a specific courier isn't appearing — it applies your account's actual carrier configuration and serviceability data.
 
 ---
 
-### Q: A carrier used to show up but has disappeared recently.
+## 4. High Performance Pincode Setting
 
-**A:** Most likely one of these happened:
-- The carrier was auto-disabled due to a configuration issue — check **Shipping Rules → Courier Selection**
-- Your carrier credentials (for BYOC) need refreshing — raise a support ticket
-- The carrier temporarily suspended service for your route — retry later
+### Q: A carrier is enabled in my rules but it's still not showing up for certain pincodes. Could the High Performance setting be the cause?
+
+**A:** Yes. In Shipping Rules, you can configure a carrier in **High Performance** mode. When a carrier is set to High Performance, it is only offered for shipments going to pincodes within its High Performance Pincode list.
+
+If the destination pincode you're shipping to is **not** in the carrier's High Performance Pincode set, that carrier won't appear — even if it's enabled.
+
+**How to fix:**
+- Go to **Shipping Rules → Courier Selection** and check how the carrier is configured
+- Switch the carrier from High Performance to **Regular** mode if you want it to appear for all serviceable pincodes
+- Or verify that the destination pincode is included in the High Performance Pincode list for that carrier
 
 ---
 
-## 4. COD-Specific Visibility Issues
+## 5. COD-Specific Visibility Issues
 
 ### Q: Couriers appear when I select Prepaid but disappear when I switch to COD.
 
-**A:** Not all carriers support COD for all pincodes. COD availability is more restricted than prepaid:
-- Some pincodes are COD-disabled by carriers even if they're serviceable for prepaid
-- Some carriers have lower COD limits for certain routes
+**A:** Not all carriers support COD for all pincodes. COD availability is more restricted than prepaid — some pincodes are COD-disabled by carriers even if they're serviceable for prepaid.
 
 **What to do:**
-1. Check if the destination pincode supports COD via **Tools → Pincode Serviceability**
+1. Use the **Tools** section (see [Section 3](#3-use-the-tools-section-to-see-eligible-couriers)) with COD selected to see which couriers, if any, are eligible
 2. If no carrier offers COD for this pincode, the only option is to ship prepaid
-3. For routes where COD is critical to your business, contact your account manager to explore BYOC options
-
----
-
-## 5. Checking Serviceability
-
-### Q: How do I check which couriers serve a specific pincode?
-
-**A:**
-1. Go to **Tools → Serviceability** (or **Tools → Pincode Serviceability**)
-2. Enter the destination pincode
-3. The tool shows:
-   - Which carriers can deliver there
-   - Available service types (Surface, Air, SDD, NDD)
-   - COD availability per carrier
-
-**Important:** This tool shows general serviceability. Real-time carrier availability at the moment of booking may differ — always treat the actual shipment creation screen as the source of truth.
+3. For routes where COD is important to your business, contact your account manager
 
 ---
 
@@ -133,6 +110,6 @@ If no courier appears:
 
 - **Email:** support@velocity.in
 - **Live Chat:** Click the chat icon in your Velocity Shipping dashboard
-- **Account Manager:** For carrier enablement or BYOC configuration
+- **Account Manager:** For carrier enablement or configuration changes
 
 Include the **destination pincode**, **order weight**, and **payment mode** (COD/Prepaid) when contacting support for faster diagnosis.

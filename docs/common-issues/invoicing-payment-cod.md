@@ -28,10 +28,10 @@ For a full reference on how billing works in Velocity, see the [Billing & Paymen
 
 | Cause | Explanation |
 |-------|-------------|
-| **RTO charges** | RTO charges appear in the invoice for the month when the RTO happened, not when the order was originally placed — a January order that RTOs in February shows up in the February invoice |
+| **RTO charges** | RTO charges appear in the invoice for the period when the RTO happened, not when the order was originally placed — a shipment placed in January that RTOs in February shows up in the February invoice |
 | **Weight discrepancy charges** | If a carrier reported higher actual weight than what you declared, the difference is billed |
 | **VAS charges** | WhatsApp message and AI call charges from automations are included in your invoice |
-| **Early COD fee** | If you opted into Early COD, the fee is deducted from your settlement and may appear in billing |
+| **Early COD fee** | If you opted into Early COD, the fee appears in billing |
 
 **How to investigate:**
 1. Go to **Payments → Ledger** for a line-by-line view of all debits and credits
@@ -49,7 +49,13 @@ For a full reference on how billing works in Velocity, see the [Billing & Paymen
 | Monthly | 1st of each month |
 | Fortnightly | 1st and 16th of each month |
 
-Invoices are available in **Payments → Invoices**. You can download them as PDF. If your invoice date has passed and you can't find it, check your billing cycle in Settings and contact support if it's missing.
+Invoices are available in **Payments → Invoices**. You can download them as PDF. If your invoice date has passed and you can't find it, contact support.
+
+---
+
+### Q: A shipment was picked up last month but I don't see it in that month's invoice. Why?
+
+**A:** Shipments are invoiced only if they were **picked up within the invoice cycle**. If a shipment was placed before the cycle but picked up after the cycle closed, it will appear in the next invoice.
 
 ---
 
@@ -64,6 +70,12 @@ Invoices are available in **Payments → Invoices**. You can download them as PD
 | After RTO | RTO charge applies 72 hours after the RTO event |
 
 If you believe a charge was applied incorrectly, contact support with the AWB number.
+
+---
+
+### Q: Why does an RTO charge appear days after the shipment actually returned?
+
+**A:** RTO charges are only invoiced **72 hours after the RTO event** (when the carrier marks the shipment as returned). This buffer exists to account for cases where a carrier incorrectly marks a shipment as RTO — if the status is corrected within 72 hours, no charge is applied.
 
 ---
 
@@ -109,17 +121,26 @@ If payment is confirmed by your bank but not reflected after the above timeline,
 
 ## 3. COD Remittance Issues
 
+### Q: When will I receive my COD money?
+
+**A:** COD remittance happens as per your settlement cycle — typically **T+1 to T+7**, where T is the date the shipment was delivered. The exact cycle depends on your account configuration.
+
+To check your configuration:
+1. Go to **Payments → COD Remittance**
+2. Your settlement cycle (e.g., T+3, weekly on Monday/Wednesday/Friday) is shown at the top of the page
+3. The **Next Cycle COD** card shows the scheduled amount and expected settlement date
+
+---
+
 ### Q: My shipment was delivered but the COD amount isn't showing in my remittance dashboard.
 
 **A:**
 
 | Possible Cause | What to Do |
 |----------------|-----------|
-| Within settlement window | Wait for T+3 or T+5 days (per your configuration) to pass |
+| Within settlement window | Wait for the T+X days to pass as per your configuration |
 | Shipment not yet marked Delivered in the system | Check shipment status in Orders — carrier update may be delayed |
 | External carrier (not integrated) | COD remittance is only available for Velocity-integrated carriers |
-
-Check **Payments → COD Remittance → Next Cycle COD** to see the amount scheduled for your next settlement and its expected date.
 
 ---
 
@@ -160,15 +181,6 @@ Check **Payments → COD Remittance → Next Cycle COD** to see the amount sched
 
 ---
 
-### Q: How do I know when my next COD settlement will happen?
-
-**A:**
-1. Go to **Payments → COD Remittance**
-2. The **Next Cycle COD** card shows the scheduled amount and expected settlement date
-3. Your settlement configuration (T+X days, weekly/monthly frequency) is displayed at the top of that page
-
----
-
 ## 4. Shipping Blocked Due to Billing
 
 ### Q: I have wallet balance but can't create shipments. Why?
@@ -177,7 +189,7 @@ Check **Payments → COD Remittance → Next Cycle COD** to see the amount sched
 
 | Cause | How to Fix |
 |-------|-----------|
-| Overdue invoice > ₹100 | Pay the outstanding invoice in **Payments → Invoices** |
+| Overdue invoice > Rs. 100 | Pay the outstanding invoice in **Payments → Invoices** |
 | Credit limit exhausted (postpaid) | Make a payment to restore credit headroom |
 | Account verification pending | Contact your KAM |
 | COD offset balance insufficient | Wait for COD settlement or recharge wallet manually |
@@ -186,7 +198,7 @@ Check **Payments → COD Remittance → Next Cycle COD** to see the amount sched
 
 ### Q: How do I avoid shipments being blocked due to low balance?
 
-**A:** Go to **Settings → Notifications** (or **Payments → Wallet Settings**) to configure a low-balance alert threshold. You'll receive an email/SMS when your wallet drops below that amount, giving you time to top up before shipping is disrupted.
+**A:** Go to **Settings → Notifications** and configure a low-balance alert threshold. You'll receive an email/SMS when your wallet drops below that amount, giving you time to top up before shipping is disrupted.
 
 ---
 

@@ -1,132 +1,96 @@
 ---
 sidebar_position: 3
 title: Upstream Updates
-description: Why tracking updates from carriers may be delayed, how Velocity syncs carrier data, and what to do when updates are stuck.
+description: How Velocity pushes order and shipment status updates to your store integrations and partners, and how to fix it when updates aren't going through.
 ---
 
 # Upstream Updates
 
-> Why tracking updates from carriers may be delayed and what to do about it
+> How Velocity pushes status updates to your store (Shopify, WooCommerce) and logistics partners — and what to do when updates aren't reaching them
 
-"Upstream updates" refers to tracking and status events that originate from the carrier and flow into Velocity. When a shipment doesn't update in Velocity even though something has happened on the carrier's end, it's typically an upstream sync issue.
+"Upstream updates" refers to Velocity pushing shipment and order status changes back to your connected platforms — Shopify, WooCommerce, and third-party partners like Easyecom, Unicommerce, Clickpost, etc.
 
 ---
 
 ## Table of Contents
-1. [How carrier updates flow into Velocity](#1-how-carrier-updates-flow-into-velocity)
-2. [Tracking not updating](#2-tracking-not-updating)
-3. [Shipment stuck in a status for days](#3-shipment-stuck-in-a-status-for-days)
-4. [When to escalate to support](#4-when-to-escalate-to-support)
+1. [Shopify upstream updates](#1-shopify-upstream-updates)
+2. [WooCommerce upstream updates](#2-woocommerce-upstream-updates)
+3. [Other partner integrations](#3-other-partner-integrations)
 
 ---
 
-## 1. How Carrier Updates Flow into Velocity
+## 1. Shopify Upstream Updates
 
-### Q: How does Velocity get tracking updates from carriers?
+### Q: What gets updated in Shopify when a shipment is created or status changes?
 
-**A:** Velocity syncs tracking events from carriers in two ways:
+**A:** Velocity can push updates back to Shopify based on your configuration. You can control:
+- What gets synced (e.g., whether to sync order tags)
+- Which Velocity statuses map to which Shopify statuses
 
-| Sync Method | Description | Typical Lag |
-|-------------|-------------|-------------|
-| **Webhook / Push** | Carrier sends events to Velocity in real-time | Near real-time (seconds to minutes) |
-| **Polling** | Velocity periodically fetches updates from the carrier | 15–60 minutes |
-
-Most carriers use a mix of both. The lag you see depends on which method the carrier uses for a given event type.
+Check your upstream configuration at **Settings → Integrations → Shopify**.
 
 ---
 
-### Q: Which carriers have longer update lags?
+### Q: Shopify doesn't have an RTO status. How does that work?
 
-**A:** The update frequency varies by carrier and event type. As a general guide:
-- **Most events** (Out for Delivery, Delivered, NDR) arrive within 15–60 minutes
-- **Some carriers** batch their updates, so you may see a gap of 1–2 hours
-- **Hub transit scans** in particular can be infrequent — a shipment can go 12–24 hours without an update while inside a hub, which is normal
+**A:** Shopify has no native RTO order status. However, you can enable Velocity to sync RTO status updates to Shopify as **order notes**. This way, when a shipment enters RTO, a note is added to the Shopify order with the RTO status — giving your team visibility without requiring a custom status.
 
-When in doubt, cross-check directly on the carrier's tracking website using the AWB number.
+This setting can be enabled from the Shopify integration configuration page.
 
 ---
 
-## 2. Tracking Not Updating
+### Q: My status mapping between Velocity and Shopify seems off. Where do I configure it?
 
-### Q: My shipment shows "In Transit" but hasn't had a new update in 24+ hours. What should I do?
+**A:** You can map Velocity's shipment statuses to corresponding Shopify statuses. Go to **Settings → Integrations → Shopify** and review the status mapping configuration. If the mapping doesn't look right, update it there.
+
+---
+
+### Q: Velocity shows the order as shipped but Shopify still shows it as "Unfulfilled".
 
 **A:**
-1. **Check time elapsed** — Surface (road) shipments can take 5–7 days; air shipments 1–3 days. Hub processing can create 24-hour blackout windows with no scans, even when the shipment is moving normally
-2. **Check the carrier's website directly** — go to [Carrier Tracking Sites](/tracking#quick-reference-carrier-tracking-websites) and enter the AWB number to see if the carrier's own system has more recent events
-3. **Check the NDR Panel** — the shipment may have had a failed delivery attempt that hasn't synced to Velocity yet
-4. **Wait 1–2 hours** — if the carrier's site shows a recent event, it will sync to Velocity shortly
-5. **Contact support** if the carrier's website also shows no update for >48 hours — we'll initiate a trace with the carrier
+1. Go to **Settings → Integrations → Shopify**
+2. Verify that **"Push fulfillment status to Shopify"** is enabled
+3. Fulfillment updates are pushed when a shipment is manifested
+4. If the update isn't reflecting after 30 minutes, contact support with the Order ID
 
 ---
 
-### Q: The carrier's website shows a recent event but Velocity hasn't updated yet. How long should I wait?
+## 2. WooCommerce Upstream Updates
 
-**A:** If the carrier's website shows an event that Velocity doesn't, wait up to 60 minutes for it to sync. If Velocity still hasn't updated after 60 minutes, contact support with the AWB number and the event you're seeing on the carrier's website.
+### Q: What does Velocity update in WooCommerce?
 
----
+**A:** Velocity updates the **order status** in WooCommerce when your shipment status changes. You can also configure the status mapping between Velocity and WooCommerce — go to **Settings → Integrations → WooCommerce** to review this.
 
-### Q: Tracking shows "Picked Up" but the carrier hasn't physically collected the package yet.
-
-**A:** Carriers sometimes pre-scan pickups in batch or upload scans before the physical collection happens. If the pickup genuinely hasn't occurred after the expected window (typically same day or next morning):
-1. Confirm the package was ready at pickup time
-2. Contact support — we'll follow up with the carrier to arrange pickup
+:::note
+Velocity only updates the native WooCommerce order status. If you are using a **custom plugin** that has its own order statuses or fulfillment fields, those will **not** be updated by Velocity. Only the core WooCommerce order status is affected.
+:::
 
 ---
 
-### Q: My shipment just went out for delivery but the status hasn't updated in Velocity.
+### Q: Velocity has never pushed any upstream update to my WooCommerce store. What should I check first?
 
-**A:** "Out for Delivery" events typically come in during the morning when the carrier loads their delivery runs. If you don't see it in Velocity but expect the shipment to be delivered today:
-1. Check the carrier's website directly
-2. Wait 30–60 minutes for the event to sync
-3. Delivery confirmation ("Delivered") usually comes within 2 hours of the actual delivery
+**A:** If upstream updates have never worked on any order — not just a single order — the most likely cause is a **firewall or network restriction** on your WooCommerce server. Velocity needs to be able to reach your WooCommerce store to push updates.
 
----
-
-## 3. Shipment Stuck in a Status for Days
-
-### Q: My shipment has been "In Transit" for 5+ days with no update. Could it be lost?
-
-**A:**
-1. First verify on the **carrier's own website** — hub processing can cause extended gaps in tracking
-2. If the carrier's website also shows no update for more than 5 days, raise a support ticket — Velocity will initiate a trace with the carrier
-3. If the carrier confirms the shipment is lost, Velocity will help you file a claim
+Check with your hosting provider or server administrator to ensure that Velocity's outbound requests are not being blocked by a firewall or security plugin (e.g., Wordfence).
 
 ---
 
-### Q: My shipment has been "Out for Delivery" for more than 24 hours. What's happening?
+### Q: My status mapping between Velocity and WooCommerce seems off. Where do I configure it?
 
-**A:** A shipment stuck at "Out for Delivery" for more than 24 hours usually means:
-- The delivery was attempted but failed (the NDR event may not have synced yet)
-- The carrier did not actually attempt delivery (a "fake attempt")
-
-**What to do:**
-1. Check the **NDR Panel** in your Velocity dashboard — a failed attempt may already be recorded there
-2. If the NDR Panel shows an attempt, take action based on the NDR reason (reattempt, update address, etc.)
-3. If nothing is in the NDR Panel and it's been >24 hours, raise a support ticket — we'll escalate to the carrier to investigate
+**A:** Go to **Settings → Integrations → WooCommerce** and review the status mapping configuration. You can map Velocity statuses to WooCommerce statuses to ensure the right status is set on orders when shipments are updated.
 
 ---
 
-### Q: A shipment was showing RTO, but now it seems stuck in RTO transit. What's normal?
+## 3. Other Partner Integrations
 
-**A:** RTO transit timelines are similar to forward delivery — allow 3–7 days for the return to reach your warehouse, depending on the carrier and route. Check the carrier's website for scan activity. If no updates for >5 days, contact support.
+### Q: Upstream updates aren't reaching Easyecom / Unicommerce / Clickpost / other OMS-WMS partners.
 
----
+**A:** For integrations with third-party OMS/WMS platforms like Easyecom, Unicommerce, Clickpost, and others, upstream configuration is managed jointly with the partner. If updates aren't flowing:
 
-## 4. When to Escalate to Support
+- Reach out to your **partner POC** at the respective platform
+- They will help diagnose whether the issue is on their side or in the integration configuration
 
-| Situation | When to Contact Support |
-|-----------|------------------------|
-| No tracking update in Velocity | After 60 minutes if carrier's site has the event |
-| Carrier's site also shows no update | After 48 hours of no scan activity |
-| Shipment stuck "In Transit" | After 5+ days with no carrier-side scan |
-| Stuck "Out for Delivery" | After 24+ hours |
-| Suspected fake delivery attempt | Immediately — escalate through support to the carrier |
-| Possible lost shipment | After 5+ days with no carrier-side scan |
-
-**Always include:**
-- AWB number
-- Last known tracking event (date, time, location)
-- What the carrier's own website shows
+Velocity's support team can assist if you need to coordinate from the Velocity side.
 
 ---
 
@@ -134,5 +98,3 @@ When in doubt, cross-check directly on the carrier's tracking website using the 
 
 - **Email:** support@velocity.in
 - **Live Chat:** Click the chat icon in your Velocity Shipping dashboard
-
-Always provide the **AWB number** when reaching out — it's the fastest way for our team to look up the shipment.
