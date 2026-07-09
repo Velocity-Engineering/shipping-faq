@@ -77,6 +77,7 @@ const sidebars: SidebarsConfig = {
         'features/weight-discrepancies',
         'features/returns-and-qc',
         'features/branded-tracking-page',
+        'features/post-delivery-disputes',
       ],
     },
     {
