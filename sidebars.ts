@@ -76,6 +76,7 @@ const sidebars: SidebarsConfig = {
         'features/cod-remittance',
         'features/weight-discrepancies',
         'features/returns-and-qc',
+        'features/branded-tracking-page',
       ],
     },
     {
