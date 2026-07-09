@@ -26,7 +26,9 @@
 - [Shipping Labels](https://shipping-faq.vercel.app/features/labels): Generating, downloading, and troubleshooting shipping labels
 - [COD Remittance](https://shipping-faq.vercel.app/features/cod-remittance): COD settlement timelines, reconciliation, and related FAQs
 - [Weight Discrepancies](https://shipping-faq.vercel.app/features/weight-discrepancies): How carrier weight discrepancy charges are applied and how to dispute them
+- [Returns & QC](https://shipping-faq.vercel.app/features/returns-and-qc): Managing reverse shipments, quality checks, and return workflows
 - [Branded Tracking Page](https://shipping-faq.vercel.app/features/branded-tracking-page): Set up and customize a branded customer-facing tracking page with your logo, social links, support info, and promotional banners
+- [Post-Delivery Disputes](https://shipping-faq.vercel.app/features/post-delivery-disputes): How to raise, track, and resolve post-delivery shipment disputes for damaged, missing, wrong, or undelivered items — including dispute types, evidence requirements, statuses, and resolution timelines
 
 ## Store Integrations
 - [Shopify](https://shipping-faq.vercel.app/integrations/shopify): Connecting and managing Shopify stores with Velocity Shipping for automatic order sync
