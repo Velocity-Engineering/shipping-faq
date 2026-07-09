@@ -30,7 +30,7 @@ description: Why orders placed in your store may not appear in Velocity Shipping
 | Reason | What to Do |
 |--------|-----------|
 | Integration is inactive or disconnected | Go to **Settings → Integrations** and check the connection status |
-| Order was placed before the integration was connected | Go to the integration page and use Bulk Operations to fetch historic orders — see [Section 2](#2-checking-bulk-historic-order-fetch) |
+| Order is older than 7 days and the store was recently connected | When a new store is connected, Velocity automatically fetches orders from the **last 7 days**. Orders older than 7 days at the time of connection are not imported |
 | Order status doesn't match your sync configuration | You can configure which statuses to pull — check your settings (see [Section 4](#4-configuring-which-orders-to-pull)) |
 | Integration credentials have expired or been regenerated | Re-authenticate the integration |
 
@@ -47,10 +47,19 @@ description: Why orders placed in your store may not appear in Velocity Shipping
 
 ## 2. Checking Bulk Historic Order Fetch
 
-### Q: I recently connected Shopify / WooCommerce and my existing orders aren't in Velocity. How do I get them?
+### Q: I recently connected Shopify / WooCommerce. Which past orders will Velocity import?
 
-**A:** When you connect a new store, Velocity runs a bulk historic order fetch to import past orders. To check its status:
+**A:** When a new store is connected, Velocity **automatically fetches orders from the last 7 days**. No manual trigger is needed — the fetch starts as soon as the integration is set up.
 
+Orders older than 7 days at the time of connection are not imported.
+
+:::note
+There is no option to manually trigger a bulk order fetch. The only manual operation available in Bulk Operations is an **HSN fetch** (for product HSN code data). Order syncing beyond the automatic 7-day window requires manual import — see [Section 7](#7-manually-importing-orders).
+:::
+
+### Q: How do I check if the automatic historic fetch completed successfully?
+
+**A:**
 1. Go to **Settings → Integrations**
 2. Find your store and click on it
 3. Click **Bulk Operations**
