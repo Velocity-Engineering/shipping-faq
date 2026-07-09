@@ -174,7 +174,7 @@ Go to **Settings → Integrations → WooCommerce** and re-authenticate. Contact
 **A:** Customers can track via:
 - **AWB number** on the carrier's website
 - **WhatsApp notifications** (if VAS is enabled) — Velocity sends automatic status updates at key milestones
-- **Branded tracking page** — Contact your KAM to set this up
+- **[Branded tracking page](/features/branded-tracking-page)** — A fully customized page at your own subdomain with your logo, social links, and banners; configure it yourself under **Settings → Communication → Branded Tracking Page**
 
 ---
 
