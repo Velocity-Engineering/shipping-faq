@@ -25,7 +25,7 @@ description: Set up and configure a custom-branded tracking page for your custom
 ## 1. Overview
 
 ### Q: What is the Branded Tracking Page?
-**A:** The Branded Tracking Page lets your customers track their shipments on a page that looks like yours — with your logo, support links, and social media presence. Instead of sending customers to a generic carrier tracking site, they land on a URL like `https://yourstore.track.velocity.in`.
+**A:** The Branded Tracking Page lets your customers track their shipments on a page that looks like yours — with your logo, support links, and social media presence. Instead of sending customers to a generic carrier tracking site, they land on a URL like `https://yourstore.velocityshipping.in`.
 
 The page automatically shows the shipment's live tracking timeline, carrier events, and estimated delivery — all under your brand.
 
@@ -77,9 +77,9 @@ The page automatically shows the shipment's live tracking timeline, carrier even
 
 ### Q: Where do I configure the branded tracking page?
 **A:**
-1. Go to **Settings → Communication** in your Velocity dashboard
-2. Click **Branded Tracking Page**
-3. Complete the two-step setup wizard (Basic → Advanced)
+1. Go to **Buyer Communication** in your Velocity dashboard
+2. Click **Tracking Page**
+3. Complete the setup wizard — Basic settings first, then Advanced customization
 4. Save — your page goes live immediately
 
 ### Q: What is my tracking page URL?
@@ -87,10 +87,10 @@ The page automatically shows the shipment's live tracking timeline, carrier even
 ```
 https://{subdomain}.{tracking-domain}
 ```
-For example, if you set `mystore` as your subdomain, the URL becomes `https://mystore.track.velocity.in`.
+For example, if your subdomain is `mystore`, the URL is `https://mystore.velocityshipping.in`.
 
 ### Q: Is this feature available on all plans?
-**A:** The branded tracking page may need to be enabled on your account. If you don't see it under **Settings → Communication**, contact your Key Account Manager (KAM) or email support@velocity.in.
+**A:** The branded tracking page may need to be enabled on your account. If you don't see it under **Buyer Communication**, contact your Key Account Manager (KAM) or email support@velocity.in.
 
 ---
 
@@ -189,7 +189,7 @@ The **Advanced Tracking Page** — with custom headers, sticky bars, footer soci
 **A:** No. The system ensures each shipment is charged at most once for the Branded Tracking Page service.
 
 ### Q: Is there a free trial?
-**A:** Yes — Velocity may offer a free trial period when you first enable the service. During the trial, no charge is applied per shipment. Regular per-shipment billing begins after the trial period ends.
+**A:** No. - Branded Tracking page does not have a trial period
 
 ### Q: I disabled the Branded Tracking Page and re-enabled it. Will I be charged for past shipments?
 **A:** No. Only shipments manifested while the service is **active** (or in free trial) are charged. Shipments created before the service was enabled — or during any period it was disabled — are not billed retroactively.
@@ -214,11 +214,9 @@ The **Advanced Tracking Page** — with custom headers, sticky bars, footer soci
 
 Note: upload URLs expire after **10 minutes**. If an upload times out, refresh the page and try again.
 
-### Q: I can't find **Settings → Communication → Branded Tracking Page**.
+### Q: I can't find the Branded Tracking Page setting.
 **A:** The Advanced Tracking Page may not be enabled on your account. Contact your KAM or support@velocity.in to get it activated.
 
-### Q: The subdomain I want is already taken.
-**A:** Subdomains are unique across all Velocity merchants. Try a variation such as `mystore-in`, `mystore-official`, or `brand-track`.
 
 ---
 
