@@ -76,6 +76,35 @@ Automatically connect with customers when a delivery fails to get resolution fas
 
 ---
 
+### IVR Calls
+
+#### Q: What are IVR calls and how are they part of automation?
+**A:** IVR (Interactive Voice Response) calls are automated phone calls that guide customers through a menu-driven system using keypad inputs. As part of Velocity Shipping's automation:
+- IVR calls can be triggered as part of the Order Confirmation or NDR Management flow
+- Customers receive a call and are presented with options (e.g., press 1 to confirm, press 2 to reschedule)
+- Their response is captured and automatically updates the order status in Velocity Shipping
+- IVR calls are particularly effective for customers who may not use WhatsApp or prefer a quicker, guided interaction
+
+#### Q: How is an IVR call different from an AI voice call?
+**A:** Both are automated calls, but they work differently:
+
+| Feature | IVR Call | AI Voice Call (Vani AI) |
+|---------|----------|------------------------|
+| Interaction | Keypad-driven menu (press 1, 2, etc.) | Natural conversation using AI |
+| Flexibility | Fixed menu options | Can handle open-ended responses |
+| Languages | Supports regional prompts | Adapts to customer's language |
+| Use case | Quick confirmation/rescheduling | Complex queries, address updates |
+
+#### Q: When is an IVR call triggered in the automation flow?
+**A:** IVR calls are triggered as configured in your automation settings. They may be used as:
+- A channel alongside or after WhatsApp messages
+- A fallback when AI voice calls are not enabled
+- A cost-effective option for high-volume confirmation needs
+
+For the exact IVR configuration available on your account, check the **Automations** section in your Velocity Shipping dashboard or contact your KAM.
+
+---
+
 ### AI Voice Calls
 
 #### Q: What is Vani AI?

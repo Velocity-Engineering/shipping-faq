@@ -33,6 +33,8 @@ description: Guide to Velocity Shipping's Value Added Services pricing, billing,
 | **AI Calling** | AI-powered calls to customers | Per minute (pulse-based) |
 | **RTO Risk Score** | Prediction of return likelihood | Per API call |
 | **Early COD** | Faster COD remittance | % of settlement |
+| **Open Box Delivery** | Agent opens package in front of customer for inspection | Per shipment |
+| **Exchange** | Swap a delivered item for a replacement in one logistics flow | Per exchange order |
 
 ### Q: How do I enable VAS for my account?
 **A:** Contact your account manager or reach out to support@velocity.in to enable VAS services. Each service can be enabled independently.
@@ -138,6 +140,53 @@ This means:
 
 **Q: When am I charged for RTO Risk?**
 **A:** You're charged when the RTO Risk API successfully returns a score. If the API call fails, you're not charged.
+
+---
+
+### Open Box Delivery
+
+**Q: What is Open Box Delivery?**
+**A:** Open Box Delivery is a premium delivery service where the delivery agent opens the package in front of the customer at the time of delivery. This allows the customer to:
+- Inspect the product before accepting
+- Verify it matches what was ordered
+- Reject the shipment on the spot if the item is damaged, incorrect, or unsatisfactory
+
+This service significantly reduces post-delivery disputes and return rates by ensuring customer satisfaction at the point of delivery.
+
+**Q: How do I enable Open Box Delivery?**
+**A:** Open Box Delivery is a VAS offering. Contact your **Key Account Manager (KAM)** or the Support team to enable this for your account. Not all carriers support Open Box Delivery — your KAM can advise on carrier availability.
+
+**Q: How is Open Box Delivery billed?**
+**A:** Open Box Delivery is charged as an additional fee per shipment. Your specific rate is defined in your VAS contract. For pricing details, check your Velocity Shipping dashboard or contact your account manager.
+
+**Q: What happens if the customer rejects the shipment on open box inspection?**
+**A:** If the customer rejects the shipment during open box inspection, the shipment is treated as an RTO (Return to Origin) and returned to your warehouse. The rejection reason is captured and available in the order details.
+
+---
+
+### Exchange
+
+**Q: What is the Exchange service?**
+**A:** Exchange allows customers to swap a delivered product for a different variant, size, color, or an entirely different item in a single logistics flow. Instead of a two-step return + new order, an exchange shipment:
+- Picks up the original item from the customer
+- Delivers the replacement item in the same trip (or a coordinated subsequent trip)
+
+This reduces turnaround time and improves customer experience compared to a standard return + re-order.
+
+**Q: How does Exchange work on Velocity Shipping?**
+**A:** The exchange flow typically works as follows:
+1. An exchange request is created (manually or via your storefront/integration)
+2. A reverse pickup is scheduled to collect the original item
+3. A forward shipment is created for the replacement item
+4. Both legs are tracked in Velocity Shipping under the exchange order
+
+For the exact exchange workflow available on your account, check the **Exchange** section in your Velocity Shipping dashboard or contact your KAM.
+
+**Q: Which carriers support Exchange?**
+**A:** Exchange support varies by carrier. Contact your **Key Account Manager (KAM)** or the Support team to check which carriers in your account support exchange shipments.
+
+**Q: How is Exchange billed?**
+**A:** Exchange shipments are billed as per your contracted rates for both the reverse and forward legs. Additional VAS charges may apply depending on the configuration. Check your Velocity Shipping dashboard for billing details or reach out to your account manager.
 
 ---
 
