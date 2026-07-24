@@ -188,6 +188,15 @@ For the exact exchange workflow available on your account, check the **Exchange*
 **Q: How is Exchange billed?**
 **A:** Exchange shipments are billed as per your contracted rates for both the reverse and forward legs. Additional VAS charges may apply depending on the configuration. Check your Velocity Shipping dashboard for billing details or reach out to your account manager.
 
+**Q: Which carriers support OBD and Exchange?**
+**A:** Only limited carriers support OBD and exchanges. Please contact your KAM or Shipping Support to get these carriers enabled for your account.
+
+**Q: Are there separate charges for OBD and Exchange?**
+**A:** OBD charges and exchange charges are also deducted as per configured rate card.
+
+**Q: No carriers are showing up for OBD — what should I do?**
+**A:** In cases where no carriers are coming for OBD, try removing the OBD flag and ship without OBD.
+
 ---
 
 ### Early COD
