@@ -26,6 +26,11 @@ description: Connect and manage your Shopify store with Velocity Shipping.
 
 ## 1. Getting Started
 
+### Q: Can I disconnect my Shopify store myself?
+**A:** No. Shopify store disconnection cannot be done by the user directly. To disconnect your Shopify store from Velocity Shipping, please contact your **Key Account Manager (KAM)** or reach out to the **Shipping Support team**. They will assist you with the disconnection process.
+
+---
+
 ### Q: How does Shopify connect with Velocity Shipping?
 **A:** Once you connect your Shopify store to Velocity Shipping:
 - Your Shopify orders automatically appear in Velocity Shipping

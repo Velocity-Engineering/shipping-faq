@@ -25,6 +25,11 @@ description: Connect and manage your WooCommerce store with Velocity Shipping.
 
 ## 1. Getting Started
 
+### Q: Can I disconnect my WooCommerce store myself?
+**A:** No. WooCommerce store disconnection cannot be done by the user directly. To disconnect your WooCommerce store from Velocity Shipping, please contact your **Key Account Manager (KAM)** or reach out to the **Shipping Support team**. They will assist you with the disconnection process.
+
+---
+
 ### Q: How does WooCommerce connect with Velocity Shipping?
 **A:** Once you connect your WooCommerce store to Velocity Shipping:
 - Your WooCommerce orders automatically appear in Velocity Shipping
