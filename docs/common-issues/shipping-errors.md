@@ -408,6 +408,25 @@ Warehouse and pickup errors are typically configuration issues on **Velocity's s
 
 ---
 
+### Carrier Operational Block (Order Not Assigned to Preferred Carrier)
+
+**Q: My shipping rule sets Carrier X as the top priority, but orders keep going to a different carrier. The Manifest Attempts tab shows Carrier X failed — yet the pincode appears serviceable. Why?**
+
+**A:** This can happen when a carrier has placed an **operational block** on pickups from your location or account at the carrier's end. This is distinct from a serviceability issue — the carrier's system may accept the pincode query, but their operations team has independently blocked pickup dispatch.
+
+Common causes include:
+- Carrier capacity constraints at their sorting hub
+- Pending account setup or KYC with the carrier
+- A billing hold placed by the carrier on your account
+- Regional operational restrictions on the carrier side
+
+**What to do:**
+- The block is managed at the carrier's end and cannot be lifted from the Velocity dashboard
+- **Raise a support ticket** or contact the Velocity OPs team — they will coordinate with the carrier to resolve the block
+- As an immediate workaround, adjust your courier rules to use an alternative carrier while the block is active
+
+---
+
 ## 9. System & Technical Errors
 
 These are typically temporary issues that resolve on retry.
@@ -513,12 +532,14 @@ These are typically temporary issues that resolve on retry.
 | Duplicate order | Check if already manifested |
 | Timeout | Wait 5 mins and retry |
 | Wrong carrier assigned | Check Manifest Attempts tab for errors from preferred carrier |
+| Carrier not assigning despite rules | Carrier may have an operational block — raise a support ticket |
 | Warehouse/AWB errors | Raise support ticket - Velocity will fix |
 
 ### When to Contact Support
 
 Contact support if:
 - **Warehouse or pickup errors** - These are Velocity's responsibility to fix
+- **Carrier operational block** - OPs team must coordinate with the carrier to lift the block
 - Error persists after 3+ retries over 30 minutes
 - You see "contact support" in the error message
 - Account/credential issues
