@@ -10,9 +10,7 @@ description: Understanding and resolving common shipping errors from carrier int
 
 When creating shipments, you may encounter errors from our carrier partners (3PL providers). This guide explains the most common errors and how to fix them, helping you resolve issues quickly without needing to contact support.
 
-:::info Standardised Error Messages
-Velocity now shows standardised, user-friendly error messages instead of raw carrier error strings. The error messages listed under **"Error on Velocity"** are what you'll see in the Manifest Attempts tab and order status. Some less common errors may still appear as raw carrier messages — these are listed separately.
-:::
+> **Note:** Velocity now shows standardised, user-friendly error messages instead of raw carrier error strings. The error messages listed under **"Error on Velocity"** are what you'll see in the Manifest Attempts tab and order status. Some less common errors may still appear as raw carrier messages — these are listed separately.
 
 ---
 
@@ -78,11 +76,9 @@ Use the error messages from failed attempts and refer to the sections below to u
 
 These errors occur when the carrier cannot service a particular pincode or route.
 
-:::caution Serviceability is Dynamic
-The serviceability information shown in **Tools > Pincode Serviceability** or in reports may not always reflect real-time carrier availability. Carrier serviceability is highly dynamic and can change frequently due to operational constraints, capacity limits, or temporary restrictions.
-
-**This means:** A pincode may show as "serviceable" in the serviceability check tool but still fail during actual manifestation. Always check the **Manifest Attempts** tab for the actual error from the carrier.
-:::
+> **⚠ Serviceability is Dynamic:** The serviceability information shown in **Tools > Pincode Serviceability** or in reports may not always reflect real-time carrier availability. Carrier serviceability is highly dynamic and can change frequently due to operational constraints, capacity limits, or temporary restrictions.
+>
+> A pincode may show as "serviceable" in the serviceability check tool but still fail during actual manifestation. Always check the **Manifest Attempts** tab for the actual error from the carrier.
 
 ### Destination Not Serviceable
 
@@ -322,9 +318,7 @@ These occur when trying to create shipments that already exist.
 
 Issues related to warehouse configuration and pickup setup.
 
-:::info Contact Support for Warehouse Errors
-Warehouse and pickup errors are typically configuration issues on **Velocity's side**. If you encounter any of the errors below, please **raise a support ticket** and our team will resolve it for you.
-:::
+> **Note:** Warehouse and pickup errors are typically configuration issues on **Velocity's side**. If you encounter any of the errors below, please **raise a support ticket** and our team will resolve it for you.
 
 ### Warehouse Not Configured
 
