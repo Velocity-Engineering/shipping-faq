@@ -10,6 +10,10 @@ description: Understanding and resolving common shipping errors from carrier int
 
 When creating shipments, you may encounter errors from our carrier partners (3PL providers). This guide explains the most common errors and how to fix them, helping you resolve issues quickly without needing to contact support.
 
+:::info Standardised Error Messages
+Velocity now shows standardised, user-friendly error messages instead of raw carrier error strings. The error messages listed under **"Error on Velocity"** are what you'll see in the Manifest Attempts tab and order status. Some less common errors may still appear as raw carrier messages — these are listed separately.
+:::
+
 ---
 
 ## Table of Contents
@@ -43,7 +47,7 @@ When you create a shipment, Velocity automatically tries **up to 3 carriers** ba
 **This means:**
 - Your shipment may be manifested with your 2nd or 3rd priority carrier if the 1st one failed
 - The Manifest Attempts tab shows **all attempts** - successful and failed
-- You can see the **exact error message** from each carrier that failed
+- You can see the **error message** from each carrier that failed
 
 ### Common Scenario
 
@@ -52,8 +56,8 @@ When you create a shipment, Velocity automatically tries **up to 3 carriers** ba
 Check the Manifest Attempts tab. You might see:
 | Attempt | Carrier | Status | Error |
 |---------|---------|--------|-------|
-| 1 | Carrier A | Failed | `Destination [PINCODE] is not serviceable` |
-| 2 | Carrier B | Failed | `Temporary Embargo is placed for the Destination pin code` |
+| 1 | Carrier A | Failed | `Delivery location is not serviceable by this carrier` |
+| 2 | Carrier B | Failed | `This route is not serviceable` |
 | 3 | Carrier C | Success | - |
 
 This shows that Carrier A and B failed due to serviceability issues, so the shipment was manifested with Carrier C (your 3rd priority).
@@ -63,7 +67,7 @@ This shows that Carrier A and B failed due to serviceability issues, so the ship
 - **Carrier name** - Which carrier was attempted
 - **Timestamp** - When the attempt was made
 - **Status** - Success or Failed
-- **Error message** - The exact error returned by the carrier (if failed)
+- **Error message** - The error returned (if failed)
 - **AWB number** - Assigned tracking number (if successful)
 
 Use the error messages from failed attempts and refer to the sections below to understand what went wrong.
@@ -82,14 +86,14 @@ The serviceability information shown in **Tools > Pincode Serviceability** or in
 
 ### Destination Not Serviceable
 
+| Error on Velocity | Meaning |
+|---|---|
+| `Delivery location is not serviceable by this carrier` | The carrier does not deliver to this destination pincode or area |
+
+**Errors that may still appear as raw carrier messages:**
+
 | Error Message | Meaning |
-|---------------|---------|
-| `Destination [PINCODE] is not servicable for requested Product` | The carrier does not deliver to this pincode for the selected service type |
-| `Invalid Delivery Pincode. Pincode [PINCODE] is not serviceble` | The delivery pincode is not in the carrier's serviceable area |
-| `Delivery Pincode([PINCODE]) Not Servicable` | Same as above - pincode not covered |
-| `Drop pincode not serviceable` | Destination pincode is outside carrier coverage |
-| `Drop Pincode is Not Serviceable` | Same as above |
-| `Service is not available in this area ([AREA_NAME])` | The specific locality is not serviceable |
+|---|---|
 | `No offerings found for the given request. Either it is out of coverage or dimensions or weight are not supported` | Either the destination is not serviceable OR the package specs exceed limits |
 
 **How to Fix:**
@@ -102,11 +106,9 @@ The serviceability information shown in **Tools > Pincode Serviceability** or in
 
 ### Pickup/Origin Not Serviceable
 
-| Error Message | Meaning |
-|---------------|---------|
-| `Invalid Pickup Pincode. Pickup pincode [PINCODE] is not serviceable` | Carrier doesn't pick up from this pincode |
-| `Pickup pincode not serviceable` | Same as above |
-| `No vendor has pickup serviceability` | No carrier available for pickup from this location |
+| Error on Velocity | Meaning |
+|---|---|
+| `Pickup location is not serviceable by this carrier` | The carrier does not pick up from your warehouse pincode |
 
 **How to Fix:**
 - Verify your warehouse pincode is serviceable by the carrier
@@ -117,9 +119,8 @@ The serviceability information shown in **Tools > Pincode Serviceability** or in
 ### Return Location Not Serviceable
 
 | Error Message | Meaning |
-|---------------|---------|
+|---|---|
 | `No Serviceability for RETURN_LOCATION` | The RTO address pincode is not serviceable |
-| `Invalid Return Pincode. Return Pincode [PINCODE] is not serviceable` | Carrier cannot deliver returns to this pincode |
 | `RTO pincode not serviceable` | Same as above |
 | `RTO address not provided` | Return address is missing from the shipment |
 
@@ -129,44 +130,33 @@ The serviceability information shown in **Tools > Pincode Serviceability** or in
 
 ---
 
-### Embargo Errors
+### Route Not Serviceable / Embargo
 
-| Error Message | Meaning |
-|---------------|---------|
-| `Temporary Embargo is placed for the Destination pin code` | Carrier has temporarily suspended service to this area (weather, civil unrest, etc.) |
-| `Permanent embargo is placed for the Destination pin code` | Carrier has permanently blocked this pincode |
-
-**How to Fix:**
-- **Temporary embargo**: Wait and retry after 24-48 hours, or use a different carrier
-- **Permanent embargo**: Use an alternative carrier for this destination
-
----
-
-### Service Type Errors
-
-| Error Message | Meaning |
-|---------------|---------|
-| `B2C COD bookings are not allowed for the destination pincode [PINCODE]` | COD is not available for B2C shipments to this pincode |
-| `SERVICE TYPE '[SERVICE_TYPE]' NOT APPLICABLE FOR THIS PINCODE PAIR` | The selected service level is not available for this route |
-| `Special destination not enabled. Please update your settings to proceed.` | Special delivery zones require account-level enablement |
+| Error on Velocity | Meaning |
+|---|---|
+| `This route is not serviceable` | The carrier has suspended or blocked service on this pickup-to-delivery route — temporarily (embargo, capacity) or permanently |
 
 **How to Fix:**
-- Switch to prepaid mode if COD is not available
-- Try standard service instead of priority/express
-- Contact your account manager to enable special destinations
-
----
-
-### Route Configuration Errors
-
-| Error Message | Meaning |
-|---------------|---------|
-| `Route Master Configuration not found for the postal [ORIGIN_PINCODE] to [DESTINATION_PINCODE] for user_id [USER_ID]` | No shipping route configured between origin and destination |
-| `Serviceability failure` | General serviceability check failed |
-
-**How to Fix:**
+- **Temporary restriction**: Wait and retry after 24-48 hours, or use a different carrier
+- **Permanent block**: Use an alternative carrier for this destination
 - Verify both pickup and delivery pincodes are correct
-- Contact support if you believe this route should be serviceable
+
+---
+
+### Warehouse Not Activated
+
+| Error on Velocity | Meaning |
+|---|---|
+| `Warehouse not activated. Please contact support team to get your warehouse activated` | No shipping route is configured between your origin and destination; warehouse setup is incomplete with this carrier |
+
+**How to Fix:**
+- **Raise a support ticket** — Velocity will activate the warehouse configuration with the carrier
+
+**Errors that may still appear as raw carrier messages:**
+
+| Error Message | Meaning |
+|---|---|
+| `Serviceability failure` | General serviceability check failed |
 
 ---
 
@@ -174,52 +164,49 @@ The serviceability information shown in **Tools > Pincode Serviceability** or in
 
 These errors occur when address fields have invalid data or formatting issues.
 
-### Address Length Errors
+### Address Issues
+
+| Error on Velocity | Meaning |
+|---|---|
+| `Delivery/Pickup address is incomplete or contains unsupported characters` | Address field is empty, too long, or contains invalid characters |
+
+**Errors that may still appear as raw carrier messages:**
 
 | Error Message | Meaning |
-|---------------|---------|
+|---|---|
 | `Address exceeds maximum allowed length - 255` | Address line is too long (max 255 characters) |
-| `The remaining characters are insufficient after removing non-ASCII characters for Destination Address Line 1` | Address becomes too short after removing special characters |
 | `Drop City length should be less than or equal to 50 char` | City name exceeds 50 characters |
 | `Drop Name length should be less than or equal to 100 char` | Customer name exceeds 100 characters |
-| `Value at 'shipTo.city' failed to satisfy constraint: Member must have length less than or equal to 50` | City field too long |
-
-**How to Fix:**
-- Shorten address lines to under 255 characters
-- Split long addresses across Address Line 1 and Address Line 2
-- Abbreviate city names if necessary (e.g., "Thiruvananthapuram" → "Trivandrum")
-
----
-
-### Missing Address Fields
-
-| Error Message | Meaning |
-|---------------|---------|
-| `Cnee Address is blank` | Consignee (customer) address is empty |
 | `ConsigneeAddress1 can't be empty` | First line of address is required |
-| `Attention name is blank` | Recipient name is missing |
-| `consignee name not provided` | Customer name is missing |
 | `Drop State Not Provided` | State field is empty |
+| `ItemIdentifier contains non ISO-8859 characters` | Product identifiers have invalid characters |
 
 **How to Fix:**
 - Ensure all required address fields are filled: Name, Address Line 1, City, State, Pincode
-- Validate order data before manifesting
+- Shorten address lines to under 255 characters; split long addresses across Address Line 1 and 2
+- Abbreviate city names if necessary (e.g., "Thiruvananthapuram" → "Trivandrum")
+- Remove special characters (emojis, non-English scripts in some cases)
+- Use only alphanumeric characters, spaces, and basic punctuation
+- Avoid copying text from PDFs or formatted documents that may include hidden characters
 
 ---
 
-### Invalid Characters
+### Customer Name Issues
+
+| Error on Velocity | Meaning |
+|---|---|
+| `Customer name is missing or contains unsupported characters` | Consignee name is empty or contains invalid characters |
+
+**Errors that may still appear as raw carrier messages:**
 
 | Error Message | Meaning |
-|---------------|---------|
-| `Invalid character in ConsigneeAddress3` | Address contains unsupported special characters |
-| `ItemIdentifier contains non ISO-8859 characters` | Product identifiers have invalid characters |
+|---|---|
 | `Invalid Consignee Name` | Name contains invalid characters or format |
 | `invalid consignee name provided` | Same as above |
 
 **How to Fix:**
-- Remove special characters (emojis, non-English scripts in some cases)
-- Use only alphanumeric characters, spaces, and basic punctuation
-- Avoid copying text from PDFs or formatted documents that may include hidden characters
+- Ensure customer name is provided and uses only standard characters
+- Avoid special symbols, emojis, or non-ASCII characters in names
 
 ---
 
@@ -227,49 +214,21 @@ These errors occur when address fields have invalid data or formatting issues.
 
 Phone number validation is strict across carriers. These are very common errors.
 
-### Missing Phone Number
+| Error on Velocity | Meaning |
+|---|---|
+| `Invalid consignee phone number. Please use correct 10 digit phone number` | Phone number is missing, the wrong length, or has an invalid format |
+
+**Errors that may still appear as raw carrier messages:**
 
 | Error Message | Meaning |
-|---------------|---------|
-| `No phone number provided.` | Phone number field is empty |
-| `consignee contact no. (Mobile / Telephone / Masked) not provided` | No contact number for customer |
-| `Customer Contact number is Required` | Phone is mandatory |
-| `Receiver Phone Number is Mandatory` | Same as above |
-| `Contact number is empty or null` | Phone number is null/empty |
-
-**How to Fix:**
-- Always provide a valid 10-digit mobile number
-- Ensure phone number field is not blank in your order data
-
----
-
-### Invalid Phone Number Format
-
-| Error Message | Meaning |
-|---------------|---------|
-| `Delivery Mobile length must be 10 digits` | Phone number is not exactly 10 digits |
-| `Invalid consignee mobile no. length must be between 10 to 15 digits` | Phone number length is incorrect |
-| `Drop mobile or Landline number is invalid` | Number format is wrong |
-| `Incorrect phone number(s) for order [ORDER_ID]` | Phone validation failed |
-| `Customer contact is not valid` | General phone validation error |
-| `Between Customer No and Virtual No, Only one of the no. can be null at a given point in time` | Phone number configuration issue |
-
-**How to Fix:**
-- Use exactly 10 digits for Indian mobile numbers (no country code, no spaces)
-- Remove any prefixes like +91, 0, or 91
-- Ensure the number contains only digits
-
----
-
-### Invalid Email
-
-| Error Message | Meaning |
-|---------------|---------|
+|---|---|
 | `Drop EmailID is invalid` | Email address format is incorrect |
 
 **How to Fix:**
-- Verify email format (e.g., user@domain.com)
-- Leave email blank if not available (it's usually optional)
+- Always provide a valid 10-digit mobile number
+- Remove any prefixes like +91, 0, or 91
+- Ensure the number contains only digits
+- Verify email format (e.g., user@domain.com) — leave blank if not available (it's usually optional)
 
 ---
 
@@ -279,13 +238,18 @@ Carriers have strict limits on package weight and dimensions.
 
 ### Weight Errors
 
+| Error on Velocity | Meaning |
+|---|---|
+| `Package weight is invalid or out of the allowed range` | Weight is missing, zero, or outside the carrier's allowed range |
+| `Total items weight exceeds package weight` | Sum of item weights exceeds the declared package weight |
+
+**Errors that may still appear as raw carrier messages:**
+
 | Error Message | Meaning |
-|---------------|---------|
+|---|---|
 | `Shipment weight exceeds max allowed value - [MAX_WEIGHT]` | Package exceeds carrier's weight limit |
-| `For Destination Pincode [PINCODE] Shipments weight can not be greater than [MAX_WEIGHT]` | Route-specific weight limit |
+| `For Destination Pincode [PINCODE] Shipments weight can not be greater than [MAX_WEIGHT]` | Route-specific weight limit exceeded |
 | `Total items weight is greater than the package weight` | Sum of item weights exceeds declared package weight |
-| `Weight cannot be blank` | Weight field is empty |
-| `Minimum allowed value for Shipment weight is- 0.001` | Weight must be greater than 0 |
 
 **How to Fix:**
 - Check carrier weight limits before shipping (typically 20-30 kg for standard, lower for some routes)
@@ -297,7 +261,7 @@ Carriers have strict limits on package weight and dimensions.
 ### Dimension Errors
 
 | Error Message | Meaning |
-|---------------|---------|
+|---|---|
 | `Largest value of dimension exceeds max allowed value - [MAX_CM]` | Package dimensions exceed carrier limits |
 | `Second largest value of dimension exceeds max allowed value - [MAX_CM]` | One dimension is too large |
 
@@ -312,33 +276,24 @@ Carriers have strict limits on package weight and dimensions.
 
 Cash on Delivery shipments have specific validation requirements.
 
-### COD Amount Errors
+| Error on Velocity | Meaning |
+|---|---|
+| `COD Orders not allowed on this destination` | COD is not available for B2C shipments to this pincode |
+| `COD amount is invalid or missing` | COD order has no amount specified, or the amount is zero |
+| `COD amount is invalid or out of the allowed range` | COD amount exceeds the carrier's limit |
+| `COD configuration is invalid. Please check COD settings` | Payment mode configuration mismatch (e.g., COD mode set for a prepaid order) |
+
+**Errors that may still appear as raw carrier messages:**
 
 | Error Message | Meaning |
-|---------------|---------|
-| `COD amount missing for COD/Cash package` | COD order without amount specified |
-| `Collectable Amount can not be zero for COD/DOD/DODFOD` | COD amount must be greater than zero |
-| `CollectibleAmount Should be minimum 1 rupee for COD order type` | Minimum COD is ₹1 |
-| `COD/FOD Amount should be in range of 0 to [MAX_AMOUNT]!` | COD amount exceeds carrier limit |
-| `Container cannot have Zero or less than Zero Value for CollectOnDelivery` | Invalid COD value |
-| `For zero COD/FOD amount, COD/FOD In favour of and COD/FOD Mode should be blank` | Configuration mismatch for prepaid orders |
+|---|---|
+| `Invalid format of the DeclaredValue field` | Declared value has invalid format (non-numeric) |
 
 **How to Fix:**
 - Ensure COD amount is between ₹1 and the carrier limit (typically ₹20,000 - ₹50,000)
 - For prepaid orders, set COD amount to 0 and payment mode to "Prepaid"
 - Verify COD amount matches order total
-
----
-
-### Invalid Value Format
-
-| Error Message | Meaning |
-|---------------|---------|
-| `Invalid format of the DeclaredValue field` | Declared value has invalid format (non-numeric) |
-
-**How to Fix:**
-- Use numeric values only (no currency symbols or commas)
-- Declared value should be a positive number
+- Use numeric values only for declared value (no currency symbols or commas)
 
 ---
 
@@ -346,10 +301,14 @@ Cash on Delivery shipments have specific validation requirements.
 
 These occur when trying to create shipments that already exist.
 
+| Error on Velocity | Meaning |
+|---|---|
+| `This order has already been booked with the carrier` | An order with the same reference ID or tracking ID already exists at the carrier |
+
+**Errors that may still appear as raw carrier messages:**
+
 | Error Message | Meaning |
-|---------------|---------|
-| `Duplicate order id` | This order ID was already manifested |
-| `Shipment already exists with the same merchant reference Id or vendor tracking Id` | AWB/tracking ID already used |
+|---|---|
 | `Duplicate waybill` | Waybill number already exists |
 
 **How to Fix:**
@@ -370,7 +329,7 @@ Warehouse and pickup errors are typically configuration issues on **Velocity's s
 ### Warehouse Not Configured
 
 | Error Message | Meaning |
-|---------------|---------|
+|---|---|
 | `Warehouse not registered with [CARRIER_NAME]` | Your warehouse needs to be registered with the carrier |
 | `Client-Warehouse is not active` | Warehouse is disabled or inactive |
 | `client is not active` | Your account with the carrier is inactive |
@@ -381,30 +340,22 @@ Warehouse and pickup errors are typically configuration issues on **Velocity's s
 
 ---
 
-### Waybill/AWB Errors
+### Waybill/AWB & Authentication Errors
+
+| Error on Velocity | Meaning |
+|---|---|
+| `Something went wrong at carrier end. Please contact technical support` | AWB pool is exhausted, carrier credentials have expired, or there is an account mapping issue |
+
+**Errors that may still appear as raw carrier messages:**
 
 | Error Message | Meaning |
-|---------------|---------|
-| `Unable to consume waybill [AWB_NUMBER] for [SERVICE_NAME]` | AWB number is invalid or exhausted |
-| `Unable to consume waybill [AWB_NUMBER] for [CLIENT_NAME], Hint: Check if the right client is specified for this manifest` | Wrong client/account mapping |
+|---|---|
+| `[CARRIER] token is required for this operation` | Carrier credentials are missing from Velocity's configuration |
 
 **How to Fix:**
-- **Raise a support ticket** - Velocity will replenish the AWB pool or fix the account mapping
+- These may resolve automatically — retry after a few minutes
+- If persistent, **raise a support ticket** — Velocity will replenish the AWB pool or refresh the carrier credentials
 - Include the carrier name and error message in the ticket
-
----
-
-### Authentication Errors
-
-| Error Message | Meaning |
-|---------------|---------|
-| `[CARRIER] token is required for this operation` | Carrier credentials missing |
-| `The incoming token has expired` | API authentication token expired |
-| `Token refresh failed` | Unable to refresh carrier credentials |
-
-**How to Fix:**
-- These may resolve automatically - retry after a few minutes
-- If persistent, **raise a support ticket** - Velocity will refresh the carrier credentials
 
 ---
 
@@ -431,12 +382,16 @@ Common causes include:
 
 These are typically temporary issues that resolve on retry.
 
-### Timeout Errors
+### Courier API Unavailable
+
+| Error on Velocity | Meaning |
+|---|---|
+| `Courier Partner API Services are not available. Please try again later.` | Carrier API is timing out or temporarily unavailable |
+
+**Errors that may still appear as raw carrier messages:**
 
 | Error Message | Meaning |
-|---------------|---------|
-| `timeout of 30000ms exceeded` | Carrier API took too long to respond |
-| `Endpoint request timed out` | Same as above |
+|---|---|
 | `read ECONNRESET` | Connection was reset |
 | `504` | Gateway timeout |
 
@@ -447,17 +402,21 @@ These are typically temporary issues that resolve on retry.
 
 ---
 
-### Internal Errors
+### Carrier-Side Errors
+
+| Error on Velocity | Meaning |
+|---|---|
+| `Something went wrong at carrier end. Please contact technical support` | The carrier returned an unrecoverable error — Velocity support needs to investigate |
+
+**Errors that may still appear as raw carrier messages:**
 
 | Error Message | Meaning |
-|---------------|---------|
+|---|---|
 | `We encountered an internal error. Please try again.` | Carrier internal error |
-| `Something went wrong` | Generic error |
-| `Operation failed` | Unspecified failure |
 | `Request failed` | API request failed |
-| `Unable to process request.` | Processing error |
-| `In Process. Please try after some time.` | Request is queued |
-| `[object Object]` | Malformed error response |
+| `[object Object]` | Malformed error response from carrier |
+| `The HTTP service located at [CARRIER_URL] is unavailable` | Carrier API is down |
+| `not master` | Database/cluster issue at carrier end |
 
 **How to Fix:**
 - Retry after 5-10 minutes
@@ -465,27 +424,11 @@ These are typically temporary issues that resolve on retry.
 
 ---
 
-### Carrier API Issues
-
-| Error Message | Meaning |
-|---------------|---------|
-| `The HTTP service located at [CARRIER_URL] is unavailable` | Carrier API is down |
-| `You exceeded your quota for the requested resource.` | Rate limit exceeded |
-| `Invalid response from [CARRIER_NAME]` | Carrier returned unexpected response |
-| `not master` | Database/cluster issue at carrier end |
-
-**How to Fix:**
-- These are carrier-side issues - retry after 15-30 minutes
-- If urgent, try an alternative carrier
-
----
-
 ### Data Processing Errors
 
 | Error Message | Meaning |
-|---------------|---------|
+|---|---|
 | `Package creation API error. Package might be saved. Please contact support.` | Order may have partially saved |
-| `Shipment restricted based on historical delivery outcomes. Package might have been partially saved.` | Historical delivery issues to this address |
 | `Cannot read properties of null (reading 'getFullAddress')` | Missing address data |
 | `Exception encountered from Promise Engine Cause: [Address Id creation failed]` | Address processing failed |
 | `There is some error in create shipment request. Please contact oncall team.` | General shipment creation error |
@@ -499,9 +442,14 @@ These are typically temporary issues that resolve on retry.
 
 ### Product/Item Errors
 
+| Error on Velocity | Meaning |
+|---|---|
+| `Package weight is invalid or out of the allowed range` | Item/product information is missing — carrier requires product details to process the shipment |
+
+**Errors that may still appear as raw carrier messages:**
+
 | Error Message | Meaning |
-|---------------|---------|
-| `Product details is Required` | Item/product information is missing |
+|---|---|
 | `Items list is missing or empty in Shipment` | No items in the order |
 
 **How to Fix:**
@@ -525,12 +473,15 @@ These are typically temporary issues that resolve on retry.
 
 | Issue | Quick Fix |
 |-------|-----------|
-| Pincode not serviceable | Try different carrier or service type |
+| Delivery location not serviceable | Try different carrier or service type |
+| Pickup location not serviceable | Verify warehouse pincode; contact account manager |
+| Route not serviceable | Check for temporary embargo; try alternative carrier |
 | Phone number invalid | Use exactly 10 digits, no prefix |
-| Address too long | Split across Address Line 1 and 2 |
+| Address incomplete or invalid characters | Check all address fields; remove special characters |
+| Customer name issue | Ensure name uses only standard characters |
 | COD amount error | Ensure amount is ₹1 to carrier limit |
 | Duplicate order | Check if already manifested |
-| Timeout | Wait 5 mins and retry |
+| Courier API unavailable | Wait 5 mins and retry |
 | Wrong carrier assigned | Check Manifest Attempts tab for errors from preferred carrier |
 | Carrier not assigning despite rules | Carrier may have an operational block — raise a support ticket |
 | Warehouse/AWB errors | Raise support ticket - Velocity will fix |
