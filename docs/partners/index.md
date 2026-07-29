@@ -201,6 +201,35 @@ description: Guide to integrating Velocity Shipping with OMS/WMS partners like C
 
 ---
 
+### Q: EasyEcom returns "Unable to find the awb" (400 error) when we push tracking — what does this mean?
+
+**A:** This error means EasyEcom cannot find the AWB in their system. It occurs when the shipment was **not created through EasyEcom**, or the AWB was never synced to EasyEcom at booking time.
+
+**Error seen in logs:**
+```
+EasyEcom updateTrackingStatus failed: 400 – "Unable to find the awb <AWB>"
+```
+
+**Lambda:** `ee-tracking-processor-prod-ee-tracking-processor`
+
+**Resolution:** Ask the client to check with their EasyEcom team to verify the AWB is registered in the EasyEcom system. If the shipment wasn't booked through EasyEcom, tracking pushes will not work for that AWB.
+
+---
+
+### Q: Tracking is not being pushed to EasyEcom for a warehouse — how do I fix it?
+
+**A:** If tracking pushes are silently not happening for a specific warehouse, check whether `push_tracking` is configured in `warehouse_configs` for that warehouse. A `null` value means EasyEcom integration credentials (username + password) were **never entered or are incorrect** for that warehouse.
+
+**Symptoms:**
+- No tracking updates reaching EasyEcom for orders from a specific warehouse
+- No push errors in logs — pushes are simply skipped
+
+**Root cause:** `push_tracking` is `null`/not set in the warehouse config because the EasyEcom credentials were not provided or are invalid.
+
+**Resolution:** Ask the client to re-enter their EasyEcom **username and password** in the EasyEcom integration settings for the affected warehouse. Once the credentials are correctly saved, tracking pushes will resume automatically for future orders.
+
+---
+
 ## 8. Common Questions
 
 ### Q: Can I use multiple partner integrations simultaneously?
