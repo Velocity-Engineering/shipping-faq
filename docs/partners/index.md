@@ -201,6 +201,29 @@ description: Guide to integrating Velocity Shipping with OMS/WMS partners like C
 
 ---
 
+### Q: EasyEcom is showing an error saying it cannot find the AWB for a shipment — what should I do?
+
+**A:** This happens when the shipment was not originally booked through EasyEcom. EasyEcom can only receive tracking updates for orders that were created within their system.
+
+**What you can do:**
+- Check with your EasyEcom team to confirm whether the shipment was booked through EasyEcom.
+- If the order was not placed through EasyEcom, tracking updates cannot be pushed for that shipment — this is a limitation of how EasyEcom works.
+
+---
+
+### Q: Tracking updates are not reaching EasyEcom for orders from one of my warehouses — what should I do?
+
+**A:** This usually means the EasyEcom login credentials are missing or incorrect for that warehouse in your integration settings.
+
+**What you can do:**
+1. Go to your EasyEcom integration settings.
+2. Find the affected warehouse.
+3. Re-enter your EasyEcom **username and password** and save.
+
+Once the credentials are correctly saved, tracking updates will resume automatically for future orders from that warehouse.
+
+---
+
 ## 8. Common Questions
 
 ### Q: Can I use multiple partner integrations simultaneously?

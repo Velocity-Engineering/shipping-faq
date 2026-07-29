@@ -19,3 +19,23 @@
 2. List all pages in that section underneath it
 
 Never leave `static/llms.txt` out of sync with the actual docs. AI agents use this file as the sole navigation index for the site — stale or missing entries cause them to miss relevant pages or return wrong answers.
+
+## Content Guidelines — User-Facing Only
+
+This FAQ is read by merchants and their teams, not by Velocity engineers. All content must be written for end users. These rules apply to every page in this repo:
+
+**Never include:**
+- Internal Lambda/function/service names (e.g. `ee-tracking-processor-prod-*`)
+- Internal field or config names (e.g. `push_tracking`, `warehouse_configs`, `order_display_id`)
+- Raw log lines, error payloads, or stack traces
+- Database table/column names or query details
+- Internal system architecture or service topology
+- Anything that only makes sense to a Velocity engineer
+
+**Always include:**
+- What the user will see or experience (symptoms in plain language)
+- Why it happens, explained without internal jargon
+- Clear, numbered steps the user can take themselves to resolve it
+- When to contact support, and what information to have ready
+
+**Tone:** Write in second person ("you"/"your"), direct and plain. Avoid passive voice and hedging. If a user can't act on the information themselves, cut it.
