@@ -201,32 +201,26 @@ description: Guide to integrating Velocity Shipping with OMS/WMS partners like C
 
 ---
 
-### Q: EasyEcom returns "Unable to find the awb" (400 error) when we push tracking — what does this mean?
+### Q: EasyEcom is showing an error saying it cannot find the AWB for a shipment — what should I do?
 
-**A:** This error means EasyEcom cannot find the AWB in their system. It occurs when the shipment was **not created through EasyEcom**, or the AWB was never synced to EasyEcom at booking time.
+**A:** This happens when the shipment was not originally booked through EasyEcom. EasyEcom can only receive tracking updates for orders that were created within their system.
 
-**Error seen in logs:**
-```
-EasyEcom updateTrackingStatus failed: 400 – "Unable to find the awb <AWB>"
-```
-
-**Lambda:** `ee-tracking-processor-prod-ee-tracking-processor`
-
-**Resolution:** Ask the client to check with their EasyEcom team to verify the AWB is registered in the EasyEcom system. If the shipment wasn't booked through EasyEcom, tracking pushes will not work for that AWB.
+**What you can do:**
+- Check with your EasyEcom team to confirm whether the shipment was booked through EasyEcom.
+- If the order was not placed through EasyEcom, tracking updates cannot be pushed for that shipment — this is a limitation of how EasyEcom works.
 
 ---
 
-### Q: Tracking is not being pushed to EasyEcom for a warehouse — how do I fix it?
+### Q: Tracking updates are not reaching EasyEcom for orders from one of my warehouses — what should I do?
 
-**A:** If tracking pushes are silently not happening for a specific warehouse, check whether `push_tracking` is configured in `warehouse_configs` for that warehouse. A `null` value means EasyEcom integration credentials (username + password) were **never entered or are incorrect** for that warehouse.
+**A:** This usually means the EasyEcom login credentials are missing or incorrect for that warehouse in your integration settings.
 
-**Symptoms:**
-- No tracking updates reaching EasyEcom for orders from a specific warehouse
-- No push errors in logs — pushes are simply skipped
+**What you can do:**
+1. Go to your EasyEcom integration settings.
+2. Find the affected warehouse.
+3. Re-enter your EasyEcom **username and password** and save.
 
-**Root cause:** `push_tracking` is `null`/not set in the warehouse config because the EasyEcom credentials were not provided or are invalid.
-
-**Resolution:** Ask the client to re-enter their EasyEcom **username and password** in the EasyEcom integration settings for the affected warehouse. Once the credentials are correctly saved, tracking pushes will resume automatically for future orders.
+Once the credentials are correctly saved, tracking updates will resume automatically for future orders from that warehouse.
 
 ---
 
