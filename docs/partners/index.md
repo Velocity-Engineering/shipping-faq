@@ -199,6 +199,31 @@ description: Guide to integrating Velocity Shipping with OMS/WMS partners like C
 ### Q: What if I don't enable tracking push?
 **A:** If tracking push is not enabled, you can still poll Velocity Shipping for tracking updates and update EasyEcom manually or through your own integration.
 
+### Q: Tracking is not being pushed to EasyEcom for some warehouses even though `push_tracking` is supposed to be enabled. What should I check?
+**A:** If `push_tracking` is `null` or not set for a warehouse, Velocity will not push tracking updates to EasyEcom for orders from that warehouse — even if other warehouses are configured correctly.
+
+**Fix:** Go to EasyEcom integration settings and re-enter the **username** and **password** for the affected warehouse. Once saved, the `push_tracking` flag will be set and tracking updates will be pushed for future shipments.
+
+Note: This only affects future shipments. Existing shipments where tracking was not pushed will need to be updated manually in EasyEcom.
+
+### Q: EasyEcom is returning the error "Order already exists with active shipments for company carrier id XXXXXX". What does this mean?
+**A:** This error appears when a shipment AWB was **created directly on Velocity's dashboard**, bypassing EasyEcom entirely. When EasyEcom then attempts to create the shipment through its own API flow, it finds an active shipment already exists on Velocity and fails.
+
+**Consequences:**
+- EasyEcom never registered the AWB, so it won't push fulfillment or tracking updates to Shopify (or any other upstream channel) for these orders
+- Velocity's tracking processor will attempt to push tracking updates to EasyEcom but EasyEcom will reject them with HTTP 400 ("Unable to find the AWB")
+
+**Resolution:**
+- For existing AWBs: manually mark fulfillment in Shopify, or work with the EasyEcom team to register the AWB on their side
+- Going forward: shipments for orders that need upstream updates to Shopify or other channels **must be created through EasyEcom**, not directly on Velocity's dashboard — otherwise the integration chain is broken by design
+
+### Q: CloudWatch shows repeated errors "EasyEcom updateTrackingStatus failed: 400 – Unable to find the AWB {awb}". What's happening?
+**A:** EasyEcom does not have a record of that AWB in its system. This happens when the shipment was created directly on Velocity (not through EasyEcom), so EasyEcom never registered it.
+
+Velocity's `ee-tracking-processor` Lambda (log group: `/aws/lambda/ee-tracking-processor-prod-ee-tracking-processor`) pushes tracking updates via SQS (`easy-ecom-push-tracking-queue`). When EasyEcom rejects the AWB with HTTP 400, SQS retries, causing the errors to stack.
+
+**Resolution:** Ask the client to coordinate with the EasyEcom support team to register the AWB, or acknowledge that tracking for this AWB won't be pushed to EasyEcom. If the AWB was cancelled, the errors will stop once SQS exhausts its retry attempts.
+
 ---
 
 ## 8. Common Questions

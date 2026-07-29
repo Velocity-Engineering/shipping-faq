@@ -94,6 +94,28 @@ Velocity's support team can assist if you need to coordinate from the Velocity s
 
 ---
 
+### Q: EasyEcom is not pushing fulfillment status to Shopify even though shipments are manifested on Velocity.
+
+**A:** This is almost always caused by one of two scenarios:
+
+**Scenario 1: Shipment was created directly on Velocity (bypassing EasyEcom)**
+
+When AWBs are created directly on Velocity's dashboard instead of through EasyEcom, EasyEcom has no record of those shipments. Since EasyEcom never created or tracked the AWB, it cannot push fulfillment or tracking updates to Shopify — regardless of your integration settings.
+
+Signs of this: EasyEcom logs show "Order already exists with active shipments" when it tries to process the same order, or Velocity's tracking processor logs show "Unable to find the AWB" errors from EasyEcom.
+
+Resolution: Manually fulfil the affected orders in Shopify. Going forward, all orders that need Shopify fulfillment updates must be shipped **through EasyEcom**, not directly on Velocity.
+
+**Scenario 2: `push_tracking` is not configured for the warehouse**
+
+If the EasyEcom integration credentials (`push_tracking`) are null or missing for a warehouse, Velocity won't push tracking updates to EasyEcom — so EasyEcom can't pass them to Shopify.
+
+Resolution: Re-enter the EasyEcom **username and password** in the EasyEcom integration settings for the affected warehouse. This re-activates `push_tracking` for future shipments from that warehouse.
+
+> See also: [EasyEcom integration details](/partners#7-easyecom)
+
+---
+
 ## Need Help?
 
 - **Email:** support@velocity.in
