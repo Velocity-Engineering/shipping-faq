@@ -79,8 +79,18 @@ If you need to process older orders, you can create them manually or use the bul
 2. **Order is cancelled** - Cancelled orders are not imported
 3. **Order is too old** - Orders older than 30 days that are already fulfilled won't appear
 4. **Order status setting** - Check if your "Pull Order Status" setting matches the order's status in Shopify
+5. **Order is a draft** - Draft orders in Shopify are not pulled into Velocity. Only confirmed (non-draft) orders are synced. See below for more details.
 
 **What to do:** Go to Integrations → Shopify → Check your "Pull Order Statuses" setting
+
+---
+
+### Q: My order is a Shopify draft order — will it sync to Velocity?
+**A:** No. Velocity does **not** pull Shopify draft orders. Only confirmed orders (i.e., orders that have been placed by a customer or converted from draft) are synced to Velocity.
+
+**There are no plans to support draft order syncing in the future.**
+
+If you need to ship a draft order, complete the order in Shopify first (convert it to a confirmed order) and it will then sync to Velocity automatically.
 
 ---
 

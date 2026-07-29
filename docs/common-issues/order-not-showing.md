@@ -67,6 +67,14 @@ description: Why orders placed in your store may not appear in Velocity Shipping
 
 ---
 
+### Q: Will Velocity sync Shopify draft orders?
+
+**A:** No. Velocity does **not** pull Shopify draft orders, and there are **no plans to support this in the future**. Only confirmed (non-draft) orders are synced.
+
+If a customer's order is not appearing in Velocity, check whether it is still in draft status in Shopify. To resolve this, complete the order in Shopify (convert it from draft to a confirmed order) — it will then sync to Velocity automatically.
+
+---
+
 ## 4. Configuring Which Orders to Pull
 
 ### Q: Can I control which orders get pulled from my store?
