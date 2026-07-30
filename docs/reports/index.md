@@ -12,7 +12,7 @@ description: Guide to Velocity Shipping's reporting system, export modes, filter
 
 ## Table of Contents
 1. [Overview](#1-overview)
-2. [Report Modes: Realtime vs ClickHouse](#2-report-modes-realtime-vs-clickhouse)
+2. [Report Modes: Lite vs Detailed](#2-report-modes-lite-vs-detailed)
 3. [Available Reports](#3-available-reports)
 4. [Filters & Date Ranges](#4-filters--date-ranges)
 5. [Scheduled Reports](#5-scheduled-reports)
@@ -50,14 +50,14 @@ description: Guide to Velocity Shipping's reporting system, export modes, filter
 
 ---
 
-## 2. Report Modes: Realtime vs ClickHouse
+## 2. Report Modes: Lite vs Detailed
 
-### Critical: Two Report Generation Modes
+### Two Report Generation Modes
 
-Velocity Shipping uses two different backends for generating reports:
+Velocity Shipping offers two report generation modes:
 
-| Aspect | Realtime Mode | ClickHouse Mode |
-|--------|---------------|-----------------|
+| Aspect | Lite Report | Detailed Report |
+|--------|-------------|-----------------|
 | **Speed** | Slow (can take up to 2 minutes) | Fast (usually under 30 seconds) |
 | **Record Limit** | Up to 10,000 records | Up to 1,00,000 (1 lakh) records |
 | **Filters Supported** | All UI filters | Only status and date filters |
@@ -68,7 +68,7 @@ Velocity Shipping uses two different backends for generating reports:
 
 ### Q: Which mode is used when I download from the Reports section?
 
-**A: Reports downloaded from the Reports section default to ClickHouse mode.**
+**A: Reports downloaded from the Reports section use Detailed report mode.**
 
 This means:
 - Your report will be generated quickly
@@ -80,7 +80,7 @@ This means:
 
 ### Q: Why is my downloaded report missing some recent orders?
 
-**A:** If you're using the Reports section (ClickHouse mode), there's a **data sync delay of up to 30 minutes**.
+**A:** If you're downloading a Detailed report, there's a **data sync delay of up to 30 minutes**.
 
 - Orders created in the last 30 minutes may not appear
 - For real-time data, use the Orders/Shipments listing page with filters and export (limited to 10k records)
@@ -94,13 +94,13 @@ This means:
 2. Apply your desired filters
 3. Click Export/Download
 
-This uses Realtime mode but is limited to 10,000 records.
+This uses Lite report mode but is limited to 10,000 records.
 
 ---
 
 ### Q: Why can't I apply all filters in bulk reports?
 
-**A:** ClickHouse mode (used for bulk reports) only supports:
+**A:** Detailed reports only support:
 - **Status filter** - Select specific shipment statuses
 - **Date filter** - Date range with milestone selection
 
@@ -201,8 +201,8 @@ One order can have multiple shipments (split shipments, returns, replacements).
 ### Q: What's the maximum date range I can query?
 
 **A:**
-- **ClickHouse mode**: Recommended max 90 days for optimal performance
-- **Realtime mode**: No strict limit, but larger ranges take longer
+- **Detailed report**: Recommended max 90 days for optimal performance
+- **Lite report**: No strict limit, but larger ranges take longer
 
 For historical data beyond 90 days, consider scheduling multiple reports or contacting support.
 
@@ -501,12 +501,12 @@ This is useful when sharing reports with external partners or teams who shouldn'
 | Large date range | Reduce to 30-60 days |
 | Too many records | Add more filters to reduce data |
 | System load | Wait and retry, or schedule for off-peak hours |
-| Realtime mode | Use Reports section for ClickHouse mode |
+| Lite report mode | Use Reports section for Detailed report mode |
 | Concurrency limit | Wait for your current report to complete |
 
 **Note:** The system limits concurrent report generation:
-- Standard reports: 1 report per user at a time (15-minute window)
-- ClickHouse Cloud reports: Maximum 6 concurrent jobs globally
+- Lite reports: 1 report per user at a time (15-minute window)
+- Detailed reports: Maximum 6 concurrent jobs globally
 
 ---
 
@@ -516,9 +516,9 @@ This is useful when sharing reports with external partners or teams who shouldn'
 
 | Issue | Explanation |
 |-------|-------------|
-| **Data staleness** | ClickHouse data may be up to 30 mins behind |
-| **10k limit** | Realtime mode caps at 10,000 records |
-| **1 lakh limit** | ClickHouse mode caps at 1,00,000 records |
+| **Data staleness** | Detailed report data may be up to 30 mins behind |
+| **10k limit** | Lite report mode caps at 10,000 records |
+| **1 lakh limit** | Detailed report mode caps at 1,00,000 records |
 | **Filter mismatch** | Verify your status and date filters |
 | **Date field selection** | Ensure correct date milestone is selected |
 | **Journey type** | Custom reports only include the selected journey |
@@ -571,8 +571,8 @@ For scheduled reports, check the **Scheduled Reports Download** section.
 
 ### Report Mode Comparison
 
-| Feature | Realtime | ClickHouse |
-|---------|----------|------------|
+| Feature | Lite Report | Detailed Report |
+|---------|-------------|-----------------|
 | Max Records | 10,000 | 1,00,000 |
 | Speed | Up to 2 mins | Under 30 secs |
 | Data Freshness | Live | Up to 30 mins stale |
@@ -583,11 +583,11 @@ For scheduled reports, check the **Scheduled Reports Download** section.
 
 | Scenario | Recommended Mode |
 |----------|------------------|
-| Quick bulk export | ClickHouse (Reports section) |
-| Need all filters | Realtime (Listing page export) |
-| Need > 10k records | ClickHouse |
-| Need real-time accuracy | Realtime |
-| Scheduled reports | ClickHouse |
+| Quick bulk export | Detailed report (Reports section) |
+| Need all filters | Lite report (Listing page export) |
+| Need > 10k records | Detailed report |
+| Need real-time accuracy | Lite report |
+| Scheduled reports | Detailed report |
 
 ### Custom Reports Quick Reference
 
