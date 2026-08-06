@@ -38,6 +38,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
     },
     'rates',
+    'finance',
     'reports',
     'webhooks',
     'shipment-status',
