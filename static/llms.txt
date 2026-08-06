@@ -7,7 +7,7 @@
 - [Courier Not Visible](https://shipping-faq.vercel.app/common-issues/courier-not-visible): Why no courier options appear when creating a shipment, and how to resolve carrier visibility issues
 - [Upstream Updates](https://shipping-faq.vercel.app/common-issues/upstream-updates): Why tracking updates from carriers may be delayed and what to do when updates are stuck
 - [Invoicing / Payment / COD Remittance](https://shipping-faq.vercel.app/common-issues/invoicing-payment-cod): Common issues with invoices, wallet payments not reflecting, and COD settlements
-- [Shipping Errors](https://shipping-faq.vercel.app/common-issues/shipping-errors): Error messages during shipment creation and their fixes
+- [Shipping Errors](https://shipping-faq.vercel.app/common-issues/shipping-errors): Error messages during shipment creation, carrier eligibility status, and self-diagnosis guide for why a carrier wasn't selected
 - [Status Mismatch](https://shipping-faq.vercel.app/common-issues/status-mismatch): Why the shipment status in Velocity may differ from the carrier's website, your store, or your customer's view
 
 ## Automations
