@@ -1,4 +1,14 @@
 {
+  "headers": [
+    {
+      "source": "/shipping-faq/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/shipping-faq/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=300, stale-while-revalidate=60" }]
+    }
+  ],
   "redirects": [
     { "source": "/", "destination": "/shipping-faq/", "permanent": false }
   ],
