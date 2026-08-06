@@ -45,3 +45,5 @@ Authorization: your_token_here
 | `/custom/api/v1/reports` | Get summary reports |
 | `/custom/api/v1/reattempt` | NDR re-attempt |
 | `/custom/api/v1/initiate-rto` | Initiate RTO |
+| `/custom/api/v1/shipping-charges` | Get shipment & order-level charges for AWBs |
+| `/custom/api/v1/cod-remittance` | Get COD remittance details for AWBs |
