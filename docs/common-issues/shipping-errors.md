@@ -24,51 +24,42 @@ When creating shipments, you may encounter errors from our carrier partners (3PL
 7. [Duplicate Order Errors](#7-duplicate-order-errors)
 8. [Warehouse & Pickup Errors](#8-warehouse--pickup-errors)
 9. [System & Technical Errors](#9-system--technical-errors)
-10. [Quick Resolution Guide](#10-quick-resolution-guide)
+10. [Self-Diagnosing Carrier Selection Issues](#10-self-diagnosing-carrier-selection-issues)
+11. [Quick Resolution Guide](#11-quick-resolution-guide)
 
 ---
 
 ## 1. How to View Shipping Errors
 
-### Manifest Attempts Tab
+### Two places to see why a carrier wasn't used
 
-To view detailed error information for any shipment, check the **Manifest Attempts** tab in the Order details drawer:
+**1. "Not eligible for this shipment" — while choosing a carrier**
 
-1. Go to **Orders** and click on the order you want to investigate
-2. In the Order details drawer, click on the **Manifest Attempts** tab
-3. View all carrier attempts and their results
+When you open the shipping drawer to create a shipment, Velocity shows the available carriers for your order. If any carriers were excluded before booking, a collapsible **"Not eligible for this shipment (N)"** panel appears below the courier list — where N is the number of excluded carriers.
 
-### Why Check Manifest Attempts?
+- Click the panel to expand it
+- A two-column table shows each excluded carrier and the plain-language reason it was ruled out
 
-When you create a shipment, Velocity automatically tries **up to 3 carriers** based on your shipping rules (in priority order). If the first carrier fails, we attempt the next one, and so on.
+| Courier | Reason |
+|---------|--------|
+| Carrier A | COD not supported by this carrier |
+| Carrier B | Pincode not serviceable |
 
-**This means:**
-- Your shipment may be manifested with your 2nd or 3rd priority carrier if the 1st one failed
-- The Manifest Attempts tab shows **all attempts** - successful and failed
-- You can see the **error message** from each carrier that failed
+**2. Manifest Attempts tab — after a shipment is created**
 
-### Common Scenario
+Once a shipment is created, open the order in your Velocity dashboard and click the **Manifest Attempts** tab. This shows every carrier that was actually tried:
 
-> "Why wasn't my shipment assigned to Carrier A as per my shipping rules?"
+- Each attempt shows a **Success** or **Failed** badge
+- On a failed attempt, hover over the **ⓘ** icon to see the exact error message from the carrier's system
+- The **"Not eligible for this shipment"** panel also appears at the bottom of this tab — showing carriers that were excluded before any booking was attempted
 
-Check the Manifest Attempts tab. You might see:
-| Attempt | Carrier | Status | Error |
-|---------|---------|--------|-------|
-| 1 | Carrier A | Failed | `Delivery location is not serviceable by this carrier` |
-| 2 | Carrier B | Failed | `This route is not serviceable` |
-| 3 | Carrier C | Success | - |
+### Which one to check?
 
-This shows that Carrier A and B failed due to serviceability issues, so the shipment was manifested with Carrier C (your 3rd priority).
-
-### What You'll Find in Manifest Attempts
-
-- **Carrier name** - Which carrier was attempted
-- **Timestamp** - When the attempt was made
-- **Status** - Success or Failed
-- **Error message** - The error returned (if failed)
-- **AWB number** - Assigned tracking number (if successful)
-
-Use the error messages from failed attempts and refer to the sections below to understand what went wrong.
+| Situation | Where to look |
+|-----------|---------------|
+| A carrier is missing from your list while booking | Expand "Not eligible for this shipment" in the shipping drawer |
+| Shipment was created but went to a different carrier | Open Manifest Attempts — look for the Failed badge and hover ⓘ for the error |
+| Want to see everything in one place | Manifest Attempts tab — shows both booking attempts and excluded carriers |
 
 ---
 
@@ -452,7 +443,55 @@ These are typically temporary issues that resolve on retry.
 
 ---
 
-## 10. Quick Resolution Guide
+## 10. Self-Diagnosing Carrier Selection Issues
+
+Use this guide when a carrier you expected wasn't used for your shipment.
+
+### Scenario A: The carrier never appeared in your courier list
+
+The carrier was excluded before any booking was attempted.
+
+**What to do:**
+
+1. Open the shipping drawer for the order (or check the same panel in the **Manifest Attempts** tab after the shipment is created)
+2. Expand the **"Not eligible for this shipment"** panel at the bottom
+3. Find your carrier in the table and read the reason
+
+| Reason shown | What to do |
+|---|---|
+| COD not supported by this carrier | Switch to a carrier that supports COD for this destination, or change to prepaid |
+| Pincode not serviceable | Enable a carrier that covers this delivery pincode in your shipping rules |
+| Carrier disabled | Go to Shipping Rules → Courier Selection and re-enable the carrier |
+| Weight out of range | Check the carrier's weight limits in your rate card and use a carrier that supports this weight |
+
+### Scenario B: The carrier was tried but your shipment went to a different carrier
+
+The carrier was attempted but its system rejected the booking.
+
+**What to do:**
+
+1. Open the order in your Velocity dashboard
+2. Click the **Manifest Attempts** tab
+3. Find your carrier — it will show a **Failed** badge
+4. Hover over the **ⓘ** icon to see the exact error message from the carrier's system
+5. Use sections 2–9 above to resolve the error
+
+When a carrier's booking fails, Velocity automatically tries the next available carrier.
+
+### Scenario C: Your shipment went to a carrier you didn't want
+
+Your rule's mode (Cheapest, Fastest, or Recommended) evaluated all eligible carriers and automatically picked the best match. To lock in a specific carrier, switch your rule to **Custom mode** and set your preferred carrier order explicitly.
+
+### Still can't explain it?
+
+Contact support with:
+- The order ID
+- The carrier you expected
+- A screenshot of what you see in the "Not eligible" panel or Manifest Attempts tab
+
+---
+
+## 11. Quick Resolution Guide
 
 ### Before You Contact Support
 
