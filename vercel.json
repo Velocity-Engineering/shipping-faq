@@ -1,0 +1,8 @@
+{
+  "redirects": [
+    { "source": "/", "destination": "/shipping-faq/", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/shipping-faq/:path*", "destination": "/:path*" }
+  ]
+}

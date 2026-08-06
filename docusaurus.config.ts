@@ -12,8 +12,8 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://help.velocity.in',
-  baseUrl: '/',
+  url: 'https://www.velocity.in',
+  baseUrl: '/shipping-faq/',
 
   onBrokenLinks: 'warn',
 
