@@ -6,7 +6,7 @@ sidebar_position: 17
 
 Two POST endpoints that allow sellers to fetch shipment-level financial data programmatically using AWB numbers.
 
-:::note Rate Limiting
+:::note[Rate Limiting]
 Both endpoints are throttled to **5 requests per minute** per authenticated client. Exceeding the limit returns HTTP 429.
 :::
 
