@@ -272,13 +272,17 @@ This ensures your shipment gets booked even if one carrier has issues.
 
 ### Q: My shipment didn't use the carrier I expected. Why?
 
-**A:** Open the order in your dashboard and check the **Manifest Attempts** tab. It shows the eligibility status for every carrier that was evaluated — including whether a carrier was ruled out before booking and exactly why (for example, "COD not supported by this carrier" or "Pincode not serviceable"). This is the fastest way to pinpoint the reason.
+**A:** There are two places to check:
+
+1. **If the carrier never appeared in your courier list** — open the shipping drawer and expand the **"Not eligible for this shipment"** panel at the bottom. It shows each excluded carrier with a plain-language reason (e.g., "COD not supported by this carrier" or "Pincode not serviceable").
+
+2. **If the carrier was attempted but your shipment went elsewhere** — open the order, go to **Manifest Attempts**, and find the carrier. A **Failed** badge means the carrier's system rejected it; hover over the **ⓘ** icon for the exact error.
 
 Common root causes:
 
 | Reason | Explanation |
 |--------|-------------|
-| **Carrier not eligible** | Carrier was ruled out before any booking attempt (see the reason in Manifest Attempts) |
+| **Carrier not eligible** | Excluded before booking — see the "Not eligible for this shipment" panel |
 | **Rule didn't match** | Check if the shipment meets all rule conditions |
 | **Higher priority rule matched** | Another rule matched first |
 | **Carrier booking failed** | Carrier's system rejected the attempt; Velocity moved to the next carrier |
