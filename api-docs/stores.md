@@ -75,7 +75,7 @@ Creates a new store. All stores created via this endpoint are `manual_order` cha
 | brand_name | string | No | Display name shown in the dashboard | `My Brand` |
 | logo | file | No | Store logo image (max 2 MB) | — |
 
-:::info Store name uniqueness
+:::info[Store name uniqueness]
 `store_name` must be unique per account. Attempting to create a second store with the same `store_name` returns a `422 Unprocessable Entity` error.
 :::
 
@@ -183,7 +183,7 @@ curl --location 'https://shazam.velocity.in/custom/api/v1/forward-order-orchestr
   }'
 ```
 
-:::caution Invalid store name
+:::caution[Invalid store name]
 If you pass a `store_name` that does not exist in your account, the request is rejected with an error. Create the store first using the [Create Store](#create-store) endpoint.
 :::
 
