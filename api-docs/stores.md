@@ -4,7 +4,11 @@ sidebar_position: 4
 
 # Stores API
 
-Manage the stores associated with your Velocity account. A store represents a sales channel — for example, a specific Shopify storefront, a WooCommerce site, or a manually-managed channel. You can use stores to tag orders at creation time, making it easy to filter, report on, and separate fulfilment across multiple channels.
+Manage the stores associated with your Velocity account. A store represents a sales channel — for example, a specific Shopify storefront, a WooCommerce site, or a manually-managed channel.
+
+Each store has its own **brand name** and **logo**, which Velocity uses in customer-facing communications — tracking notifications, delivery updates, and other messages sent on your behalf. When an order is linked to a store, your customers see that store's brand, not a generic Velocity label.
+
+This is especially useful if you operate as a marketplace or fulfilment partner shipping on behalf of multiple brands. You can create one store per brand, set each store's name and logo independently, and tag every order with the right store at creation time. Your customers each receive communications branded to the seller they bought from.
 
 The Stores API lets you create and manage **manual-order stores** — stores whose orders are created directly via the API rather than synced from a platform integration.
 
@@ -72,8 +76,8 @@ Creates a new store. All stores created via this endpoint are `manual_order` cha
 | Field | Type | Required | Description | Example |
 |-------|------|----------|-------------|---------|
 | store_name | string | Yes | Unique identifier for the store — used when creating orders. Only letters, numbers, and hyphens. | `my-website` |
-| brand_name | string | No | Display name shown in the dashboard | `My Brand` |
-| logo | file | No | Store logo image (max 2 MB) | — |
+| brand_name | string | No | Brand name shown in customer communications for orders linked to this store | `My Brand` |
+| logo | file | No | Brand logo shown in customer communications for orders linked to this store (max 2 MB) | — |
 
 :::info[Store name uniqueness]
 `store_name` must be unique per account. Attempting to create a second store with the same `store_name` returns a `422 Unprocessable Entity` error.
