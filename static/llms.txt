@@ -52,6 +52,7 @@
 ## API Documentation
 - [API Overview](https://shipping-faq.vercel.app/api/): API documentation index
 - [Authentication](https://shipping-faq.vercel.app/api/authentication): API authentication guide
+- [Stores](https://shipping-faq.vercel.app/api/stores): Managing stores and linking orders to a store via API
 - [Forward Shipment](https://shipping-faq.vercel.app/api/forward-shipment): Creating forward shipments via API
 - [Reverse Shipment](https://shipping-faq.vercel.app/api/reverse-shipment): Creating reverse/return shipments via API
 - [Cancel Order](https://shipping-faq.vercel.app/api/cancel-order): Cancelling orders via API

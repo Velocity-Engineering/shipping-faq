@@ -39,3 +39,27 @@ This FAQ is read by merchants and their teams, not by Velocity engineers. All co
 - When to contact support, and what information to have ready
 
 **Tone:** Write in second person ("you"/"your"), direct and plain. Avoid passive voice and hedging. If a user can't act on the information themselves, cut it.
+
+## Admonitions (callout boxes)
+
+Use Docusaurus admonition syntax for notes, warnings, and info callouts. The title **must** use bracket syntax — inline titles do not render and will appear as plain text.
+
+**Correct:**
+```
+:::info[Title here]
+Content here.
+:::
+
+:::note
+Content without a title is also fine.
+:::
+```
+
+**Wrong — title after space renders as plain text:**
+```
+:::info Title here
+Content here.
+:::
+```
+
+Available types: `note`, `tip`, `info`, `caution`, `danger`.
