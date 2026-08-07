@@ -12,6 +12,12 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Stores',
+      items: ['stores'],
+      collapsed: false,
+    },
+    {
+      type: 'category',
       label: 'Shipments',
       items: [
         'serviceability',
