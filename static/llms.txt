@@ -1,68 +1,68 @@
 # Velocity Shipping Help Center
-> Documentation and FAQ for Velocity's shipping platform (https://shipping-faq.vercel.app)
+> Documentation and FAQ for Velocity's shipping platform (https://shipping-faq.vercel.app/shipping-faq/)
 
 ## Common Issues
-- [Common Issues](https://shipping-faq.vercel.app/common-issues/): Index of the most frequently reported problems on Velocity Shipping
-- [Order Not Showing](https://shipping-faq.vercel.app/common-issues/order-not-showing): Why orders placed in a store may not appear in Velocity, and how to fix sync issues
-- [Courier Not Visible](https://shipping-faq.vercel.app/common-issues/courier-not-visible): Why no courier options appear when creating a shipment, and how to resolve carrier visibility issues
-- [Upstream Updates](https://shipping-faq.vercel.app/common-issues/upstream-updates): Why tracking updates from carriers may be delayed and what to do when updates are stuck
-- [Invoicing / Payment / COD Remittance](https://shipping-faq.vercel.app/common-issues/invoicing-payment-cod): Common issues with invoices, wallet payments not reflecting, and COD settlements
-- [Shipping Errors](https://shipping-faq.vercel.app/common-issues/shipping-errors): Error messages during shipment creation, carrier eligibility status, and self-diagnosis guide for why a carrier wasn't selected
-- [Status Mismatch](https://shipping-faq.vercel.app/common-issues/status-mismatch): Why the shipment status in Velocity may differ from the carrier's website, your store, or your customer's view
+- [Common Issues](https://shipping-faq.vercel.app/shipping-faq/common-issues/): Index of the most frequently reported problems on Velocity Shipping
+- [Order Not Showing](https://shipping-faq.vercel.app/shipping-faq/common-issues/order-not-showing): Why orders placed in a store may not appear in Velocity, and how to fix sync issues
+- [Courier Not Visible](https://shipping-faq.vercel.app/shipping-faq/common-issues/courier-not-visible): Why no courier options appear when creating a shipment, and how to resolve carrier visibility issues
+- [Upstream Updates](https://shipping-faq.vercel.app/shipping-faq/common-issues/upstream-updates): Why tracking updates from carriers may be delayed and what to do when updates are stuck
+- [Invoicing / Payment / COD Remittance](https://shipping-faq.vercel.app/shipping-faq/common-issues/invoicing-payment-cod): Common issues with invoices, wallet payments not reflecting, and COD settlements
+- [Shipping Errors](https://shipping-faq.vercel.app/shipping-faq/common-issues/shipping-errors): Error messages during shipment creation, carrier eligibility status, and self-diagnosis guide for why a carrier wasn't selected
+- [Status Mismatch](https://shipping-faq.vercel.app/shipping-faq/common-issues/status-mismatch): Why the shipment status in Velocity may differ from the carrier's website, your store, or your customer's view
 
 ## Automations
-- [Automations Overview](https://shipping-faq.vercel.app/automations/): Introduction to Velocity's automation features for post-order workflows
-- [Order Confirmation](https://shipping-faq.vercel.app/automations/order-confirmation): FAQ for the Order Confirmation Automation — verifying orders and customer details before shipping to reduce fake orders and delivery failures
-- [NDR Management](https://shipping-faq.vercel.app/automations/ndr-management): How Velocity automatically handles failed delivery attempts (NDR) via WhatsApp and AI calling, including configuration and resolution
+- [Automations Overview](https://shipping-faq.vercel.app/shipping-faq/automations/): Introduction to Velocity's automation features for post-order workflows
+- [Order Confirmation](https://shipping-faq.vercel.app/shipping-faq/automations/order-confirmation): FAQ for the Order Confirmation Automation — verifying orders and customer details before shipping to reduce fake orders and delivery failures
+- [NDR Management](https://shipping-faq.vercel.app/shipping-faq/automations/ndr-management): How Velocity automatically handles failed delivery attempts (NDR) via WhatsApp and AI calling, including configuration and resolution
 
 ## Billing & Payments
-- [Billing & Payments](https://shipping-faq.vercel.app/billing/): Comprehensive FAQ covering billing modes, invoices, wallet management, COD settlements, weight discrepancy charges, and GST setup
+- [Billing & Payments](https://shipping-faq.vercel.app/shipping-faq/billing/): Comprehensive FAQ covering billing modes, invoices, wallet management, COD settlements, weight discrepancy charges, and GST setup
 
 ## Carrier Integrations
-- [Carrier Integrations](https://shipping-faq.vercel.app/carrier-integrations/): Feature comparison and capabilities for all integrated carriers — Delhivery, BlueDart, DTDC, Ekart, Xpressbees, Shadowfax, Pikndel, Blitz, Urbanebolt, Amazon ATS — including service types, COD support, cancellations, and BYOC
+- [Carrier Integrations](https://shipping-faq.vercel.app/shipping-faq/carrier-integrations/): Feature comparison and capabilities for all integrated carriers — Delhivery, BlueDart, DTDC, Ekart, Xpressbees, Shadowfax, Pikndel, Blitz, Urbanebolt, Amazon ATS — including service types, COD support, cancellations, and BYOC
 
 ## Features
-- [Bulk Operations](https://shipping-faq.vercel.app/features/bulk-operations): How to perform bulk actions on orders and shipments
-- [Shipping Labels](https://shipping-faq.vercel.app/features/labels): Generating, downloading, and troubleshooting shipping labels
-- [COD Remittance](https://shipping-faq.vercel.app/features/cod-remittance): COD settlement timelines, reconciliation, and related FAQs
-- [Weight Discrepancies](https://shipping-faq.vercel.app/features/weight-discrepancies): How carrier weight discrepancy charges are applied and how to dispute them
-- [Returns & QC](https://shipping-faq.vercel.app/features/returns-and-qc): Managing reverse shipments, quality checks, and return workflows
-- [Branded Tracking Page](https://shipping-faq.vercel.app/features/branded-tracking-page): Set up and customize a branded customer-facing tracking page with your logo, social links, support info, and promotional banners
-- [Post-Delivery Disputes](https://shipping-faq.vercel.app/features/post-delivery-disputes): How to raise, track, and resolve post-delivery shipment disputes for damaged, missing, wrong, or undelivered items — including dispute types, evidence requirements, statuses, and resolution timelines
+- [Bulk Operations](https://shipping-faq.vercel.app/shipping-faq/features/bulk-operations): How to perform bulk actions on orders and shipments
+- [Shipping Labels](https://shipping-faq.vercel.app/shipping-faq/features/labels): Generating, downloading, and troubleshooting shipping labels
+- [COD Remittance](https://shipping-faq.vercel.app/shipping-faq/features/cod-remittance): COD settlement timelines, reconciliation, and related FAQs
+- [Weight Discrepancies](https://shipping-faq.vercel.app/shipping-faq/features/weight-discrepancies): How carrier weight discrepancy charges are applied and how to dispute them
+- [Returns & QC](https://shipping-faq.vercel.app/shipping-faq/features/returns-and-qc): Managing reverse shipments, quality checks, and return workflows
+- [Branded Tracking Page](https://shipping-faq.vercel.app/shipping-faq/features/branded-tracking-page): Set up and customize a branded customer-facing tracking page with your logo, social links, support info, and promotional banners
+- [Post-Delivery Disputes](https://shipping-faq.vercel.app/shipping-faq/features/post-delivery-disputes): How to raise, track, and resolve post-delivery shipment disputes for damaged, missing, wrong, or undelivered items — including dispute types, evidence requirements, statuses, and resolution timelines
 
 ## Store Integrations
-- [Shopify](https://shipping-faq.vercel.app/integrations/shopify): Connecting and managing Shopify stores with Velocity Shipping for automatic order sync
-- [WooCommerce](https://shipping-faq.vercel.app/integrations/woocommerce): Connecting and managing WooCommerce stores with Velocity Shipping
+- [Shopify](https://shipping-faq.vercel.app/shipping-faq/integrations/shopify): Connecting and managing Shopify stores with Velocity Shipping for automatic order sync
+- [WooCommerce](https://shipping-faq.vercel.app/shipping-faq/integrations/woocommerce): Connecting and managing WooCommerce stores with Velocity Shipping
 
 ## Partner Integrations
-- [Partner Integrations](https://shipping-faq.vercel.app/partners/): Integrating Velocity Shipping with OMS/WMS platforms — Clickpost, Pragma, Unicommerce, Vinculum, and EasyEcom
+- [Partner Integrations](https://shipping-faq.vercel.app/shipping-faq/partners/): Integrating Velocity Shipping with OMS/WMS platforms — Clickpost, Pragma, Unicommerce, Vinculum, and EasyEcom
 
 ## Shipping Rules
-- [Shipping Rules](https://shipping-faq.vercel.app/shipping-rules/): Comprehensive guide to configuring automatic carrier selection rules, rule priority, and performance options
+- [Shipping Rules](https://shipping-faq.vercel.app/shipping-faq/shipping-rules/): Comprehensive guide to configuring automatic carrier selection rules, rule priority, and performance options
 
 ## Value Added Services
-- [Value Added Services](https://shipping-faq.vercel.app/vas/): Pricing, billing, and service descriptions for WhatsApp communications, AI calling, RTO risk scoring, and early COD settlement
+- [Value Added Services](https://shipping-faq.vercel.app/shipping-faq/vas/): Pricing, billing, and service descriptions for WhatsApp communications, AI calling, RTO risk scoring, and early COD settlement
 
 ## Tools
-- [Tools](https://shipping-faq.vercel.app/tools/): Overview of tools available in Velocity Shipping to manage and optimize shipping operations
+- [Tools](https://shipping-faq.vercel.app/shipping-faq/tools/): Overview of tools available in Velocity Shipping to manage and optimize shipping operations
 
 ## Reports
-- [Reports](https://shipping-faq.vercel.app/reports/): FAQ covering report types, generation modes, filtering options, scheduling, and troubleshooting
+- [Reports](https://shipping-faq.vercel.app/shipping-faq/reports/): FAQ covering report types, generation modes, filtering options, scheduling, and troubleshooting
 
 ## API Documentation
-- [API Overview](https://shipping-faq.vercel.app/api/): API documentation index
-- [Authentication](https://shipping-faq.vercel.app/api/authentication): API authentication guide
-- [Stores](https://shipping-faq.vercel.app/api/stores): Managing stores and linking orders to a store via API
-- [Forward Shipment](https://shipping-faq.vercel.app/api/forward-shipment): Creating forward shipments via API
-- [Reverse Shipment](https://shipping-faq.vercel.app/api/reverse-shipment): Creating reverse/return shipments via API
-- [Cancel Order](https://shipping-faq.vercel.app/api/cancel-order): Cancelling orders via API
-- [Serviceability](https://shipping-faq.vercel.app/api/serviceability): Checking carrier serviceability via API
-- [Rates](https://shipping-faq.vercel.app/api/rates): Getting shipping rates via API
-- [Shipment Status](https://shipping-faq.vercel.app/api/shipment-status): Fetching shipment status via API
-- [Tracking](https://shipping-faq.vercel.app/api/tracking): Tracking shipments via API
-- [Order Details (Forward)](https://shipping-faq.vercel.app/api/order-details-forward): Fetching forward order details via API
-- [Order Details (Returns)](https://shipping-faq.vercel.app/api/order-details-returns): Fetching return order details via API
-- [NDR Actions](https://shipping-faq.vercel.app/api/ndr-actions): Performing NDR actions via API
-- [Reports API](https://shipping-faq.vercel.app/api/reports): Generating reports via API
-- [Warehouse](https://shipping-faq.vercel.app/api/warehouse): Managing warehouses via API
-- [Webhooks](https://shipping-faq.vercel.app/api/webhooks): Setting up and managing webhooks
+- [API Overview](https://shipping-faq.vercel.app/shipping-faq/api/): API documentation index
+- [Authentication](https://shipping-faq.vercel.app/shipping-faq/api/authentication): API authentication guide
+- [Stores](https://shipping-faq.vercel.app/shipping-faq/api/stores): Managing stores and linking orders to a store via API
+- [Forward Shipment](https://shipping-faq.vercel.app/shipping-faq/api/forward-shipment): Creating forward shipments via API
+- [Reverse Shipment](https://shipping-faq.vercel.app/shipping-faq/api/reverse-shipment): Creating reverse/return shipments via API
+- [Cancel Order](https://shipping-faq.vercel.app/shipping-faq/api/cancel-order): Cancelling orders via API
+- [Serviceability](https://shipping-faq.vercel.app/shipping-faq/api/serviceability): Checking carrier serviceability via API
+- [Rates](https://shipping-faq.vercel.app/shipping-faq/api/rates): Getting shipping rates via API
+- [Shipment Status](https://shipping-faq.vercel.app/shipping-faq/api/shipment-status): Fetching shipment status via API
+- [Tracking](https://shipping-faq.vercel.app/shipping-faq/api/tracking): Tracking shipments via API
+- [Order Details (Forward)](https://shipping-faq.vercel.app/shipping-faq/api/order-details-forward): Fetching forward order details via API
+- [Order Details (Returns)](https://shipping-faq.vercel.app/shipping-faq/api/order-details-returns): Fetching return order details via API
+- [NDR Actions](https://shipping-faq.vercel.app/shipping-faq/api/ndr-actions): Performing NDR actions via API
+- [Reports API](https://shipping-faq.vercel.app/shipping-faq/api/reports): Generating reports via API
+- [Warehouse](https://shipping-faq.vercel.app/shipping-faq/api/warehouse): Managing warehouses via API
+- [Webhooks](https://shipping-faq.vercel.app/shipping-faq/api/webhooks): Setting up and managing webhooks

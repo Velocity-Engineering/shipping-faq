@@ -6,7 +6,7 @@
 
 **When you add a new page:**
 1. Add an entry to `static/llms.txt` under the appropriate section
-2. Format: `- [Page Title](https://shipping-faq.vercel.app/{section}/{slug}): One-line description of what the page covers`
+2. Format: `- [Page Title](https://shipping-faq.vercel.app/shipping-faq/{section}/{slug}): One-line description of what the page covers`
 
 **When you rename or move a page:**
 1. Update the URL and title of the corresponding entry in `static/llms.txt`
