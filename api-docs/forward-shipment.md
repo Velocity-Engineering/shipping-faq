@@ -41,8 +41,9 @@ Creates and manifests a forward shipment (create an order and assign to a courie
 |-------|------|----------|-------------|---------|
 | order_items[] | array | Yes | List of items | see below |
 | payment_method | enum | Yes | `COD` or `PREPAID` | COD |
-| sub_total | number | Yes | Order subtotal | 990 |
+| sub_total | number | Yes | Order subtotal (excluding shipping charges) | 990 |
 | cod_collectible | number | Yes | Required if COD, pass 0 for PREPAID | 990 |
+| shipping_charges | number | Optional | Customer-facing shipping fee (default 0). Added to the order total. | 49 |
 
 #### Order Item Fields
 
@@ -114,6 +115,7 @@ curl --location 'https://shazam.velocity.in/custom/api/v1/forward-order-orchestr
   "payment_method": "COD",
   "sub_total": 990,
   "cod_collectible": 990,
+  "shipping_charges": 49,
   "length": 100,
   "breadth": 50,
   "height": 10,
@@ -217,6 +219,7 @@ curl --location 'https://shazam.velocity.in/custom/api/v1/forward-order' \
   "payment_method": "COD",
   "sub_total": 990,
   "cod_collectible": 990,
+  "shipping_charges": 49,
   "length": 100,
   "breadth": 50,
   "height": 10,
