@@ -12,11 +12,10 @@ API keys are long-lived, named credentials that you manage from the Velocity Shi
 
 ### Step 1 — Create the key from your dashboard
 
-1. Log in to the [Velocity Shipping dashboard](https://app.velocity.in)
-2. Go to **Settings → API**
-3. Click **Generate API Key**
-4. Give the key a name (e.g. `production-integration`) and choose an expiry date
-5. Copy and securely store the token — **it is shown only once**
+1. Go to [Settings → API Keys](https://dashboard.velocity.in/shipping/settings/api-keys) in the Velocity Shipping dashboard
+2. Click **Generate API Key**
+3. Give the key a name (e.g. `production-integration`) and choose an expiry date
+4. Copy and securely store the token — **it is shown only once**
 
 ### Step 2 — Use the token in API calls
 

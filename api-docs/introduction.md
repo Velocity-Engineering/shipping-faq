@@ -15,10 +15,10 @@ By using these APIs, integrators can efficiently create, manage, and track shipm
 
 ## Authentication
 
-All API requests (except the auth-token endpoint) require authentication using a Bearer token. Obtain your token using the [Authentication API](/api/authentication) and include it in the `Authorization` header of all subsequent requests.
+All API requests require a Bearer token in the `Authorization` header. Generate your API key from the Velocity Shipping dashboard — [read the steps here](/api/authentication).
 
 ```
-Authorization: your_token_here
+Authorization: Bearer your_token_here
 ```
 
 ## Standard Error Codes
