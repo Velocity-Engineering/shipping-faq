@@ -4,11 +4,59 @@ sidebar_position: 2
 
 # Authentication
 
-Obtain an API token for use in the Authorization header for all subsequent requests.
+Generate an API key to authenticate all requests to the Velocity Shipping API.
 
-## Get Token
+## Generating an API Key
 
-**Method:** `POST`
+API keys are long-lived, named credentials that you manage from the Velocity Shipping dashboard. Unlike the old session-based token, API keys can be valid for up to **365 days** and can be revoked independently.
+
+### Step 1 — Create the key from your dashboard
+
+1. Go to [Settings → API Keys](https://dashboard.velocity.in/shipping/settings/api-keys) in the Velocity Shipping dashboard
+2. Click **Generate API Key**
+3. Give the key a name (e.g. `production-integration`) and choose an expiry date
+4. Copy and securely store the token — **it is shown only once**
+
+### Step 2 — Use the token in API calls
+
+Include the token in the `Authorization` header for every authenticated API request:
+
+```bash
+curl --location 'https://shazam.velocity.in/custom/api/v1/warehouse' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiJ9...' \
+--data '{...}'
+```
+
+> **Note:** Always include the `Bearer` prefix before the token value.
+
+---
+
+## Managing Your API Keys
+
+From **Settings → API** in the dashboard you can:
+
+- **Enable / Disable** a key temporarily without deleting it
+- **Delete** a key permanently when it is no longer needed
+
+---
+
+## Key Limits and Best Practices
+
+- A maximum of **5 active API keys** are allowed per account
+- Set a meaningful name to identify where each key is used
+- Rotate keys regularly and revoke any that are no longer in use
+- Never expose API keys in client-side code, logs, or public repositories
+
+---
+
+## Deprecated: Session Token via `/custom/api/v1/auth-token`
+
+> ⚠️ This endpoint is **deprecated** and will be removed in a future release. It continues to work for now, but we strongly recommend migrating to the API key system above.
+
+The old authentication flow issued a session token by submitting your username and password:
+
+**Method:** `POST`  
 **Endpoint:** `/custom/api/v1/auth-token`
 
 ### Request Fields
@@ -18,13 +66,7 @@ Obtain an API token for use in the Authorization header for all subsequent reque
 | username | string | Yes | Mobile number with country code (Velocity Shipping Username) | +91xxxxxxxxxx |
 | password | string | Yes | Velocity Shipping Account password | Your password |
 
-> **Important:** Creating a new token will **revoke all previous tokens**. Cache the token on your end and reuse it until expiry. Avoid generating a new token for every API request.
-
 > **Account Lockout:** 5 consecutive failed login attempts with an incorrect password may result in a temporary account lock.
-
-### Notes
-- Use `Authorization: {{token}}` in all secured endpoints.
-- Token will be valid for **24 hours**.
 
 ### Sample Request
 
@@ -37,31 +79,11 @@ curl --location 'https://shazam.velocity.in/custom/api/v1/auth-token' \
 }'
 ```
 
-### Success Response
+### Response
 
 ```json
 {
   "token": "bbqRkOXw0xWLuYj9ubnDwg",
   "expires_at": "2025-09-17T10:11:40"
 }
-```
-
-### Error Response
-
-```json
-{
-  "error": "Invalid credentials",
-  "status": 401
-}
-```
-
-## Using the Token
-
-Include the token in the `Authorization` header for all authenticated API calls:
-
-```bash
-curl --location 'https://shazam.velocity.in/custom/api/v1/warehouse' \
---header 'Content-Type: application/json' \
---header 'Authorization: bbqRkOXw0xWLuYj9ubnDwg' \
---data '{...}'
 ```
