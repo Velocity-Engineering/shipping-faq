@@ -53,7 +53,7 @@ From **Settings → API** in the dashboard you can:
 
 ## Deprecated: Session Token via `/custom/api/v1/auth-token`
 
-> ⚠️ This endpoint is **deprecated** and will be removed in a future release. It continues to work for now, but we strongly recommend migrating to the API key system above. Session tokens issued here are valid for **1 month** and will be revoked after that.
+> ⚠️ This endpoint is **deprecated** and will be removed in a future release. It continues to work for now, but we strongly recommend migrating to the API key system above.
 
 The old authentication flow issued a session token by submitting your username and password:
 
