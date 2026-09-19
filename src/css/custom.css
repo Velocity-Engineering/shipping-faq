@@ -92,14 +92,35 @@ html {
 }
 
 /* ==================== NAVBAR ==================== */
+/*
+ * backdrop-filter must NOT be set directly on .navbar. NavbarMobileSidebar is
+ * rendered inside the <nav> element, and any filter/backdrop-filter on an ancestor
+ * makes it the containing block for position:fixed descendants. This clips the
+ * sidebar to the 64px navbar height and hides the menu items on mobile.
+ * Moving the blur to a ::before pseudo-element avoids this side-effect.
+ */
 .navbar {
   box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid var(--ifm-border-color);
+  background: transparent;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.95);
+  z-index: -1;
+  pointer-events: none;
 }
 
 [data-theme='dark'] .navbar {
+  background: transparent;
+}
+
+[data-theme='dark'] .navbar::before {
   background: rgba(17, 24, 39, 0.95);
 }
 
