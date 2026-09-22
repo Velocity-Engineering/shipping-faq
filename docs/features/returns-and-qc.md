@@ -181,7 +181,7 @@ RTO / Reverse Delivered to Your Warehouse ✓
 
 ## Need Help?
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Live Chat:** Click the chat icon in your dashboard
 - **Account Manager:** To enable QC on returns or configure reverse logistics
 

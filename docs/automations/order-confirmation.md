@@ -319,7 +319,7 @@ Order Confirmation Automation helps you verify orders and customer details **bef
 ## Need Help?
 
 If you couldn't find your answer here:
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Chat:** Use the chat widget in your Velocity Shipping dashboard
 
 [Back to Automations Overview](./)

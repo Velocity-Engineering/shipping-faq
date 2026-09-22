@@ -349,7 +349,7 @@ To investigate:
 | NEFT/Bank Transfer | 1–2 business days — share your UTR number with support to expedite |
 | Credit Note | Instant — contact support if not reflecting |
 
-If payment is confirmed by your bank but not reflected after the above timeline, email support@velocity.in with: payment screenshot, amount, date, and UTR/transaction reference.
+If payment is confirmed by your bank but not reflected after the above timeline, email support.shipping@velocity.in with: payment screenshot, amount, date, and UTR/transaction reference.
 
 ---
 
@@ -431,7 +431,7 @@ We'll coordinate with the payment gateway for resolution.
 
 ## Need Help?
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Live Chat:** Click the chat icon in your dashboard
 - **Account Manager:** For billing-specific queries
 

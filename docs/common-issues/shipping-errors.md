@@ -540,7 +540,7 @@ Contact support if:
 ## Need More Help?
 
 If you couldn't find your answer here:
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Chat:** Use the chat widget in your Velocity Shipping dashboard
 - **Account Manager:** Contact your dedicated account manager
 

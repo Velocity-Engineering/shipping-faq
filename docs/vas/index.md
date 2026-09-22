@@ -37,7 +37,7 @@ description: Guide to Velocity Shipping's Value Added Services pricing, billing,
 | **Exchange** | Swap a delivered item for a replacement in one logistics flow | Per exchange order |
 
 ### Q: How do I enable VAS for my account?
-**A:** Contact your account manager or reach out to support@velocity.in to enable VAS services. Each service can be enabled independently.
+**A:** Contact your account manager or reach out to support.shipping@velocity.in to enable VAS services. Each service can be enabled independently.
 
 ---
 
@@ -353,7 +353,7 @@ Our team will investigate and refund if service failed.
 ## Need More Help?
 
 If you couldn't find your answer here:
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Chat:** Use the chat widget in your Velocity Shipping dashboard
 - **Account Manager:** Contact your dedicated account manager for VAS configuration
 

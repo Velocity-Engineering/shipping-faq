@@ -90,7 +90,7 @@ https://{subdomain}.{tracking-domain}
 For example, if your subdomain is `mystore`, the URL is `https://mystore.velocityshipping.in`.
 
 ### Q: Is this feature available on all plans?
-**A:** The branded tracking page may need to be enabled on your account. If you don't see it under **Buyer Communication**, contact your Key Account Manager (KAM) or email support@velocity.in.
+**A:** The branded tracking page may need to be enabled on your account. If you don't see it under **Buyer Communication**, contact your Key Account Manager (KAM) or email support.shipping@velocity.in.
 
 ---
 
@@ -180,7 +180,7 @@ If the issue persists, try a smaller file size or a different image format.
 ### Q: Is the Branded Tracking Page a paid feature?
 **A:** The basic tracking page (logo, brand name, support details, subdomain) is included for all accounts at no extra cost.
 
-The **Advanced Tracking Page** — with custom headers, sticky bars, footer social links, and banners — is a paid VAS subscription (`branded_tracking_page`). Contact your KAM or support@velocity.in to enable it.
+The **Advanced Tracking Page** — with custom headers, sticky bars, footer social links, and banners — is a paid VAS subscription (`branded_tracking_page`). Contact your KAM or support.shipping@velocity.in to enable it.
 
 ### Q: When exactly am I charged for the Branded Tracking Page?
 **A:** You are charged **once per shipment, at the time the shipment is manifested** (when the AWB is assigned and the shipment moves to "Ready for Pickup"). The charge is not per page view — each shipment is billed once regardless of how many times customers visit the tracking page.
@@ -215,14 +215,14 @@ The **Advanced Tracking Page** — with custom headers, sticky bars, footer soci
 Note: upload URLs expire after **10 minutes**. If an upload times out, refresh the page and try again.
 
 ### Q: I can't find the Branded Tracking Page setting.
-**A:** The Advanced Tracking Page may not be enabled on your account. Contact your KAM or support@velocity.in to get it activated.
+**A:** The Advanced Tracking Page may not be enabled on your account. Contact your KAM or support.shipping@velocity.in to get it activated.
 
 
 ---
 
 ## Need Help?
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Chat:** Use the chat widget in your Velocity Shipping dashboard
 - **Account Manager:** Contact your KAM to enable or configure the branded tracking page
 

@@ -546,5 +546,5 @@ These settings control what status is set in WooCommerce when shipment status ch
 ## Need More Help?
 
 If you couldn't find your answer here:
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Chat:** Use the chat widget in your Velocity Shipping dashboard

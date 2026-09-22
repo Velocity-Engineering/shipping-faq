@@ -151,7 +151,7 @@ Changes to your sync configuration apply only to **new orders** from that point 
 
 ## Need Help?
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Live Chat:** Click the chat icon in your Velocity Shipping dashboard
 
 Always include your **store Order ID** and the **store name** for faster resolution.

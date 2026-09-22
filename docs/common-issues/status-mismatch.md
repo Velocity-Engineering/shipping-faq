@@ -97,7 +97,7 @@ Include:
 
 ## Need Help?
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Live Chat:** Click the chat icon in your Velocity Shipping dashboard
 
 When reporting a status mismatch, always include:

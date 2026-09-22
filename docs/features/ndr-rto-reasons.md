@@ -96,7 +96,7 @@ The NPR reason is stored independently from the NDR reason on the shipment.
 - The carrier sends a new or unusual reason string not yet in Velocity's mapping table
 - The reason field in the carrier's webhook was blank
 
-If you see this frequently for a specific carrier, contact support@velocity.in — we can add the missing mapping.
+If you see this frequently for a specific carrier, contact support.shipping@velocity.in — we can add the missing mapping.
 
 ### Q: The NDR reason on a shipment changed after an RTO event. Is that correct?
 **A:** The NDR reason on the shipment is updated with each new NDR event. The RTO reason is a separate field and is updated independently. If you see the NDR reason change, it means another NDR event arrived after the previous one.
@@ -108,7 +108,7 @@ If you see this frequently for a specific carrier, contact support@velocity.in �
 
 ## Need Help?
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Chat:** Use the chat widget in your Velocity Shipping dashboard
 
 Always include the **AWB number** when reporting reason mapping issues — it helps our team look up the raw carrier event.

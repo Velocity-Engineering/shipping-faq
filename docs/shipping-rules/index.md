@@ -358,7 +358,7 @@ For a step-by-step guide, see [Self-Diagnosing Carrier Selection Issues](/common
 
 ## Need Help?
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Live Chat:** Click the chat icon in your dashboard
 - **Account Manager:** For Concierge mode or custom configurations
 

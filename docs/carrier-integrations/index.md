@@ -350,7 +350,7 @@ Contact your account manager to set up BYOC integration.
 
 ## Need Help?
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Live Chat:** Click the chat icon in your dashboard
 - **Account Manager:** For carrier-specific configurations
 

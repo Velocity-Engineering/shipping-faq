@@ -280,7 +280,7 @@ However, these changes may not sync back to the partner system automatically.
 ## Need More Help?
 
 If you couldn't find your answer here:
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Chat:** Use the chat widget in your Velocity Shipping dashboard
 - **Partner Support:** Contact your OMS/WMS partner for integration-specific issues
 

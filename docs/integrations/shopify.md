@@ -585,5 +585,5 @@ These settings control what status appears in Shopify at each shipping stage.
 ## Need More Help?
 
 If you couldn't find your answer here:
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Chat:** Use the chat widget in your Velocity Shipping dashboard

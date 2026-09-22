@@ -403,6 +403,6 @@ No, once a discrepancy is auto-accepted, the decision is final and cannot be dis
 ## Need Help?
 
 If you couldn't find your answer here:
-- **Email**: support@velocity.in
+- **Email**: support.shipping@velocity.in
 - **Chat**: Use the chat widget in your Velocity Shipping dashboard
 - **Help Center**: Visit our help center for more guides

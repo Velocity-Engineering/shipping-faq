@@ -25,6 +25,6 @@ This section covers the issues our support team hears about most often. Use the 
 
 ## Still Need Help?
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Live Chat:** Click the chat icon in your Velocity Shipping dashboard
 - **Account Manager:** For account-specific or billing queries
