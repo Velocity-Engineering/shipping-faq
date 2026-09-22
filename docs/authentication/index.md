@@ -43,17 +43,17 @@ The reset link expires in 24 hours — repeat the process if expired.
 2. Ensure you're using the email address registered with Velocity
 3. Wait 5 minutes — emails can be delayed
 4. Try the "Forgot Password" flow again
-5. If still not received, email support@velocity.in with your registered email
+5. If still not received, email support.shipping@velocity.in with your registered email
 
 ---
 
 ### Q: My account is locked. How do I unlock it?
-**A:** Accounts may lock after multiple failed login attempts. Either wait 15–30 minutes and retry, or contact support@velocity.in for an immediate unlock.
+**A:** Accounts may lock after multiple failed login attempts. Either wait 15–30 minutes and retry, or contact support.shipping@velocity.in for an immediate unlock.
 
 ---
 
 ### Q: Can I change my registered email address?
-**A:** Contact support@velocity.in with your current and desired new email address.
+**A:** Contact support.shipping@velocity.in with your current and desired new email address.
 
 ---
 
@@ -171,7 +171,7 @@ The reset link expires in 24 hours — repeat the process if expired.
 **A:** Possible causes:
 - Your account is under a reseller/parent structure — contact your KAM
 - Account temporarily restricted due to overdue payments
-- Contact support@velocity.in for assistance
+- Contact support.shipping@velocity.in for assistance
 
 ---
 
@@ -196,6 +196,6 @@ The reset link expires in 24 hours — repeat the process if expired.
 
 ## Need Help?
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Live Chat:** Click the chat icon in your dashboard
 - **Account Manager:** For user management and access configuration help

@@ -317,6 +317,6 @@ Yes! All users can download shipping labels, including child accounts without bu
 ## Need Help?
 
 If you couldn't find your answer here:
-- **Email**: support@velocity.in
+- **Email**: support.shipping@velocity.in
 - **Chat**: Use the chat widget in your Velocity Shipping dashboard
 - **Help Center**: Visit our help center for more guides

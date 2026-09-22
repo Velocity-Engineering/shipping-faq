@@ -84,7 +84,7 @@ Understand your invoices, charges, and payment options.
 
 Can't find what you're looking for? We're here to help!
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Live Chat:** Click the chat icon in your Velocity Shipping dashboard
 - **Account Manager:** Reach out to your dedicated account manager
 

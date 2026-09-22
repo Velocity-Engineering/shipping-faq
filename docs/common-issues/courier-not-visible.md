@@ -108,7 +108,7 @@ If the destination pincode you're shipping to is **not** in the carrier's High P
 
 ## Need Help?
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Live Chat:** Click the chat icon in your Velocity Shipping dashboard
 - **Account Manager:** For carrier enablement or configuration changes
 

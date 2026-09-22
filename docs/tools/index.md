@@ -18,7 +18,7 @@ This section covers the various tools available in Velocity Shipping to help you
 
 ## Need Help?
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Live Chat:** Click the chat icon in your dashboard
 - **Account Manager:** For advanced configurations
 

@@ -12,6 +12,11 @@ description: Track shipments, understand status updates, resolve tracking issues
 
 ## Table of Contents
 1. [Tracking Shipments](#1-tracking-shipments)
+   - [Where can I see pickup date/time?](#q-where-can-i-see-the-pickup-date-and-time-for-a-shipment)
+   - [Where can I see delivery date/time?](#q-where-can-i-see-the-delivery-date-and-time-for-a-shipment)
+   - [Where can I see out-for-delivery time?](#q-where-can-i-see-when-a-shipment-went-out-for-delivery)
+   - [How do I see the full shipment timeline?](#q-how-do-i-see-the-full-event-history--timeline-for-a-shipment)
+   - [How long does pickup take after manifesting?](#q-how-long-after-manifesting-does-carrier-pickup-happen)
 2. [Shipment Status Glossary](#2-shipment-status-glossary)
 3. [NDR Reasons & Resolution](#3-ndr-reasons--resolution)
 4. [Tracking Not Updating](#4-tracking-not-updating)
@@ -34,6 +39,62 @@ description: Track shipments, understand status updates, resolve tracking issues
 
 ### Q: How do I track using an AWB number?
 **A:** Use the search bar at the top of the Orders or Shipments page and enter the AWB number directly. You can also enter it on the carrier's own tracking website.
+
+---
+
+### Q: Where can I see the pickup date and time for a shipment?
+**A:** There are two ways:
+
+**On the dashboard:**
+1. Go to **Orders** or **Shipments**
+2. Search for the order by ID or AWB number
+3. Click the order to open the details drawer
+4. Scroll to the **Tracking Timeline** — the **"Picked Up"** event shows the exact date and time the carrier scanned and collected the package
+
+**Via the Shipping Copilot:**
+Ask directly — for example: *"When was order #12345 picked up?"* or *"Show me pickup details for AWB 4059812345678"* — the Copilot will retrieve the shipment timeline and show you the pickup timestamp.
+
+> **Note:** The pickup timestamp reflects when the carrier scanned the package at collection. If a pickup has not happened yet, the status will show **"Pickup Pending"** or **"Manifested"** — no timestamp will be available until the carrier completes the scan.
+
+---
+
+### Q: Where can I see the delivery date and time for a shipment?
+**A:**
+1. Go to **Orders** or **Shipments** and open the order
+2. In the **Tracking Timeline**, look for the **"Delivered"** event — it shows the exact date and time of delivery
+3. You can also ask the Copilot: *"When was order #12345 delivered?"*
+
+> If the shipment has not been delivered yet, no timestamp will be shown — the current status will say **"Out for Delivery"** or **"In Transit"**.
+
+---
+
+### Q: Where can I see when a shipment went out for delivery?
+**A:**
+1. Open the order details and scroll to the **Tracking Timeline**
+2. Look for the **"Out for Delivery"** event — it shows the date and time the delivery agent started their route
+
+You can also ask the Copilot: *"When did order #12345 go out for delivery?"*
+
+---
+
+### Q: How do I see the full event history / timeline for a shipment?
+**A:**
+1. Go to **Orders** or **Shipments** and click on the order
+2. The **Tracking Timeline** panel on the right shows every milestone in chronological order: Manifested → Picked Up → In Transit → Out for Delivery → Delivered (and any NDR or RTO events)
+3. Each event includes a timestamp and the carrier's last-known location
+
+For more granular carrier scan events (hub scans, location updates between milestones), check the carrier's own tracking website using the AWB number.
+
+---
+
+### Q: How long after manifesting does carrier pickup happen?
+**A:** Pickup timing depends on your carrier and warehouse location:
+- Carriers typically do **1–2 pickup runs per day**
+- If you manifest before the carrier's daily cut-off time, pickup usually happens the same day
+- If you manifest after the cut-off, pickup happens the next business day
+- Cut-off times vary by carrier (typically 12:00–14:00 for same-day pickup)
+
+If there is no pickup after **24 hours**, contact support with the AWB number.
 
 ---
 
@@ -229,7 +290,7 @@ See [VAS FAQ](/vas) for setup details.
 
 ## Need Help?
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Live Chat:** Click the chat icon in your dashboard
 
 Always include the **AWB number** or **Order ID** for faster resolution.

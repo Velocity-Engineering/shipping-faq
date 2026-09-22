@@ -96,5 +96,5 @@ Velocity's support team can assist if you need to coordinate from the Velocity s
 
 ## Need Help?
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Live Chat:** Click the chat icon in your Velocity Shipping dashboard

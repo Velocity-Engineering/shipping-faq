@@ -182,7 +182,7 @@ Contact your account manager for details specific to your account and carrier ag
 ---
 
 ### Q: The dispute was rejected but I believe it is valid. What can I do?
-**A:** Contact your account manager or email support@velocity.in with:
+**A:** Contact your account manager or email support.shipping@velocity.in with:
 - The shipment AWB number
 - The dispute ID
 - Any additional evidence or context you would like reviewed
@@ -198,7 +198,7 @@ Support can escalate the case for a second review if warranted.
 
 ## Need Help?
 
-- **Email:** support@velocity.in
+- **Email:** support.shipping@velocity.in
 - **Live Chat:** Click the chat icon in your dashboard
 - **Account Manager:** For resolution escalations or bulk dispute assistance
 
