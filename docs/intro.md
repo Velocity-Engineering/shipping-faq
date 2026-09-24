@@ -89,3 +89,15 @@ Can't find what you're looking for? We're here to help!
 - **Account Manager:** Reach out to your dedicated account manager
 
 Our support team typically responds within 2-4 hours during business hours.
+
+---
+
+## Something Missing or Incorrect?
+
+This Help Center is actively maintained. If you find an answer that is outdated, a topic that is not covered, or information that seems incorrect:
+
+- **Email us:** Send feedback to support.shipping@velocity.in with the subject line "FAQ Feedback — [topic]"
+- **Be specific:** Include the page title, the question it relates to, and what information you believe is missing or wrong
+- **Suggest content:** If you have a question that keeps coming up in your team and it is not answered here, tell us — we will prioritise adding it
+
+We review feedback weekly and aim to publish updates within 5 business days.

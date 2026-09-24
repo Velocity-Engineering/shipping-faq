@@ -275,6 +275,25 @@ See [VAS FAQ](/vas) for setup details.
 
 ---
 
+### Q: The carrier has physically picked up my package but the status still shows "Ready for Pickup". What's happening?
+
+**A:** There is typically a lag between the carrier physically collecting the package and the status updating in Velocity. Here is what to expect:
+
+| Time since physical pickup | Expected status |
+|---------------------------|----------------|
+| 0 – 30 minutes | May still show Ready for Pickup |
+| 30 – 120 minutes | Should update to Picked Up |
+| > 2 hours | Status should definitely have updated |
+
+If the status has not changed to **Picked Up** after 2–3 hours:
+1. Confirm the carrier ran their daily pickup route to your location — check if other shipments from the same batch have updated
+2. Verify the AWB on the **carrier's own tracking website** — if it shows as picked up there, the update will sync to Velocity within the normal window
+3. If the carrier's site also shows "Ready for Pickup" after 3+ hours, the carrier may not have scanned the package at collection — contact support with the AWB number so we can follow up with the carrier
+
+> **This is different from** the scenario where tracking shows "Picked Up" but the package hasn't physically moved — that is a carrier pre-scan issue. This question addresses the reverse.
+
+---
+
 ## Quick Reference: Carrier Tracking Websites
 
 | Carrier | Tracking Website |

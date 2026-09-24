@@ -240,6 +240,24 @@ Review the deduction breakdown:
 
 ---
 
+### Q: My order has a partial COD — part cash, part prepaid. How is this handled in remittance?
+
+**A:** Partial COD (also called split payment — where the customer pays part of the order value in cash and the rest was prepaid online) requires that the COD amount on the shipment reflects **only the cash-collectible portion**.
+
+How to set this up correctly:
+1. When creating the shipment on Velocity, enter only the **cash-to-collect amount** in the COD field — not the full order value
+2. Velocity instructs the carrier to collect only the specified COD amount
+3. The remittance cycle then settles only that amount
+
+**If the COD amount is wrong in Velocity:**
+- Before pickup: edit the shipment and correct the COD amount
+- After pickup but before delivery: contact support — carrier-level corrections have a short window
+- After delivery: the carrier has already collected the specified amount; corrections must go through the dispute/reconciliation process
+
+> **Note:** If your Shopify/WooCommerce order uses a split-payment gateway, the COD field in Velocity is **not** auto-populated from the gateway split — you must manually set the correct cash-collectible amount when creating the shipment.
+
+---
+
 ## 7. Best Practices
 
 ### For Faster Settlements

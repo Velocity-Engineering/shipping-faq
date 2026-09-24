@@ -145,6 +145,19 @@ The reset link expires in 24 hours — repeat the process if expired.
 
 ---
 
+### Q: I can see Settings → API but there is no option to generate a key, or the section is not visible at all. How do I get API access enabled?
+
+**A:** API access is not enabled by default for all accounts. To request it:
+
+1. Email support.shipping@velocity.in with the subject line "API Access Request"
+2. Include your account email and a brief description of what you plan to integrate (your OMS, custom automation, etc.)
+3. The team will review and enable API access on your account, typically within 1 business day
+4. Once enabled, go to **Settings → API** to generate your key
+
+> **Note:** API access is available on select plans. If you are on a basic plan, your KAM can advise on plan eligibility.
+
+---
+
 ## 5. Common Issues
 
 ### Q: "Invalid credentials" error even though my password is correct.
@@ -177,6 +190,26 @@ The reset link expires in 24 hours — repeat the process if expired.
 
 ### Q: My session keeps logging me out.
 **A:** Sessions expire after a period of inactivity for security. Use the **Remember Me** option at login (if available) and avoid long periods of idle time on the dashboard.
+
+---
+
+### Q: My account shows as "Inactive" or I'm getting an "Account Inactive" error. What does this mean and how do I fix it?
+
+**A:** An inactive account is different from a locked account. Here are the common causes:
+
+| Cause | How to Resolve |
+|-------|---------------|
+| Account was never fully activated post-KYC | Contact support — ops team activates accounts after KYC verification |
+| Account was deactivated due to prolonged inactivity | Email support.shipping@velocity.in to request reactivation |
+| Account was suspended due to a billing/compliance issue | Check for any outstanding invoices or compliance flags; contact your KAM |
+| Sub-user was deactivated by an admin | Ask your account admin to reactivate you in Settings → Users |
+
+**To reactivate:**
+1. Email support.shipping@velocity.in with your account email and a description of the "inactive" error you are seeing
+2. If your account was deactivated for billing reasons, clear any outstanding dues first
+3. The ops team will reactivate your account once the cause is resolved
+
+> **Tip:** Accounts that have had no shipments for 90+ days may be flagged for review. Logging in and placing a test shipment after reactivation can prevent future auto-deactivation.
 
 ---
 
