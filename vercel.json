@@ -1,4 +1,6 @@
 {
+  "trailingSlash": false,
+
   "headers": [
     {
       "source": "/shipping-faq/assets/(.*)",
@@ -9,9 +11,11 @@
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=300, stale-while-revalidate=60" }]
     }
   ],
+
   "redirects": [
     { "source": "/", "destination": "/shipping-faq/", "permanent": false }
   ],
+
   "rewrites": [
     { "source": "/shipping-faq/:path*", "destination": "/:path*" }
   ]
