@@ -326,6 +326,28 @@ Completing KYC does not automatically activate your account. If you have finishe
 
 ---
 
+### Q: My KYC was rejected. What should I do?
+
+**A:** KYC rejection usually means one or more submitted documents did not meet verification requirements. Common reasons:
+
+| Rejection Reason | How to Fix |
+|-----------------|-----------|
+| Document is expired | Upload a valid, in-date document |
+| Name mismatch between PAN and GST/bank documents | Ensure all documents show the same legal entity name |
+| Image is blurry, cropped, or unreadable | Re-upload a clear, full-page scan or photo |
+| Address proof does not match the registered address | Upload a document that matches your registered business address |
+| Unsupported document type | Refer to the accepted document list from the onboarding email |
+
+**Steps to re-submit after rejection:**
+1. Log in and go to **Settings → KYC** (or the KYC section shown in your onboarding checklist)
+2. You should see the rejection reason and which document was flagged
+3. Upload the corrected document
+4. Re-submit — verification typically takes 1–2 business days
+
+If the rejection reason is unclear or you have submitted the correct document and it was still rejected, email support.shipping@velocity.in with your account email and the document you are trying to submit.
+
+---
+
 ### Q: The COD amount in Velocity is different from what's in my Shopify / WooCommerce store. Who changed it?
 
 **A:** The COD amount in Velocity reflects the value as of the **last edit made on the Velocity dashboard**. If the amount differs from your store, it is most likely because a dashboard user manually edited the COD amount after the order synced.
@@ -334,6 +356,45 @@ To investigate:
 1. Open the order in Velocity and check the **activity/audit log** — all manual edits to the COD amount are recorded with timestamps and user details
 2. Confirm with your team whether a manual adjustment was made
 3. If you suspect an unauthorized change, contact support with the order ID and we will review the audit trail
+
+---
+
+### Q: I'm a new business. How do I get a shipping rate card from Velocity?
+
+**A:** Velocity's shipping rates are customised based on your shipment volume, delivery zones, and preferred carriers. Here is how to get your rate card:
+
+1. **Sign up** at the Velocity Shipping portal and complete your profile
+2. **Contact the sales team** via the "Get Started" flow or email sales@velocity.in — include your expected monthly shipment volume and primary delivery zones
+3. A **Key Account Manager (KAM)** will be assigned to your account and will share a personalised rate card
+4. Once you accept the rate card, your rates are configured in your account and visible in **Settings → Billing → Rate Card**
+
+> **Note:** Publicly listed rates are indicative. Your actual contracted rates may differ based on volume commitments and carrier mix.
+
+---
+
+### Q: I'm an existing merchant but I want to renegotiate my rates. What should I do?
+
+**A:** Contact your assigned KAM directly, or email support.shipping@velocity.in with the subject line "Rate Revision Request". Include your current monthly volume and the rate improvement you are looking for. Rate revisions are reviewed quarterly.
+
+---
+
+### Q: I don't know who my Key Account Manager (KAM) is. How do I find out?
+
+**A:**
+1. Check your original onboarding email — the KAM's name and contact details are usually included
+2. Log in and go to **Settings → Account** — the assigned KAM may be listed there
+3. If you cannot find the information, email support.shipping@velocity.in with your account email and ask to be connected to your KAM
+
+---
+
+### Q: How do I raise a request to my KAM?
+
+**A:** You can reach your KAM via:
+- **Email**: their email address shared during onboarding
+- **Slack/WhatsApp**: if a direct channel was set up during onboarding
+- **Support ticket**: if you don't have direct contact, raise a ticket via support.shipping@velocity.in mentioning "KAM request" in the subject — it will be routed to the right person
+
+For urgent issues (account blocked, critical billing disputes, carrier SLA escalations), always raise a support ticket in addition to contacting your KAM so the issue is tracked.
 
 ---
 
