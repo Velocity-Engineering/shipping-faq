@@ -61,7 +61,7 @@ The old authentication flow issued a session token by submitting your username a
 
 :::note[Rate limit]
 
-**500 requests per 5 minutes** per IP address.
+**100 requests per 5 minutes** per IP address.
 
 :::
 
