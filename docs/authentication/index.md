@@ -15,8 +15,7 @@ description: Login, password reset, sub-user management, and access control for 
 2. [Sub-User & Team Access](#2-sub-user--team-access)
 3. [Permissions & Roles](#3-permissions--roles)
 4. [API Access](#4-api-access)
-5. [Webhooks & HMAC Security](#5-webhooks--hmac-security)
-6. [Common Issues](#6-common-issues)
+5. [Common Issues](#5-common-issues)
 
 ---
 
@@ -171,54 +170,7 @@ The field is also accepted as an input parameter if you want to pass through a p
 
 ---
 
-## 5. Webhooks & HMAC Security
-
-### Q: What is HMAC authentication for webhooks?
-**A:** HMAC (Hash-based Message Authentication Code) is a webhook security method that lets you verify that a webhook payload was genuinely sent by Velocity Shipping and hasn't been tampered with in transit.
-
-When HMAC is enabled on a webhook endpoint, every outgoing request includes a signature header. Your server can verify this signature using your shared secret to confirm authenticity before processing the payload.
-
-### Q: How do I enable HMAC for my webhook?
-**A:**
-1. Go to **Settings → Webhooks** (or Settings → Integrations → Webhooks)
-2. Select or create the webhook endpoint you want to secure
-3. In the **Authentication Method** dropdown, choose **HMAC**
-4. Enter your **secret key** (use a strong, randomly generated string)
-5. Save the configuration
-
-Velocity will now sign every webhook request sent to that endpoint.
-
-### Q: How does the HMAC signature work?
-**A:** For each webhook delivery, Velocity:
-1. Serializes the payload to JSON with keys sorted alphabetically
-2. Computes an HMAC-SHA256 signature using your secret and the payload + a timestamp
-3. Includes the signature and timestamp in request headers
-
-Your server should:
-1. Extract the signature and timestamp from headers
-2. Recompute the HMAC using the same payload and your stored secret
-3. Compare the computed signature with the received one — reject the request if they don't match
-4. Optionally, reject requests where the timestamp is too old (replay protection)
-
-### Q: What headers does Velocity send with HMAC-signed webhooks?
-**A:** The exact header names are available in the API documentation. Reach out to support or your KAM for the header specification if you are implementing verification.
-
-### Q: What authentication methods are available for webhooks?
-**A:**
-
-| Method | Use case |
-|--------|----------|
-| **API Key** | Simple header-based auth — your server checks for a static key |
-| **Bearer Token** | JWT-style token in the Authorization header |
-| **Basic Auth** | Username + password sent in the Authorization header |
-| **Custom Header** | Any arbitrary header name and value |
-| **HMAC** | Signature-based verification for highest security |
-
-HMAC is recommended for production integrations handling order data.
-
----
-
-## 6. Common Issues
+## 5. Common Issues
 
 ### Q: "Invalid credentials" error even though my password is correct.
 **A:**

@@ -18,16 +18,66 @@ To configure webhooks:
 
 ## Authentication Methods
 
+Velocity Shipping supports the following authentication methods for webhook endpoints:
+
 | Method | Description |
 |--------|-------------|
-| None | No authentication header is sent with the webhook request |
-| API Key | An API key is sent in the `X-API-Key` header. Configure the key in the settings page |
+| **None** | No authentication header is sent with the webhook request |
+| **API Key** | A static key is sent in the `X-API-Key` header |
+| **Bearer Token** | A token is sent in the `Authorization: Bearer <token>` header |
+| **Basic Auth** | Base64-encoded `username:password` sent in the `Authorization` header |
+| **Custom Header** | Any arbitrary header name and value of your choice |
+| **HMAC** | Request is signed with HMAC-SHA256 — recommended for production |
 
-When using API Key authentication, the webhook request will include:
+---
+
+### API Key
+
+When using API Key authentication, every webhook request includes:
 
 ```
 X-API-Key: your_configured_api_key
 ```
+
+---
+
+### HMAC
+
+HMAC (Hash-based Message Authentication Code) lets your server verify that a request genuinely came from Velocity Shipping and was not tampered with in transit.
+
+#### How it works
+
+For each webhook delivery, Velocity:
+1. Serializes the payload to JSON with keys sorted alphabetically
+2. Records the current Unix timestamp
+3. Computes an HMAC-SHA256 signature over the payload and timestamp using your shared secret
+4. Sends the signature and timestamp in request headers
+
+Your server should:
+1. Extract the signature and timestamp from the headers
+2. Recompute the HMAC using the same payload body and your stored secret
+3. Compare the computed signature with the received signature — reject the request if they don't match
+4. Optionally reject requests where the timestamp is more than a few minutes old (replay-attack protection)
+
+#### Enabling HMAC
+
+1. Go to **Settings → Webhooks**
+2. Select or create your webhook endpoint
+3. In the **Authentication Method** dropdown, choose **HMAC**
+4. Enter a **secret key** — use a strong, randomly generated string (minimum 32 characters recommended)
+5. Save the configuration
+
+Velocity will sign every request sent to that endpoint from this point forward.
+
+#### Signature headers
+
+Velocity sends the HMAC signature and timestamp in dedicated request headers. Contact support or your KAM for the exact header names if you are implementing verification for the first time.
+
+#### Security note
+
+Keep your HMAC secret confidential. If you suspect it has been compromised, update it immediately in **Settings → Webhooks** and deploy the new secret to your server before the old one is removed.
+
+---
 
 ## Supported Events
 
@@ -95,13 +145,14 @@ When a status change occurs, Velocity Shipping sends a POST request to your conf
 
 ## Best Practices
 
-- **Validate requests**: Verify the `X-API-Key` header matches your configured key to ensure requests originate from Velocity Shipping
+- **Use HMAC for production**: HMAC signature verification is the most secure way to confirm requests are from Velocity Shipping
 - **Handle idempotency**: Use `event_id` to detect and ignore duplicate webhook deliveries
 - **Respond quickly**: Return a 2xx status code within 5 seconds; process heavy logic asynchronously
 - **Fallback to pull API**: If webhooks fail or are delayed, periodically poll the [Order Details API](/api/order-details-forward) as a backup
 
 ## Security
 
-- Use HTTPS endpoints for secure communication
-- Configure API Key authentication to verify webhook authenticity
-- Respond with a 2xx status code to acknowledge receipt
+- Use HTTPS endpoints only — do not accept webhooks over plain HTTP
+- Use HMAC authentication to cryptographically verify each request's authenticity
+- Implement timestamp validation to protect against replay attacks
+- Respond with a 2xx status code to acknowledge receipt; non-2xx responses trigger retries

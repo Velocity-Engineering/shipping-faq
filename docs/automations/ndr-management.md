@@ -8,8 +8,6 @@ description: Learn how NDR Management Automation helps resolve failed deliveries
 
 NDR (Non-Delivery Report) Management Automation helps you resolve failed deliveries faster by automatically connecting with customers when a delivery attempt fails.
 
-> **What's new:** NDR automation now creates a fresh automation run on every new delivery attempt (not just the first), outcomes are driven by NDR reason + retry count instead of a separate "reminder" message, and COD shipments in NDR can be converted to prepaid to improve delivery success.
-
 ---
 
 ## Overview
@@ -456,21 +454,17 @@ This helps you understand the pattern of delivery failures.
 ## NDR Automation per Delivery Attempt
 
 ### Q: How many times does NDR automation trigger for a shipment?
-**A:** NDR automation now triggers on **every new delivery attempt** that results in an NDR. Previously, it only ran once per shipment. Now if a carrier attempts delivery a second or third time and fails again, a fresh automation run is created for that new attempt.
+**A:** NDR automation triggers on **every delivery attempt** that results in an NDR. If a carrier attempts delivery a second or third time and fails again, a fresh automation run is created for that attempt and the customer is re-contacted.
 
-This ensures customers are re-contacted after each failed attempt rather than only after the first one.
-
-### Q: What changed about reminders in NDR automation?
-**A:** The concept of a "reminder" message has been removed. Previously, for shipments with an "Undelivered" status, the system would send a separate reminder WhatsApp message if the customer hadn't responded.
-
-Now, the communication flow is entirely driven by:
+### Q: How does the automation decide what message to send?
+**A:** The communication flow is driven by two factors:
 - **NDR reason** — the specific reason the carrier reported for the failed attempt
-- **Retry count** — how many delivery attempts have been made
+- **Retry count** — how many delivery attempts have been made so far
 
-This makes each outreach more relevant and contextual rather than a generic reminder.
+This ensures each outreach is contextual to the current attempt rather than generic.
 
-### Q: Does this affect existing NDR automation configurations?
-**A:** No. Your existing automation settings (WhatsApp enabled, AI calling enabled, wait times, etc.) remain unchanged. The difference is that each new NDR event on the same shipment now triggers a fresh automation run rather than relying on an older run's reminder mechanism.
+### Q: Does automation run separately for each NDR, even on the same shipment?
+**A:** Yes. Each NDR event on a shipment creates an independent automation run. Your automation settings (WhatsApp, AI calling, wait times, etc.) apply to each run individually.
 
 ---
 
