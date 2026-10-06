@@ -66,6 +66,25 @@ description: How to manage reverse shipments, quality checks, and return workflo
 
 ---
 
+### Q: Why are some carriers shown as ineligible when creating a return shipment?
+**A:** When you create a return/reverse pickup shipment, the dashboard now shows all carriers — including ineligible ones — along with the reason they cannot be used. This is the same behaviour as in forward shipment creation.
+
+Common reasons a carrier may be ineligible for a return:
+- The carrier does not support reverse pickup at the customer's pincode
+- The carrier is not enabled for your account
+- The carrier has a serviceability gap for the specific route
+- Weight or dimension limits are exceeded
+
+This visibility helps you understand *why* a carrier is unavailable rather than just seeing a shorter unexplained list.
+
+### Q: What do I do if all carriers are showing as ineligible for a return?
+**A:**
+1. Check the reason shown next to each carrier
+2. Verify the customer's pincode using **Tools → Serviceability**
+3. If the pincode is serviceable but the carrier is still ineligible, contact support with the order ID — there may be a configuration issue on your account
+
+---
+
 ### Q: Can the return go to a different address than the original pickup warehouse?
 **A:** Yes. When creating a reverse shipment, you can select any active warehouse as the return destination.
 

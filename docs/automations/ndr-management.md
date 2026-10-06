@@ -422,6 +422,52 @@ This helps you understand the pattern of delivery failures.
 
 ---
 
+---
+
+## COD to Prepaid Conversion for NDR
+
+### Q: What is COD to Prepaid conversion for NDR?
+**A:** When a COD shipment is in NDR, you can offer the customer an option to pay online (UPI, card, etc.) and convert the order to prepaid. This removes the cash payment hurdle at the door — a common reason for delivery failure — and significantly improves delivery success rates.
+
+### Q: How does the COD to Prepaid flow work?
+**A:** When the NDR automation reaches out to the customer:
+1. The customer is informed their COD order couldn't be delivered
+2. They are offered the option to pay online to complete delivery
+3. If the customer pays, the order converts from COD to prepaid
+4. The carrier reattempts delivery without requiring cash collection
+5. Any COD handling fee is reversed for converted orders
+
+### Q: Is there a discount option for COD to Prepaid conversion?
+**A:** Yes. You can configure a partial discount to incentivize prepaid conversion — for example, offer ₹50 off if the customer switches to online payment. This discount is deducted from the COD amount at the time of conversion.
+
+### Q: Who is eligible for COD to Prepaid NDR conversion?
+**A:** The feature is available for:
+- COD shipments currently in NDR status
+- Clients with the NDR Management automation enabled
+- Contact your account manager to enable this feature on your account
+
+### Q: What happens to the COD amount after conversion?
+**A:** After conversion, the order becomes prepaid. Velocity collects the payment from the customer online and settles it to your account. No cash needs to be collected at the door.
+
+---
+
+## NDR Automation per Delivery Attempt
+
+### Q: How many times does NDR automation trigger for a shipment?
+**A:** NDR automation triggers on **every delivery attempt** that results in an NDR. If a carrier attempts delivery a second or third time and fails again, a fresh automation run is created for that attempt and the customer is re-contacted.
+
+### Q: How does the automation decide what message to send?
+**A:** The communication flow is driven by two factors:
+- **NDR reason** — the specific reason the carrier reported for the failed attempt
+- **Retry count** — how many delivery attempts have been made so far
+
+This ensures each outreach is contextual to the current attempt rather than generic.
+
+### Q: Does automation run separately for each NDR, even on the same shipment?
+**A:** Yes. Each NDR event on a shipment creates an independent automation run. Your automation settings (WhatsApp, AI calling, wait times, etc.) apply to each run individually.
+
+---
+
 ## Need Help?
 
 If you couldn't find your answer here:

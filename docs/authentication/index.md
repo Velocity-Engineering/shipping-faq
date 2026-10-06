@@ -158,6 +158,18 @@ The reset link expires in 24 hours — repeat the process if expired.
 
 ---
 
+### Q: Does the forward order API return the shipping charge for the shipment?
+**A:** Yes. When you create a shipment via the **forward order API** or the **orchestration/custom API**, the response now includes a `shipping_charges` field with the charge applied to that shipment.
+
+This is useful for:
+- Displaying the shipping cost to your team or in your OMS
+- Reconciling API-created shipments with your billing records
+- Building charge-aware automation (e.g. alerting when a shipment is above a certain cost)
+
+The field is also accepted as an input parameter if you want to pass through a pre-calculated charge from your system. Refer to the **API Docs** section for the full request/response schema.
+
+---
+
 ## 5. Common Issues
 
 ### Q: "Invalid credentials" error even though my password is correct.
