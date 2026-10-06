@@ -36,7 +36,8 @@ Retrieve a paginated list of forward shipments with various filtering and sortin
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| search | string | Full search across tracking number, customer details, AWB, etc. |
+| search | string | Search across customer name, mobile number, and AWB number |
+| order_display_id[] | array | Filter by one or more order IDs (exact match) |
 | status | string | Filter by status: `pending`, `in_transit`, `out_for_delivery`, `delivered`, `ndr_raised`, `rto_initiated`, `rto_in_transit`, `rto_delivered`, `cancelled`, `others` |
 | granular_status[] | array | Filter by detailed status |
 | carrier_id[] | array | Filter by carrier IDs |
@@ -52,6 +53,10 @@ Retrieve a paginated list of forward shipments with various filtering and sortin
 | applied_weight_max | float | Maximum applied weight (grams) |
 | attempts_count__gte | integer | Minimum delivery attempts |
 | attempts_count__lte | integer | Maximum delivery attempts |
+
+:::tip
+Use `order_display_id` to filter by order ID for an exact match. Use `search` when looking up by customer name, mobile number, or AWB number.
+:::
 
 ## Sample Requests
 
