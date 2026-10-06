@@ -23,7 +23,6 @@ const sidebars: SidebarsConfig = {
         'serviceability',
         'forward-shipment',
         'reverse-shipment',
-        'exchange-order-orchestration',
         'cancel-order',
         'update-order',
         'tracking',
