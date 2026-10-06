@@ -97,7 +97,7 @@ const config: Config = {
       copyright: `© 2020-${new Date().getFullYear()} White Wizard Technologies Pvt. Ltd. All Rights Reserved.`,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismThemes.vsDark,
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
