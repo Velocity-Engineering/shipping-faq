@@ -9,6 +9,10 @@ Fetches real-time tracking details for one or more shipments.
 **Method:** `POST`
 **Endpoint:** `/custom/api/v1/order-tracking`
 
+:::note Rate limit
+**500 requests per 5 minutes** per API key.
+:::
+
 ## Request Fields
 
 | Field | Type | Required | Description | Example |
