@@ -23,7 +23,9 @@ const sidebars: SidebarsConfig = {
         'serviceability',
         'forward-shipment',
         'reverse-shipment',
+        'exchange-order-orchestration',
         'cancel-order',
+        'update-order',
         'tracking',
       ],
       collapsed: false,
@@ -40,6 +42,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'order-details-forward',
         'order-details-returns',
+        'exchange-orders',
       ],
       collapsed: false,
     },
