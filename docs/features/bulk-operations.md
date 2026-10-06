@@ -160,6 +160,12 @@ Yes, through the **Bulk Reattempt** action:
 2. Choose "Reattempt Delivery"
 3. You can optionally update the delivery address for all selected shipments
 
+### Can I choose a specific courier when bulk shipping orders?
+
+Yes. When you select multiple orders and click **Ship**, you can now specify a courier to use for all selected shipments — including custom/BYOC (Bring Your Own Carrier) couriers. If you don't select a courier, Velocity's recommendation engine picks the best option per shipment automatically.
+
+**Note:** If a selected courier is ineligible for a specific shipment (e.g. not serviceable for that pincode), that shipment will show an error and the rest will proceed. Review the results after the bulk action completes.
+
 ---
 
 ## 3. Bulk Labels & Manifests
@@ -213,6 +219,16 @@ A Picklist is a document to help warehouse staff pick and pack orders efficientl
 - Large batches (500+): May take a few minutes
 - Very large batches (1000+): Progress is tracked, and you'll be notified when ready
 - The download link will be provided when generation is complete
+
+### Why am I getting a "rate limit reached" error when downloading reports?
+
+Velocity enforces a limit on concurrent and frequent download/report generation jobs per account to ensure platform stability for all users. If you hit this limit:
+
+1. **Wait and retry** — the limit resets after a short window (typically a few minutes)
+2. **Avoid duplicate requests** — check if a download job is already running before queuing another
+3. **Stagger large downloads** — if you regularly need multiple large reports, schedule them at different times
+
+If you are hitting the rate limit frequently due to legitimate high-volume needs, contact support to discuss options for your account.
 
 ---
 

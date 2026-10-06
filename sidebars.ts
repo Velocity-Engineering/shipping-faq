@@ -78,6 +78,7 @@ const sidebars: SidebarsConfig = {
         'features/returns-and-qc',
         'features/branded-tracking-page',
         'features/post-delivery-disputes',
+        'features/velocity-prime',
       ],
     },
     {
@@ -86,6 +87,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'integrations/shopify',
         'integrations/woocommerce',
+        'integrations/velocity-connect',
       ],
     },
     {

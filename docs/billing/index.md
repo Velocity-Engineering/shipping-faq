@@ -348,6 +348,24 @@ If the rejection reason is unclear or you have submitted the correct document an
 
 ---
 
+### Q: Can I reinitiate my KYC process if it is stuck or I need to provide additional information?
+
+**A:** Yes. You can submit a KYC re-initiation request directly from the dashboard:
+
+1. Go to **Settings → KYC**
+2. Click **Re-initiate KYC** (visible when your KYC is in a state that allows re-initiation)
+3. Provide details about your application status and the reason for re-initiation
+4. Submit — the Velocity compliance team receives a notification and will reach out to guide next steps
+
+This is useful when:
+- Your KYC is in a prolonged "Under Review" state and you need to provide additional context
+- You've been asked for supplementary documents by a KAM or compliance officer
+- Your previous KYC attempt had issues that need to be addressed without starting from scratch
+
+Re-initiation is a request, not an automatic reset. The compliance team will contact you with the next steps.
+
+---
+
 ### Q: The COD amount in Velocity is different from what's in my Shopify / WooCommerce store. Who changed it?
 
 **A:** The COD amount in Velocity reflects the value as of the **last edit made on the Velocity dashboard**. If the amount differs from your store, it is most likely because a dashboard user manually edited the COD amount after the order synced.

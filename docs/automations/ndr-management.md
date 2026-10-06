@@ -8,6 +8,8 @@ description: Learn how NDR Management Automation helps resolve failed deliveries
 
 NDR (Non-Delivery Report) Management Automation helps you resolve failed deliveries faster by automatically connecting with customers when a delivery attempt fails.
 
+> **What's new:** NDR automation now creates a fresh automation run on every new delivery attempt (not just the first), outcomes are driven by NDR reason + retry count instead of a separate "reminder" message, and COD shipments in NDR can be converted to prepaid to improve delivery success.
+
 ---
 
 ## Overview
@@ -419,6 +421,56 @@ This helps you understand the pattern of delivery failures.
 1. Reattempt request is captured in Velocity Shipping
 2. Ops team may need to manually coordinate with carrier
 3. The request is visible in NDR Panel for tracking
+
+---
+
+---
+
+## COD to Prepaid Conversion for NDR
+
+### Q: What is COD to Prepaid conversion for NDR?
+**A:** When a COD shipment is in NDR, you can offer the customer an option to pay online (UPI, card, etc.) and convert the order to prepaid. This removes the cash payment hurdle at the door — a common reason for delivery failure — and significantly improves delivery success rates.
+
+### Q: How does the COD to Prepaid flow work?
+**A:** When the NDR automation reaches out to the customer:
+1. The customer is informed their COD order couldn't be delivered
+2. They are offered the option to pay online to complete delivery
+3. If the customer pays, the order converts from COD to prepaid
+4. The carrier reattempts delivery without requiring cash collection
+5. Any COD handling fee is reversed for converted orders
+
+### Q: Is there a discount option for COD to Prepaid conversion?
+**A:** Yes. You can configure a partial discount to incentivize prepaid conversion — for example, offer ₹50 off if the customer switches to online payment. This discount is deducted from the COD amount at the time of conversion.
+
+### Q: Who is eligible for COD to Prepaid NDR conversion?
+**A:** The feature is available for:
+- COD shipments currently in NDR status
+- Clients with the NDR Management automation enabled
+- Contact your account manager to enable this feature on your account
+
+### Q: What happens to the COD amount after conversion?
+**A:** After conversion, the order becomes prepaid. Velocity collects the payment from the customer online and settles it to your account. No cash needs to be collected at the door.
+
+---
+
+## NDR Automation per Delivery Attempt
+
+### Q: How many times does NDR automation trigger for a shipment?
+**A:** NDR automation now triggers on **every new delivery attempt** that results in an NDR. Previously, it only ran once per shipment. Now if a carrier attempts delivery a second or third time and fails again, a fresh automation run is created for that new attempt.
+
+This ensures customers are re-contacted after each failed attempt rather than only after the first one.
+
+### Q: What changed about reminders in NDR automation?
+**A:** The concept of a "reminder" message has been removed. Previously, for shipments with an "Undelivered" status, the system would send a separate reminder WhatsApp message if the customer hadn't responded.
+
+Now, the communication flow is entirely driven by:
+- **NDR reason** — the specific reason the carrier reported for the failed attempt
+- **Retry count** — how many delivery attempts have been made
+
+This makes each outreach more relevant and contextual rather than a generic reminder.
+
+### Q: Does this affect existing NDR automation configurations?
+**A:** No. Your existing automation settings (WhatsApp enabled, AI calling enabled, wait times, etc.) remain unchanged. The difference is that each new NDR event on the same shipment now triggers a fresh automation run rather than relying on an older run's reminder mechanism.
 
 ---
 
