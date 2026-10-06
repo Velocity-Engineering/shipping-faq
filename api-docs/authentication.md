@@ -59,8 +59,10 @@ The old authentication flow issued a session token by submitting your username a
 **Method:** `POST`  
 **Endpoint:** `/custom/api/v1/auth-token`
 
-:::note Rate limit
+:::note[Rate limit]
+
 **100 requests per 5 minutes** per IP address.
+
 :::
 
 ### Request Fields
