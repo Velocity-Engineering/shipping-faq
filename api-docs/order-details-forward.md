@@ -11,7 +11,7 @@ Retrieve a paginated list of forward shipments with various filtering and sortin
 
 :::note[Rate limit]
 
-**500 requests per 5 minutes** per API key.
+**500 requests per 5 minutes** per IP address.
 
 :::
 

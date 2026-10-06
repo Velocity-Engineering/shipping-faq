@@ -11,7 +11,7 @@ Fetches real-time tracking details for one or more shipments.
 
 :::note[Rate limit]
 
-**500 requests per 5 minutes** per API key.
+**500 requests per 5 minutes** per IP address.
 
 :::
 
