@@ -87,7 +87,6 @@ const sidebars: SidebarsConfig = {
       items: [
         'integrations/shopify',
         'integrations/woocommerce',
-        'integrations/velocity-connect',
       ],
     },
     {
