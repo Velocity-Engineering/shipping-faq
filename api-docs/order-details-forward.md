@@ -9,8 +9,10 @@ Retrieve a paginated list of forward shipments with various filtering and sortin
 **Method:** `POST`
 **Endpoint:** `/custom/api/v1/shipments`
 
-:::note Rate limit
+:::note[Rate limit]
+
 **500 requests per 5 minutes** per API key.
+
 :::
 
 ## Request Parameters
