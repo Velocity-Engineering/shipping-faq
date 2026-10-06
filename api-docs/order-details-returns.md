@@ -29,7 +29,7 @@ Retrieve a paginated list of return orders with filtering and sorting options.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| search | string | Full search across display_id, customer details, tracking number, SKU, etc. |
+| search | string | Search across customer name, mobile number, and AWB number |
 | status | string | Filter by status: `return_requested`, `pickup_scheduled`, `in_transit`, `return_received`, `cancelled` |
 | granular_status[] | array | Filter by granular status |
 | warehouse_id[] | array | Filter by warehouse IDs |
@@ -53,6 +53,10 @@ Retrieve a paginated list of return orders with filtering and sorting options.
 | return_pickup_scheduled_at__lte | timestamp | Pickup scheduled to date |
 | return_delivered_at__gte | timestamp | Return delivered from date |
 | return_delivered_at__lte | timestamp | Return delivered to date |
+
+:::tip
+Use `display_id` to filter by return ID for an exact match. Use `search` when looking up by customer name, mobile number, or AWB number.
+:::
 
 ## Sample Requests
 
