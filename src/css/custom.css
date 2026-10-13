@@ -275,41 +275,90 @@ article {
 }
 
 /* ==================== TABLES ==================== */
+/*
+ * border-collapse: separate + border-spacing: 0 is required to get
+ * border-radius on the container while keeping cell borders.
+ */
 table {
   width: 100%;
-  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
   border: 1px solid var(--ifm-border-color);
-  font-size: 14px;
-  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 13.5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  margin: 1.5rem 0;
 }
 
-table th {
+/* Header row */
+table thead tr th {
   font-weight: 600;
-  background: #f9fafb;
-  text-transform: uppercase;
+  background: #f3f4f6;
   font-size: 11px;
-  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   padding: 10px 16px;
-  color: #374151;
-}
-
-[data-theme='dark'] table th {
-  background: #1f2937;
-  color: #d1d5db;
-}
-
-table td {
-  padding: 10px 16px;
+  color: #6b7280;
   border-bottom: 1px solid var(--ifm-border-color);
+  white-space: nowrap;
+}
+
+[data-theme='dark'] table thead tr th {
+  background: #1f2937;
+  color: #9ca3af;
+  border-bottom-color: #374151;
+}
+
+/* Body cells */
+table tbody td {
+  padding: 11px 16px;
+  border-bottom: 1px solid #f3f4f6;
   color: #374151;
+  vertical-align: top;
+  line-height: 1.55;
 }
 
-[data-theme='dark'] table td {
+[data-theme='dark'] table tbody td {
   color: #d1d5db;
+  border-bottom-color: rgba(255, 255, 255, 0.04);
 }
 
-table tr:last-child td {
+table tbody tr:last-child td {
   border-bottom: none;
+}
+
+/* Zebra striping — every other row gets a very faint tint */
+table tbody tr:nth-child(even) td {
+  background: #fafafa;
+}
+
+[data-theme='dark'] table tbody tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Row hover */
+table tbody tr:hover td {
+  background: #eef2ff;
+}
+
+[data-theme='dark'] table tbody tr:hover td {
+  background: rgba(77, 126, 247, 0.08);
+}
+
+/*
+ * First column in API/field tables typically contains field names or
+ * identifiers — render in monospace to match what developers see in code.
+ */
+table tbody td:first-child {
+  font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, Menlo, Monaco, 'Courier New', monospace;
+  font-size: 12.5px;
+  color: #111827;
+  font-weight: 500;
+}
+
+[data-theme='dark'] table tbody td:first-child {
+  color: #f3f4f6;
 }
 
 /* ==================== CODE BLOCKS ==================== */
