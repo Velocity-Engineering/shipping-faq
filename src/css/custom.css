@@ -280,7 +280,7 @@ article {
  * width: auto so small tables don't stretch full-width unnecessarily.
  */
 table {
-  width: auto;
+  width: auto !important;
   max-width: 100%;
   border-collapse: separate;
   border-spacing: 0;
@@ -311,6 +311,20 @@ table thead tr th {
   border-bottom-color: #3730a3;
 }
 
+/*
+ * Kill Docusaurus's built-in --ifm-table-stripe-background zebra effect.
+ * Set all rows to white, then apply our own hover only.
+ */
+table tbody tr td,
+table tbody tr:nth-child(2n) td {
+  background-color: #ffffff;
+}
+
+[data-theme='dark'] table tbody tr td,
+[data-theme='dark'] table tbody tr:nth-child(2n) td {
+  background-color: var(--ifm-background-color);
+}
+
 /* Body cells — clean white with very fine dividers */
 table tbody td {
   padding: 10px 16px;
@@ -331,11 +345,11 @@ table tbody tr:last-child td {
 
 /* Row hover */
 table tbody tr:hover td {
-  background: #f5f7ff;
+  background-color: #f5f7ff !important;
 }
 
 [data-theme='dark'] table tbody tr:hover td {
-  background: rgba(77, 126, 247, 0.06);
+  background-color: rgba(77, 126, 247, 0.06) !important;
 }
 
 /*
