@@ -79,10 +79,17 @@ const sidebars: SidebarsConfig = {
       ],
     },
 
-    // ── Smart Features ───────────────────────────────
-    { type: 'doc', id: 'vas/index',                       label: 'Smart Features (VAS)' },
-    { type: 'doc', id: 'features/velocity-prime',         label: 'Velocity Prime' },
-    { type: 'doc', id: 'features/branded-tracking-page',  label: 'Branded Tracking Page' },
+    // ── Value Added Services ─────────────────────────
+    {
+      type: 'category',
+      label: 'Value Added Services',
+      collapsed: true,
+      link: { type: 'doc', id: 'vas/index' },
+      items: [
+        'features/velocity-prime',
+        'features/branded-tracking-page',
+      ],
+    },
 
     // ── Billing & Reports ────────────────────────────
     { type: 'doc', id: 'billing/index', label: 'Billing & Payments' },
