@@ -24,7 +24,7 @@
 .title {
   font-size: 2.75rem;
   font-weight: 700;
-  color: #ffffff;
+  color: #ffffff !important;
   line-height: 1.2;
   letter-spacing: -0.03em;
   margin: 0 0 16px;
@@ -32,7 +32,7 @@
 
 .subtitle {
   font-size: 1.125rem;
-  color: #ffffff;
+  color: #ffffff !important;
   line-height: 1.6;
   margin: 0;
   font-weight: 400;
