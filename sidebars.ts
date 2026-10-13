@@ -56,18 +56,6 @@ const sidebars: SidebarsConfig = {
     // ── Tracking & Status ────────────────────────────
     { type: 'doc', id: 'tracking/index', label: 'Tracking & Order Status' },
 
-    // ── Automations ──────────────────────────────────
-    {
-      type: 'category',
-      label: 'Automations',
-      collapsed: true,
-      link: { type: 'doc', id: 'automations/index' },
-      items: [
-        'automations/order-confirmation',
-        'automations/ndr-management',
-      ],
-    },
-
     // ── Returns & Disputes ───────────────────────────
     {
       type: 'category',
@@ -86,6 +74,16 @@ const sidebars: SidebarsConfig = {
       collapsed: true,
       link: { type: 'doc', id: 'vas/index' },
       items: [
+        {
+          type: 'category',
+          label: 'Automations',
+          collapsed: true,
+          link: { type: 'doc', id: 'automations/index' },
+          items: [
+            'automations/order-confirmation',
+            'automations/ndr-management',
+          ],
+        },
         'features/velocity-prime',
         'features/branded-tracking-page',
       ],
