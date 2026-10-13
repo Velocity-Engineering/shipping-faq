@@ -276,26 +276,17 @@ article {
 
 /* ==================== TABLES ==================== */
 /*
- * Docusaurus wraps every markdown table in a tableWrapper div for
- * horizontal scrolling — shrink it to content width so it doesn't
- * paint a full-width border behind a narrow table.
- */
-div[class*="tableWrapper"] {
-  display: inline-block;
-  width: auto;
-  max-width: 100%;
-  overflow-x: auto;
-}
-
-/*
- * border-collapse: separate + border-spacing: 0 enables border-radius.
- * width: auto so small tables don't stretch full-width unnecessarily.
+ * Infima sets display:block on table, which makes width:auto behave like
+ * 100% (block elements expand to fill). Restore display:table so the table
+ * naturally shrinks to its content width.
+ * border-collapse:separate + border-spacing:0 is required for border-radius.
  */
 table {
+  display: table !important;
   width: auto !important;
   max-width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
   border: 1px solid var(--ifm-border-color);
   border-radius: 8px;
   overflow: hidden;
@@ -304,7 +295,18 @@ table {
   margin: 1.5rem 0;
 }
 
-/* Header — bolder treatment to separate it clearly from body rows */
+/* Infima adds border on every th/td side — reset to none, add back selectively */
+table th,
+table td {
+  border: none !important;
+}
+
+/* Infima adds border-top on every tr — remove */
+table tr {
+  border-top: none !important;
+}
+
+/* Header */
 table thead tr th {
   font-weight: 600;
   background: #eef2ff;
@@ -313,20 +315,22 @@ table thead tr th {
   letter-spacing: 0.05em;
   padding: 10px 16px;
   color: #3730a3;
-  border-bottom: 2px solid #c7d2fe;
+  border-bottom: 2px solid #c7d2fe !important;
   white-space: nowrap;
 }
 
 [data-theme='dark'] table thead tr th {
   background: #1e2a4a;
   color: #a5b4fc;
-  border-bottom-color: #3730a3;
+  border-bottom-color: #3730a3 !important;
 }
 
-/*
- * Kill Docusaurus's built-in --ifm-table-stripe-background zebra effect.
- * Set all rows to white, then apply our own hover only.
- */
+/* Zebra reset — Infima applies stripe via tr:nth-child(2n) */
+table tbody tr,
+table tbody tr:nth-child(2n) {
+  background-color: transparent !important;
+}
+
 table tbody tr td,
 table tbody tr:nth-child(2n) td {
   background-color: #ffffff;
@@ -337,10 +341,10 @@ table tbody tr:nth-child(2n) td {
   background-color: var(--ifm-background-color);
 }
 
-/* Body cells — hairline dividers only */
+/* Body cells — hairline row divider only, no side borders */
 table tbody td {
   padding: 9px 16px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
   color: #374151;
   vertical-align: top;
   line-height: 1.55;
@@ -348,11 +352,11 @@ table tbody td {
 
 [data-theme='dark'] table tbody td {
   color: #d1d5db;
-  border-bottom-color: rgba(255, 255, 255, 0.05);
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
 }
 
 table tbody tr:last-child td {
-  border-bottom: none;
+  border-bottom: none !important;
 }
 
 /* Row hover */
@@ -364,10 +368,7 @@ table tbody tr:hover td {
   background-color: rgba(77, 126, 247, 0.06) !important;
 }
 
-/*
- * First column (field names, param names) in monospace — standard in
- * API docs so identifiers read the same as in the code samples.
- */
+/* First column in monospace (field/param names) */
 table tbody td:first-child {
   font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, Menlo, Monaco, 'Courier New', monospace;
   font-size: 12.5px;
