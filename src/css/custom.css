@@ -479,23 +479,15 @@ blockquote {
   background: #4b5563;
 }
 
-/* ==================== HOMEPAGE — FULL-WIDTH HERO ==================== */
+/* ==================== HOMEPAGE ==================== */
 /*
- * The intro page uses slug: / which renders inside the doc layout.
- * Strip default article padding on that page so hero can be full-width.
+ * The intro page uses slug: /. The hero uses the 100vw/translateX(-50%)
+ * full-bleed technique, so no negative margins are needed here.
+ * Just remove the article max-width and hide the injected h1.
  */
-.docs-doc-id-intro .theme-doc-markdown > :first-child,
-.docs-doc-id-intro .theme-doc-markdown > :nth-child(2) {
-  margin-left: calc(-1 * var(--ifm-spacing-horizontal, 24px));
-  margin-right: calc(-1 * var(--ifm-spacing-horizontal, 24px));
-}
-
 .docs-doc-id-intro article {
   max-width: 100%;
-}
-
-.docs-doc-id-intro .theme-doc-markdown > :nth-child(2) {
-  margin-top: 0;
+  overflow-x: hidden;
 }
 
 /* Hide the h1 Docusaurus injects from frontmatter on the intro page */
