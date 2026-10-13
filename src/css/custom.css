@@ -276,11 +276,12 @@ article {
 
 /* ==================== TABLES ==================== */
 /*
- * border-collapse: separate + border-spacing: 0 is required to get
- * border-radius on the container while keeping cell borders.
+ * border-collapse: separate + border-spacing: 0 enables border-radius.
+ * width: auto so small tables don't stretch full-width unnecessarily.
  */
 table {
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   border-collapse: separate;
   border-spacing: 0;
   border: 1px solid var(--ifm-border-color);
@@ -291,28 +292,28 @@ table {
   margin: 1.5rem 0;
 }
 
-/* Header row */
+/* Header — bolder treatment to separate it clearly from body rows */
 table thead tr th {
   font-weight: 600;
-  background: #f3f4f6;
-  font-size: 11px;
+  background: #eef2ff;
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   padding: 10px 16px;
-  color: #6b7280;
-  border-bottom: 1px solid var(--ifm-border-color);
+  color: #3730a3;
+  border-bottom: 2px solid #c7d2fe;
   white-space: nowrap;
 }
 
 [data-theme='dark'] table thead tr th {
-  background: #1f2937;
-  color: #9ca3af;
-  border-bottom-color: #374151;
+  background: #1e2a4a;
+  color: #a5b4fc;
+  border-bottom-color: #3730a3;
 }
 
-/* Body cells */
+/* Body cells — clean white with very fine dividers */
 table tbody td {
-  padding: 11px 16px;
+  padding: 10px 16px;
   border-bottom: 1px solid #f3f4f6;
   color: #374151;
   vertical-align: top;
@@ -328,27 +329,18 @@ table tbody tr:last-child td {
   border-bottom: none;
 }
 
-/* Zebra striping — every other row gets a very faint tint */
-table tbody tr:nth-child(even) td {
-  background: #fafafa;
-}
-
-[data-theme='dark'] table tbody tr:nth-child(even) td {
-  background: rgba(255, 255, 255, 0.02);
-}
-
 /* Row hover */
 table tbody tr:hover td {
-  background: #eef2ff;
+  background: #f5f7ff;
 }
 
 [data-theme='dark'] table tbody tr:hover td {
-  background: rgba(77, 126, 247, 0.08);
+  background: rgba(77, 126, 247, 0.06);
 }
 
 /*
- * First column in API/field tables typically contains field names or
- * identifiers — render in monospace to match what developers see in code.
+ * First column (field names, param names) in monospace — standard in
+ * API docs so identifiers read the same as in the code samples.
  */
 table tbody td:first-child {
   font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, Menlo, Monaco, 'Courier New', monospace;
