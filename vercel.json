@@ -10,9 +10,12 @@
     }
   ],
   "redirects": [
-    { "source": "/", "destination": "/shipping-faq/", "permanent": false }
+    { "source": "/", "destination": "/shipping-faq/", "permanent": false },
+    { "source": "/shipping-faq", "destination": "/shipping-faq/", "permanent": false }
   ],
   "rewrites": [
+    { "source": "/shipping-faq/", "destination": "/index.html" },
+    { "source": "/shipping-faq/(.*)/", "destination": "/$1/index.html" },
     { "source": "/shipping-faq/:path*", "destination": "/:path*" }
   ]
 }
