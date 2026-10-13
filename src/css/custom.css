@@ -276,6 +276,18 @@ article {
 
 /* ==================== TABLES ==================== */
 /*
+ * Docusaurus wraps every markdown table in a tableWrapper div for
+ * horizontal scrolling — shrink it to content width so it doesn't
+ * paint a full-width border behind a narrow table.
+ */
+div[class*="tableWrapper"] {
+  display: inline-block;
+  width: auto;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/*
  * border-collapse: separate + border-spacing: 0 enables border-radius.
  * width: auto so small tables don't stretch full-width unnecessarily.
  */
@@ -325,10 +337,10 @@ table tbody tr:nth-child(2n) td {
   background-color: var(--ifm-background-color);
 }
 
-/* Body cells — clean white with very fine dividers */
+/* Body cells — hairline dividers only */
 table tbody td {
-  padding: 10px 16px;
-  border-bottom: 1px solid #f3f4f6;
+  padding: 9px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   color: #374151;
   vertical-align: top;
   line-height: 1.55;
@@ -336,7 +348,7 @@ table tbody td {
 
 [data-theme='dark'] table tbody td {
   color: #d1d5db;
-  border-bottom-color: rgba(255, 255, 255, 0.04);
+  border-bottom-color: rgba(255, 255, 255, 0.05);
 }
 
 table tbody tr:last-child td {
