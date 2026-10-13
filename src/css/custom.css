@@ -184,19 +184,35 @@ div[class*="searchBar"] > button {
   background: var(--ifm-menu-link-sublist-icon) 50% / 1.5rem 1.5rem;
 }
 
-/* Category section labels */
+/* Category labels look identical to leaf items — caret is the only visual difference */
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link {
-  font-weight: 600;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: #9ca3af;
-  padding-top: 18px;
-  border-left: none;
+  font-weight: 400;
+  font-size: 13.5px;
+  text-transform: none;
+  letter-spacing: normal;
+  color: #374151;
+  padding: 6px 20px;
+  border-left: 2px solid transparent;
 }
 
 [data-theme='dark'] .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link {
-  color: #6b7280;
+  color: #d1d5db;
+}
+
+.theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link:hover {
+  color: #111827;
+  border-left-color: #d1d5db;
+}
+
+[data-theme='dark'] .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link:hover {
+  color: #f9fafb;
+  border-left-color: #4b5563;
+}
+
+.theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link.menu__link--active {
+  font-weight: 500;
+  color: var(--ifm-color-primary);
+  border-left: 2px solid var(--ifm-color-primary);
 }
 
 /* ==================== MAIN CONTENT ==================== */
