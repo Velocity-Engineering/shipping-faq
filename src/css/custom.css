@@ -404,3 +404,31 @@ button,
 .pagination-nav__link {
   transition: all 0.15s ease;
 }
+
+/* ==================== HOMEPAGE — FULL-WIDTH HERO ==================== */
+/*
+ * The intro page uses slug: / which renders inside Docusaurus's doc layout.
+ * We strip the default doc padding on that page so the hero can be truly
+ * full-width, then restore normal padding below it.
+ */
+.docs-doc-id-intro .theme-doc-markdown > :first-child,
+.docs-doc-id-intro .theme-doc-markdown > :nth-child(2) {
+  /* HomepageHero and CategoryGrid sit outside normal prose flow */
+  margin-left: calc(-1 * var(--ifm-spacing-horizontal, 24px));
+  margin-right: calc(-1 * var(--ifm-spacing-horizontal, 24px));
+}
+
+/* Remove the standard article max-width constraint on the homepage */
+.docs-doc-id-intro article {
+  max-width: 100%;
+}
+
+/* Tighten the gap between hero and grid */
+.docs-doc-id-intro .theme-doc-markdown > :nth-child(2) {
+  margin-top: 0;
+}
+
+/* Hide the default h1 title that Docusaurus injects from front-matter on the intro page */
+.docs-doc-id-intro .theme-doc-markdown > h1:first-child {
+  display: none;
+}
