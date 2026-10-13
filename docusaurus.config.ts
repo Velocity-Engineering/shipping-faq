@@ -17,6 +17,14 @@ const config: Config = {
 
   onBrokenLinks: 'warn',
 
+  stylesheets: [
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap',
+      type: 'text/css',
+      crossorigin: 'anonymous',
+    },
+  ],
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -97,8 +105,9 @@ const config: Config = {
       copyright: `© 2020-${new Date().getFullYear()} White Wizard Technologies Pvt. Ltd. All Rights Reserved.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: prismThemes.vsDark,
+      darkTheme: prismThemes.vsDark,
+      additionalLanguages: ['bash', 'json', 'yaml'],
     },
   } satisfies Preset.ThemeConfig,
 };
