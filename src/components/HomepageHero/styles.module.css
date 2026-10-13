@@ -32,10 +32,11 @@
 
 .subtitle {
   font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: #ffffff;
   line-height: 1.6;
   margin: 0;
   font-weight: 400;
+  opacity: 0.95;
 }
 
 /* Dark mode — hero stays the same (gradient is already dark-friendly) */

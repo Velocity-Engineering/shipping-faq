@@ -2,7 +2,7 @@
  * Velocity Shipping Help Center - Custom Styles
  * Brand: Velocity.in
  * Primary Color: #0F48E3
- * Font: Pangea Text
+ * Body Font: Inter | Heading Font: Pangea Text
  */
 
 /* Pangea Font Face Declarations */
@@ -50,9 +50,9 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(15, 72, 227, 0.1);
 
-  /* Typography */
-  --ifm-font-family-base: 'Pangea Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-  --ifm-heading-font-family: 'Pangea Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  /* Typography — Inter for body (great readability), Pangea for headings (brand) */
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --ifm-heading-font-family: 'Pangea Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   --ifm-font-weight-semibold: 600;
   --ifm-heading-font-weight: 600;
 
@@ -86,7 +86,7 @@
 
 /* Global typography */
 html {
-  font-family: 'Pangea Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -147,16 +147,17 @@ html {
 
 /* ==================== SIDEBAR ==================== */
 .menu {
-  padding: 16px 12px;
+  padding: 16px 0;
 }
 
 .menu__link {
   font-weight: 400;
-  font-size: 14px;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: all 0.15s ease;
+  font-size: 13.5px;
+  padding: 6px 16px;
+  border-radius: 0;
+  transition: color 0.12s ease;
   color: #4b5563;
+  border-left: 2px solid transparent;
 }
 
 [data-theme='dark'] .menu__link {
@@ -164,22 +165,31 @@ html {
 }
 
 .menu__link:hover {
-  background: rgba(15, 72, 227, 0.06);
-  color: var(--ifm-color-primary);
+  background: transparent;
+  color: #111827;
+}
+
+[data-theme='dark'] .menu__link:hover {
+  color: #f3f4f6;
 }
 
 .menu__link--active {
   font-weight: 500;
-  background: rgba(15, 72, 227, 0.1);
+  background: transparent;
+  color: var(--ifm-color-primary);
+  border-left: 2px solid var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .menu__link--active {
   color: var(--ifm-color-primary);
 }
 
 .menu__list-item-collapsible {
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 .menu__list-item-collapsible:hover {
-  background: rgba(15, 72, 227, 0.04);
+  background: transparent;
 }
 
 .menu__caret::before {
@@ -189,14 +199,15 @@ html {
 /* Category labels */
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link {
   font-weight: 600;
-  font-size: 13px;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
-  color: #1f2937;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+  padding-top: 16px;
 }
 
 [data-theme='dark'] .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link {
-  color: #f3f4f6;
+  color: #6b7280;
 }
 
 /* ==================== MAIN CONTENT ==================== */
@@ -277,23 +288,67 @@ table tr:hover td {
 }
 
 /* ==================== CODE BLOCKS ==================== */
-pre {
-  border-radius: 8px;
-  border: 1px solid var(--ifm-border-color);
-  box-shadow: var(--shadow-sm);
-}
 
-code {
+/* Inline code only (not inside pre) */
+:not(pre) > code {
   border-radius: 4px;
   padding: 2px 6px;
   font-size: 13px;
   background: #f3f4f6;
   border: 1px solid #e5e7eb;
+  color: #1a1a2e;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Menlo, Monaco, 'Courier New', monospace;
 }
 
-[data-theme='dark'] code {
+[data-theme='dark'] :not(pre) > code {
   background: #1f2937;
   border-color: #374151;
+  color: #e2e8f0;
+}
+
+/* Code block container */
+.theme-code-block {
+  border-radius: 10px !important;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin: 1.5rem 0;
+}
+
+.theme-code-block pre {
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.theme-code-block pre code {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', Menlo, Monaco, 'Courier New', monospace;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+/* Language label badge */
+.theme-code-block-highlighted-line {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  display: block;
+  margin: 0 -1rem;
+  padding: 0 1rem;
+}
+
+/* Copy button */
+.theme-code-block button[class*="copyButton"] {
+  border-radius: 6px;
+  opacity: 0.6;
+  transition: opacity 0.15s ease;
+}
+
+.theme-code-block button[class*="copyButton"]:hover {
+  opacity: 1;
 }
 
 /* ==================== BLOCKQUOTES / CALLOUTS ==================== */
