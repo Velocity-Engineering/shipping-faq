@@ -150,6 +150,12 @@ When a status change occurs, Velocity Shipping sends a POST request to your conf
 - **Respond quickly**: Return a 2xx status code within 5 seconds; process heavy logic asynchronously
 - **Fallback to pull API**: If webhooks fail or are delayed, periodically poll the [Order Details API](/api/order-details-forward) as a backup
 
+:::caution[Retries & Auto-Disable]
+Velocity retries each webhook event up to **5 times** if your endpoint does not respond with a `2xx` status code. If all 5 attempts fail, the webhook is automatically **disabled** and no further events are sent to that endpoint.
+
+Re-enable the webhook from **Settings → Webhooks** once your endpoint is back and responding correctly.
+:::
+
 ## Security
 
 - Use HTTPS endpoints only — do not accept webhooks over plain HTTP
