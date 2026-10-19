@@ -27,11 +27,18 @@ description: Login, password reset, sub-user management, and access control for 
 ---
 
 ### Q: I forgot my password. How do I reset it?
-**A:**
+**A:** You can reset your password using either of the following methods:
+
+**Option 1 — Reset Password Link:**
 1. Click **Forgot Password** on the login page
 2. Enter your registered email address
-3. Check your inbox (and spam/junk) for the reset email
+3. Check your inbox (and spam/junk folder) for the reset email
 4. Click the link and set a new password
+
+**Option 2 — OTP Verification:**
+1. Click **Forgot Password** on the login page
+2. Enter your registered phone number
+3. Enter the OTP received on your phone to reset your password
 
 The reset link expires in 24 hours — repeat the process if expired.
 
