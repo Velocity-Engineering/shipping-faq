@@ -47,3 +47,4 @@ Authorization: Bearer your_token_here
 | `/custom/api/v1/initiate-rto` | Initiate RTO |
 | `/custom/api/v1/shipping-charges` | Get shipment & order-level charges for AWBs |
 | `/custom/api/v1/cod-remittance` | Get COD remittance details for AWBs |
+| `/custom/api/v1/variants` | List, create, and update product variants |

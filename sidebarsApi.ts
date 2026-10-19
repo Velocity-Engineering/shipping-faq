@@ -20,6 +20,7 @@ const sidebars: SidebarsConfig = {
     // ── Account Setup ────────────────────────────────
     { type: 'doc', id: 'warehouse', label: 'Warehouses' },
     { type: 'doc', id: 'stores',    label: 'Stores' },
+    { type: 'doc', id: 'variants',  label: 'Variants' },
 
     // ── Shipment Operations ──────────────────────────
     {
