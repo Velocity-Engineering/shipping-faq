@@ -16,6 +16,7 @@ description: Why the shipment status in Velocity may differ from what the carrie
 3. [Velocity vs Shopify / WooCommerce](#3-velocity-vs-shopify--woocommerce)
 4. [Customer-facing status vs Velocity](#4-customer-facing-status-vs-velocity)
 5. [Delivered in Velocity but customer says not received](#5-delivered-in-velocity-but-customer-says-not-received)
+6. [API: `shipment_track` vs top-level `status` field](#6-api-shipment_track-vs-top-level-status-field)
 
 ---
 
@@ -92,6 +93,29 @@ Include:
 1. Check the **Tracking Timeline** in Order details — look for delivery date, time, and any agent notes
 2. Request **Proof of Delivery (POD)** via support — we'll obtain it from the carrier. POD typically includes delivery time, recipient name/signature, and sometimes a photo
 3. If the POD confirms delivery to the correct address and the customer still disputes it, a formal claim investigation may be needed — contact support to initiate this
+
+---
+
+## 6. API: `shipment_track` vs Top-Level `status` Field
+
+### Q: Why does `current_status` in `shipment_track` sometimes differ from the shipment's `status`?
+
+**A:** `shipment_track[].current_status` is a raw log of **all events received from the 3PL carrier**, in the order they arrived. Carriers often send scans out of order or with delays — for example, a `ready_for_pickup` hub scan may arrive after the shipment has already been delivered. This means the most recent entry in `shipment_track` is not necessarily the most recent real-world state.
+
+The top-level `status` field on the shipment object is the authoritative, de-duplicated, and correctly-ordered state maintained by Velocity.
+
+> **Always use the top-level `status` field** to determine the current state of a shipment. Do not rely on `shipment_track[].current_status` for status decisions.
+
+<details>
+<summary>Example: out-of-order carrier scan</summary>
+
+A shipment is delivered at 14:00. The carrier's system sends:
+1. `delivered` scan at 14:05 (received by Velocity → top-level `status` becomes `Delivered`)
+2. `ready_for_pickup` hub scan at 14:30 (delayed; sent out of order by the carrier)
+
+`shipment_track[].current_status` will show `ready_for_pickup` as the latest entry — but the shipment was already delivered. The top-level `status` correctly remains `Delivered`.
+
+</details>
 
 ---
 
