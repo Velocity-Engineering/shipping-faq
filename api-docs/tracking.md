@@ -97,3 +97,17 @@ curl --location 'https://shazam.velocity.in/custom/api/v1/order-tracking' \
 | shipment_track | Array containing shipment details |
 | shipment_track_activities | Array of tracking events in chronological order |
 | track_url | Public tracking URL for the shipment |
+
+## `shipment_status` vs `shipment_track[].current_status`
+
+:::warning[Use `shipment_status` as the authoritative state]
+
+**Always use the top-level `shipment_status` field** to determine the current state of a shipment. Do not rely on `shipment_track[].current_status`.
+
+:::
+
+`shipment_track` is a raw log of **all events received from the 3PL carrier**, in the order they arrived. Carriers frequently send scan events out of order or with delays — for example, a hub `ready_for_pickup` scan may arrive after the shipment has already been marked as delivered. As a result, `shipment_track[].current_status` on the most recent array entry may reflect a stale or out-of-sequence carrier event, not the real-world current state.
+
+`shipment_status` is Velocity's de-duplicated, correctly-ordered view of the shipment state and is always authoritative.
+
+**Example:** A shipment is delivered at 14:00. The carrier's system then sends a delayed `ready_for_pickup` hub scan at 14:30. `shipment_track[].current_status` on the latest entry will show `ready_for_pickup` — but `shipment_status` correctly remains `delivered`.
