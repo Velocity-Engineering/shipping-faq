@@ -57,8 +57,10 @@ description: Add and manage warehouses, configure pickup and RTO addresses, and 
 
 ---
 
-### Q: Can I edit a warehouse address after saving?
-**A:** Yes — go to **Settings → Warehouses** and click **Edit**. If the pincode changes, re-activation with carriers is required (24–48 hours). Changes apply to new shipments only.
+### Q: Can I edit warehouse details after saving?
+**A:** Warehouse details **cannot be edited** after the warehouse is created. This is by design — the warehouse ID is permanently linked to carrier activations, billing records, and historical shipments. Allowing edits would break these associations.
+
+**What to do instead:** Create a new warehouse with the correct details. The new warehouse will go through the standard carrier activation process (24–48 hours). The warehouse ID will be different, which is expected — it does not affect any historical shipments on the old warehouse.
 
 ---
 
@@ -153,10 +155,11 @@ description: Add and manage warehouses, configure pickup and RTO addresses, and 
 ---
 
 ### Q: I moved my warehouse. How do I update the address?
-**A:**
-1. Edit the warehouse in **Settings → Warehouses** with the new address
-2. If the pincode changed, re-activation with carriers is needed (24–48 hours)
-3. Existing in-transit shipments complete normally — only new shipments use the updated address
+**A:** Warehouse details cannot be edited after creation. You'll need to create a new warehouse with the updated address:
+1. Add a new warehouse in **Settings → Warehouses** with the correct address
+2. Wait for carrier activation (24–48 hours)
+3. Update your default warehouse and/or shipping rules to point to the new warehouse
+4. Existing in-transit shipments on the old warehouse complete normally
 
 ---
 
@@ -178,6 +181,7 @@ description: Add and manage warehouses, configure pickup and RTO addresses, and 
 | Task | Where | Notes |
 |------|-------|-------|
 | Add warehouse | Settings → Warehouses | 24–48h carrier activation |
+| Update warehouse details | Create a new warehouse | Details cannot be edited after creation |
 | Set default pickup | Settings → Warehouses → Edit | Applies to new shipments |
 | Set RTO address | Settings → Warehouses | Not all carriers support this |
 | Fix "warehouse not registered" | Contact support | Velocity handles carrier activation |
