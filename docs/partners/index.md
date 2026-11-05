@@ -224,6 +224,19 @@ Once the credentials are correctly saved, tracking updates will resume automatic
 
 ---
 
+### Q: EasyEcom shows "INVALID_CREDENTIALS" or "This email is not yet registered/verified" — what should I do?
+
+**A:** This error means the **email address used as the username** in EasyEcom's Velocity Shipping integration is either not the account's registered email, or has not been email-verified yet.
+
+**What you can do:**
+1. Find the correct registered email for the Velocity Shipping account (check with your account admin or log in to the Velocity Shipping dashboard).
+2. Update the EasyEcom integration settings to use that exact email as the username.
+3. If the email address is correct but the account is unverified, check the inbox for a verification email from Velocity Shipping and complete the verification step before retrying.
+
+Alternatively, you can authenticate using your registered **mobile number** instead of email.
+
+---
+
 ## 8. Common Questions
 
 ### Q: Can I use multiple partner integrations simultaneously?
