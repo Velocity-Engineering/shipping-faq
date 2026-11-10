@@ -11,7 +11,7 @@ Fetches real-time tracking details for one or more shipments.
 
 :::note[Rate limit]
 
-**500 requests per 5 minutes** per IP address.
+**50 requests per 5 minutes** per IP address.
 
 :::
 
@@ -20,6 +20,10 @@ Fetches real-time tracking details for one or more shipments.
 | Field | Type | Required | Description | Example |
 |-------|------|----------|-------------|---------|
 | awbs[] | array | Yes | List of AWBs to track | ["84161310011340"] |
+
+## Bulk AWB
+
+You can track multiple AWBs in a single request. Each request supports a maximum of **50 AWBs**.
 
 ## Sample Request
 
