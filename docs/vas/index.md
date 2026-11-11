@@ -274,6 +274,24 @@ For the exact exchange workflow available on your account, check the **Exchange*
 
 ## 6. Troubleshooting
 
+### Q: WhatsApp Communications is enabled but my customers are not receiving any tracking messages. What should I check?
+
+**A:** Even when WhatsApp Communications is turned on in your settings, messages won't send if your wallet balance is zero or negative. Maintaining a positive wallet balance is required for tracking messages (Shipped, Out for Delivery, Delivered, etc.) to go out.
+
+Check these in order:
+
+1. **Wallet balance** — Go to **Payments → Wallet** and confirm your balance is positive. If it's negative or zero (prepaid accounts) or over your credit limit (postpaid accounts), recharge your wallet.
+2. **WhatsApp Communications toggle** — Go to **Settings → Communications** and confirm that WhatsApp Communications is switched on and the specific templates you expect (e.g. Shipment Shipped, Out for Delivery) are enabled.
+3. **Customer's phone number** — Verify the number on the order is a valid 10-digit Indian mobile with an active WhatsApp account.
+
+:::caution[Messages cannot be re-sent]
+WhatsApp tracking messages are sent once at the moment a shipment milestone is reached. If a message was missed (e.g. because your wallet was empty at that point), it cannot be re-sent for that order. Recharging your wallet will ensure future shipments receive messages correctly.
+:::
+
+If all three checks pass and customers still aren't receiving messages, contact support with the affected order IDs so we can investigate further.
+
+---
+
 ### Q: Why wasn't I charged for a service?
 **A:** Services are not charged when:
 - WhatsApp message failed to send
