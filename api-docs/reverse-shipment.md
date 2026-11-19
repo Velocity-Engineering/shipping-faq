@@ -114,7 +114,9 @@ curl --location 'https://shazam.velocity.in/custom/api/v1/reverse-order-orchestr
       "selling_price": 100,
       "discount": 0,
       "qc_brand": "Levi",
-      "qc_product_image": "https://example.com/image.jpg"
+      "qc_product_image": "https://example.com/image1.jpg",
+      "qc_product_image_2": "https://example.com/image2.jpg",
+      "qc_product_image_3": "https://example.com/image3.jpg"
     }
   ],
   "payment_method": "PREPAID",
@@ -168,7 +170,22 @@ curl --location 'https://shazam.velocity.in/custom/api/v1/reverse-order-orchestr
 For manifesting a QC shipment, the following parameters must be passed in `order_items`:
 - `qc_enable`: `true`
 - `qc_product_name`: Product name
-- `qc_product_image`: Product image URL (mandatory)
+- `qc_product_image`: Primary product image URL (mandatory)
+- `qc_product_image_2`: Second product image URL (optional)
+- `qc_product_image_3`: Third product image URL (optional)
+
+You can pass up to **3 product images** per item. Only `qc_product_image` is required when QC is enabled; the additional image fields are optional.
+
+### QC Item Fields
+
+| Field | Type | Required | Description | Example |
+|-------|------|----------|-------------|---------|
+| qc_enable | boolean | Yes | Enable quality check for this item | true |
+| qc_product_name | string | Yes | Product name for QC | shoes |
+| qc_brand | string | Optional | Brand name | Levi |
+| qc_product_image | string | Yes | Primary product image URL | https://example.com/image1.jpg |
+| qc_product_image_2 | string | Optional | Second product image URL | https://example.com/image2.jpg |
+| qc_product_image_3 | string | Optional | Third product image URL | https://example.com/image3.jpg |
 
 ### Prerequisites for QC
 
