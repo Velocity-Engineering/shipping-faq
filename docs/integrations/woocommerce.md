@@ -357,6 +357,27 @@ We import tax lines with rate codes and percentages from your WooCommerce tax se
 
 ---
 
+### Q: I'm getting an HTTP 401 "woocommerce_rest_cannot_view" error. What does it mean?
+**A:** This error means Velocity Shipping cannot authenticate with your WooCommerce store — the REST API credentials are invalid, expired, or lack the required permissions.
+
+```
+HTTP 401 {"code":"woocommerce_rest_cannot_view","message":"Sorry, you cannot list resources.","data":{"status":401}}
+```
+
+**How to fix:**
+
+1. **Regenerate your API keys:** In WooCommerce, go to **WooCommerce → Settings → Advanced → REST API**
+2. **Create a new key** with **Read/Write** permissions
+3. **Reconnect in Velocity Shipping:** Go to **Integrations → WooCommerce**, disconnect the store, and reconnect using the new Consumer Key and Consumer Secret
+4. **Verify the connection** is active after reconnecting
+
+**Common causes:**
+- API keys were regenerated or deleted in WooCommerce
+- The WooCommerce user account associated with the keys was deactivated
+- Key was created with read-only permissions (needs read/write)
+
+---
+
 ## 8. Settings & Configuration
 
 ### Q: Where do I find WooCommerce settings?
@@ -540,6 +561,7 @@ These settings control what status is set in WooCommerce when shipment status ch
 | Can't edit COD amount | Enable "Allow Order Updates" |
 | Getting "externally fulfilled" | Someone marked order complete in WooCommerce |
 | Address not imported | Check shipping/billing address in WooCommerce |
+| HTTP 401 / cannot list resources | Reconnect store with valid WooCommerce REST API keys |
 
 ---
 
