@@ -86,6 +86,7 @@ curl --location 'https://shazam.velocity.in/custom/api/v1/order-tracking' \
             "location": "Bengaluru"
           }
         ],
+        "label_url": "https://shazam.velocity.in/rails/active_storage/blobs/redirect/.../label.pdf",
         "track_url": "https://shipfastt.in/track/PD6786164"
       }
     }
@@ -100,6 +101,7 @@ curl --location 'https://shazam.velocity.in/custom/api/v1/order-tracking' \
 | shipment_status | Current status of the shipment |
 | shipment_track | Array containing shipment details |
 | shipment_track_activities | Array of tracking events in chronological order |
+| label_url | Pre-signed URL to download the shipment label (PDF). `null` if no label has been generated. |
 | track_url | Public tracking URL for the shipment |
 
 ## `shipment_status` vs `shipment_track[].current_status`
